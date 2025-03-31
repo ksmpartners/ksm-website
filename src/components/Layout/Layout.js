@@ -1,8 +1,8 @@
 // src/components/Layout.js
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Navbar from './NavBar';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Navbar from '../NavBar/NavBar';
 import './Layout.css'; // Layout styles if needed
 
 const Layout = ({ children }) => {

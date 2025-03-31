@@ -1,6 +1,6 @@
 // src/pages/index.js
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
 import './HomePage.css';
