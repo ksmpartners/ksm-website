@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `KSM Technology Partners`,
+    title: `My website`,
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: ["gatsby-plugin-mdx", {

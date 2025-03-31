@@ -1,98 +1,50 @@
-import * as React from "react"
-import "../styles/global.css";
+// src/pages/index.js
+import React from 'react';
+import Layout from '../components/Layout';
+import { Link } from 'gatsby';
+import { motion } from 'framer-motion';
+import './HomePage.css';
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+const HomePage = () => {
+    return (
+        <Layout>
+            <motion.div
+                className="landing-container"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+            >
+                <header className="hero-section">
+                    <div className="hero-text">
+                        <h1>Welcome to My Landing Page!</h1>
+                        <p>We are glad to have you here.</p>
+                        <Link to="/about" className="cta-button">Learn More</Link>
+                    </div>
+                </header>
+                
+                <section className="features-section">
+                    <div className="feature">
+                        <h3>Our Services</h3>
+                        <p>Explore our range of services that can help you grow your business.</p>
+                    </div>
+                    <div className="feature">
+                        <h3>Portfolio</h3>
+                        <p>See the amazing work we've done for our clients.</p>
+                    </div>
+                </section>
 
-const IndexPage = () => {
-  return (
-    <main className="pageStyles">
-      <h1 className="headingStyles">
-        Congratulations Peter and Josue!!!
-        <br />
-        <span className="headingAccentStyles">— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p className="paragraphStyles">
-        Edit <code className="codeStyles">src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul className="listStyles">
-        <li className="docLinkStyle">
-          <a
-            className="linkStyle"
-          >
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} className="listItemStyles">
-            <span>
-              <a
-                className="linkStyle"
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span className="badgeStyle" aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p class = "description">{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
-}
+                <section className="image-section">
+                    <motion.img
+                        src="https://via.placeholder.com/1200x500"
+                        alt="Placeholder"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1 }}
+                    />
+                </section>
+            </motion.div>
+        </Layout>
+    );
+};
 
-export default IndexPage
-
-export const Head = () => <title>Home Page</title>
+export default HomePage;
