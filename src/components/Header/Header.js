@@ -3,6 +3,7 @@ import React from 'react';
 import { Menubar } from 'primereact/menubar';
 import './Header.css'; // Import custom styling if needed
 
+
 const Header = () => {
     const items = [
         { label: 'Home', icon: 'pi pi-home', command: () => window.location.href = '/' },
@@ -10,7 +11,7 @@ const Header = () => {
 
     return (
         <header>
-            <Menubar model={items} />
+            
         </header>
     );
 };

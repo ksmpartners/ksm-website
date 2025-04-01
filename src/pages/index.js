@@ -4,6 +4,7 @@ import Layout from '../components/Layout/Layout';
 import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
 import './HomePage.css';
+import '../styles/global.css';
 
 const HomePage = () => {
     return (

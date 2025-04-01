@@ -1,23 +1,35 @@
 /* src/styles/global.css */
-
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 /* Color Palette */
 :root {
-    --primary-color:rgb(37, 121, 211);  /* Primary blue */
-    --secondary-color: #f8f9fa;  /* Light gray */
-    --accent-color:rgb(114, 149, 218);  /* Green */
-    --text-color: #333333;  /* Dark text */
-    --background-color: #ffffff;  /* White */
+    --h1-color:#000000;
+    --primary-color:#4122ae;  /* Purple */
+    --secondary-color:#1a3977;  /* Navy Blue */
+    --accent-color:#fb5461;  /* Red */
+    --text-color:#434343;  /* Dark text */
+    --background-color:#dbdee6;  /* Gray */
+    /* Company Brand Palette */
+    --brand-blue-standard:#3cb4e5;
+    --brand-blue-medium:#8cccee;
+    --brand-blue-light:#c8e5f6;
 }
 
 /* Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Outfit', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
 }
 
+/* Header Styles */
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: var(--h1-color)
+}
 /* Link Styles */
 a {
     color: var(--primary-color);

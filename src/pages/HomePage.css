@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     height: 80vh;
-    background: linear-gradient(45deg, #007bff, #28a745);
+    background: linear-gradient(45deg,var(--secondary-color),var(--brand-blue-light));
     color: white;
     text-align: center;
 }
@@ -19,6 +19,7 @@
 .hero-section h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: white;
 }
 
 .hero-section p {
@@ -28,7 +29,7 @@
 
 .cta-button {
     padding: 1rem 2rem;
-    background-color: #28a745;
+    background-color:var(--brand-blue-standard);
     color: white;
     font-size: 1rem;
     border-radius: 5px;
@@ -36,7 +37,9 @@
 }
 
 .cta-button:hover {
-    background-color: #218838;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration:none;
 }
 
 /* Features Section */
@@ -44,7 +47,6 @@
     display: flex;
     justify-content: space-around;
     padding: 2rem;
-    background-color: #f8f9fa;
 }
 
 .feature {

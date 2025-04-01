@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import Navbar from '../NavBar/NavBar';
 import './Layout.css'; // Layout styles if needed
 
+
 const Layout = ({ children }) => {
     return (
         <div className="layout">

@@ -1,7 +1,7 @@
 /* src/components/NavBar.css */
 
 nav {
-    width: 100%;
+    width: auto;
     background-color: var(--primary-color);
     display: flex;
     justify-content: space-between;
