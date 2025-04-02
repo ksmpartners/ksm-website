@@ -17,7 +17,7 @@ const HomePage = () => {
             >
                 <header className="hero-section">
                     <div className="hero-text">
-                        <h1>Welcome to My Landing Page!</h1>
+                        <h1>Innovate. Execute. Empower.</h1>
                         <p>We are glad to have you here.</p>
                         <Link to="/about" className="cta-button">Learn More</Link>
                     </div>
