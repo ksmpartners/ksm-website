@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 // import './HomePage.css';
 import '../pages/Homepage/HomePage.css';
 import '../styles/global.css';
+import "primereact/resources/themes/lara-light-blue/theme.css"
 
 const HomePage = () => {
     return (
@@ -18,8 +19,8 @@ const HomePage = () => {
             >
                 <header className="hero-section">
                     <div className="hero-text">
-                        <h1>Innovate. Execute. Empower.</h1>
-                        <p>We are glad to have you here.</p>
+                        <h1 className="clean-reveal">Innovate. Execute. Empower.</h1>
+                        <p>Serving clients since 2003</p>
                         <Link to="/about" className="cta-button">Learn More</Link>
                     </div>
                 </header>

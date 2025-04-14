@@ -37,21 +37,9 @@ const NavBar = () => {
                 <li><Link to="/case-studies"><i className="pi pi-cogs"></i> Contact Us</Link></li>
 
                 {/* More Dropdown */}
-                {/* <li className="dropdown-container">
-                  <Dropdown 
-                      value={null} 
-                      options={moreItems} 
-                      onChange={(e) => window.location.href = e.value} 
-                      placeholder="More"
-                      itemTemplate={(item) => (
-                          <div className="dropdown-item">
-                              <i className={`pi ${item.icon}`} style={{ marginLeft: '40px' }}></i>
-                              {item.label}
-                          </div>
-                      )}
-                      className="more-dropdown"
-                  />
-                </li> */}
+                <li className="dropdown-container">
+                 
+                </li>
             </ul>
 
             {/* Hamburger Menu for Mobile */}
