@@ -36,13 +36,7 @@ const HomePage = () => {
                 </section>
 
                 <section className="image-section">
-                    <motion.img
-                        src="https://via.placeholder.com/1200x500"
-                        alt="Placeholder"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 1 }}
-                    />
+                    
                 </section>
             </motion.div>
         </Layout>

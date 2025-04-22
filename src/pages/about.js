@@ -10,10 +10,10 @@ const AboutPage = () => {
             <div className="about-content">
                 <h1>About Us</h1>
                 <AboutCard
-        photo="https://mlkf69dsvkey.i.optimole.com/w:300/h:300/q:mauto/ig:avif/f:best/https://www.ksmpartners.com/wp-content/uploads/2022/01/harnish.jpg"
-        name="Mike Harnish"
+        photo="Myname.jpg"
+        name="My Name"
         description="CEO"
-        link="https://www.ksmpartners.com/team/mike-harnish/"
+        link="http://www.MyName.com"
       />
             </div>
         </Layout>

@@ -5,7 +5,7 @@ import './Footer.css'; // Add custom styles here if needed
 const Footer = () => {
     return (
         <footer className="footer">
-            <p>&copy; 2025 KSM Technology Partners</p>
+            <p>&copy; 2025 My Website</p>
         </footer>
     );
 };

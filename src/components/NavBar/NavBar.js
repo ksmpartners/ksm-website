@@ -3,7 +3,7 @@ import { Link, navigate } from "gatsby";
 import { Dropdown } from 'primereact/dropdown';
 import 'primeicons/primeicons.css';
 import './NavBar.css'; 
-import KSMLogo1 from "../../images/KSM_Logo_2c_White (2).svg";
+import MyLogo from "../../../static/assets/Logo_White.svg";
 
 const NavBar = () => {
     const [isMenuActive, setIsMenuActive] = useState(false);
@@ -24,8 +24,7 @@ const NavBar = () => {
 
     return (
         <nav>
-            {/* ksm logo */}
-            <img src={KSMLogo1} id="nav-logo-main" onClick={handleLogoClick}/>
+            <img src={MyLogo} id="nav-logo-main" onClick={handleLogoClick}/>
             
             {/* Navbar Menu */}
             <ul className={`menu ${isMenuActive ? 'active' : ''}`}>

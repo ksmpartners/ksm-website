@@ -1,0 +1,17 @@
+.panel-menu-wrapper {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 80px);
+  background-color: transparent;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .panel-menu-wrapper {
+    display: none;
+  }
+}
