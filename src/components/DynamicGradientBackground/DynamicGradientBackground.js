@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const CaseStudies = ({ children }) => {
+const DynamicGradient = ({ children, gradients: customGradients }) => {
   useEffect(() => {
-    const gradients = [
+
+    const defaultGradients = [
       { angle: 45, colors: ["#e3ecf1", "#F1F2F3"] },
       { angle: 0, colors: ["#c7d3ec", "#F1F2F3"] },
       { angle: 180, colors: ["#bbd4e5", "#F1F2F3"] },
@@ -10,6 +11,8 @@ const CaseStudies = ({ children }) => {
       { angle: 0, colors: ["#c7d3ec", "#F1F2F3"] },
       { angle: 180, colors: ["#01b4af", "#F1F2F3"] },
     ];
+
+    const gradients = customGradients || defaultGradients; // allows for custom gradients on each page
 
     const lerp = (a, b, t) => a + (b - a) * t;
 
@@ -64,27 +67,29 @@ const CaseStudies = ({ children }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // without this it can be abrupt the first time you scroll
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const [visible, setVisible] = useState(false);
+
+  const scrollToComponent = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="layout">
+    <div
+      id="mainbody-wrapper"
+      style={{
+        display: 'flex',
+        width: '100%',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       {children}
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      "Hello"
     </div>
   );
 };
 
-export default CaseStudies;
+export default DynamicGradient;
