@@ -1,0 +1,140 @@
+.div2-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    padding: 0 20px;
+    transition: background 0.5s ease;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .div2-hero-content {
+    text-align: center;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+
+  }
+  
+  .div2-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0a0a23;
+    user-select: none;
+  }
+  
+  .div2-hero-subtitle {
+    font-size: 1.2rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  
+  /* for mobile! */
+  @media (max-width: 768px) {
+    .div2-hero-title {
+      font-size: 2.5rem;
+    }
+  
+    .div2-hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  .hovered-word {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.25,1.5,0.5,1), color 0.3s ease;
+    will-change: transform, color;
+    /* color: #0a0a23; */
+  }
+
+  .hovered-word:hover {
+    transform: scale(1.1);
+    /* cursor: pointer; */
+    color: #4f46e5;
+  }
+
+
+  /* svg animated icons styling below */
+
+  .floating-svg {
+    /* i wanted to add more effects like if you touch an svg
+    it rolls away or soemthing more interactive but it seems like i am having difficulty
+    applying a transform property to an element if it already has one. you cant stack them unfortunately
+    i have to find a work around to this */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite; 
+    transition: filter 0.3s ease;
+    z-index: 0;
+
+    filter:blur(2.5px);
+
+}
+  
+  .floating-svg-1 {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .floating-svg-2 {
+    bottom: 15%;
+    right: 25%;
+    animation-delay: 3s;
+  }
+  
+  /* Floating Animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(10deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+  }
+
+
+
+  .floating-svg-3 {
+    top: 30%;
+    left: 10%;
+    animation-delay: 1.5s;
+  }
+  
+  .floating-svg-4 {
+    bottom: 10%;
+    left: 35%;
+    animation-delay: 2s;
+  }
+  
+  .floating-svg-5 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 4s;
+  }
+  .floating-svg:hover {
+    /* cursor: pointer; */
+    filter: blur(0);
+
+}
+
+.floating-svg:hover path {
+  
+
+    fill: #6db1ff;
+}
+

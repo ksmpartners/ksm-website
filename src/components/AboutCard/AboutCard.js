@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
-import './AboutCard.css'; // Import your CSS file
+import './AboutCard.css'; 
 
 const AboutCard = ({ photo, name, description, link }) => {
   return (

@@ -3,11 +3,12 @@ import React from 'react';
 import Layout from '../components/Layout/Layout';
 import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
+import DisplayDiv2 from '../components/Div2Home/Div2Home';
 // import './HomePage.css';
 import '../pages/Homepage/HomePage.css';
 import '../styles/global.css';
 import "primereact/resources/themes/lara-light-blue/theme.css"
-
+// THIS IS THE HOMEPAGE JS (GATSBY NEEDS IT NAMED INDEX.JS)
 const HomePage = () => {
     return (
         <Layout>
@@ -25,6 +26,8 @@ const HomePage = () => {
                     </div>
                 </header>
                 
+                <DisplayDiv2/>
+
                 <section className="features-section">
                     <div className="feature">
                         <h3>Our Services</h3>
@@ -36,15 +39,8 @@ const HomePage = () => {
                     </div>
                 </section>
 
-                <section className="image-section">
-                    <motion.img
-                        src="https://via.placeholder.com/1200x500"
-                        alt="Placeholder"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 1 }}
-                    />
-                </section>
+              
+
             </motion.div>
         </Layout>
     );
