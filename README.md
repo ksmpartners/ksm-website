@@ -9,5 +9,6 @@
 ### Theming Rules
 #### Fonts
 #### Color Palettes (Light + Dark)
-#### Animation Assets
+#### Assets
+- [Lucide Icons](lucide.dev) Modern, customizable, icons better than Bootstrap
 #### Image Use

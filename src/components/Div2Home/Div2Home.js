@@ -17,9 +17,9 @@ const heroRef = useRef(null);
     If this is function is uncommented, I comment the HANDLEMOUSEMOVE code above. And vice verse (having both is too distracting) 
     */
     const handleScroll = () => {
-    //   const scrollY = window.scrollY;
-    //   const hue = (scrollY / 5) % 360;
-    //   heroRef.current.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 90%), hsl(${(hue + 60) % 360}, 70%, 85%))`;
+      // const scrollY = window.scrollY;
+      // const hue = (scrollY / 5) % 360;
+      // heroRef.current.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 90%), hsl(${(hue + 60) % 360}, 70%, 85%))`;
     };
 
     
