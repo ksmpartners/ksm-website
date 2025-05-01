@@ -1,0 +1,68 @@
+
+.top-mega-menu {
+    position: fixed;         /* Keep it on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  
+    transition: all 0.3s ease-in-out; /* Smooth transition for menu changes */         /* Make sure it stays above everything else */
+  }
+  
+  .glassy-menu {
+    padding: 0.5rem !important;
+    /* background-color: rgba(0, 213, 255, 0.51);  */
+    background-color: rgba(0, 54, 153, 0.78); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: padding 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    /* border-radius: 0rem; */
+    border: none;
+    font-family: Avenir, sans-serif;
+    font-size: large;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); Optional soft border */
+  }
+  .glassy-menu a{
+   border-radius: 10px !important;
+   text-decoration: none;
+   color: white;
+   background-color:rgba(154, 216, 255, 0.4);
+  }
+  .glassy-menu a:hover {
+    text-decoration: none;
+    color: white;
+    background-color:rgb(0, 74, 164)!important;
+   }
+   .glassy-menu a:active {
+    color: white !important;
+    background-color: rgb(0, 60, 140) !important;
+    }
+    .glassy-menu a:focus {
+        outline: none;
+        border-radius: 10px;
+        background-color: rgb(0, 90, 180) !important;
+        color: white !important;
+    }
+    
+
+  .glassy-menu .megamenu-logo {
+    width: 180px;
+    height: 80px;
+    object-fit: contain;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  }
+  
+  /* When scrolled */
+.top-mega-menu.scrolled .glassy-menu {
+    padding: 2rem 2rem;
+}
+
+.top-mega-menu.scrolled .megamenu-logo {
+    width: 150px;
+    height: 40px;
+}
+.p-megamenu-root-list {
+    padding: 0!important;
+}
+.p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content {
+    border-radius: 10px !important;
+}

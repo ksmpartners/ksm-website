@@ -3,8 +3,10 @@ import { MegaMenu } from 'primereact/megamenu';
 import { InputText } from 'primereact/inputtext';
 import { Ripple } from 'primereact/ripple';
 import { Button } from 'primereact/button';
+// THIS static folder is used because a rebuild will erase dynamic static folder
 import MyLogo from "../../../static/assets/Logo_White.svg";
-import React, { useState, useEffect } from 'react'; // ⬅️ Add these
+import "./TopMegaMenu.css";
+import React, { useState, useEffect } from 'react';
 
 
 
