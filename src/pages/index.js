@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout/Layout';
 import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
-import DisplayDiv2 from '../components/Div2Home/Div2Home';
+import DisplayDiv2 from '../components/HomePage/Div2Home/Div2Home';
 import '../pages/Homepage/HomePage.css';
 import '../styles/global.css';
 import "primereact/resources/themes/lara-light-blue/theme.css"
