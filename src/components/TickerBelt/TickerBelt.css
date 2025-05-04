@@ -27,18 +27,20 @@
   
   }
   
-  .ticker-item:hover {
+  .ticker-item img:hover {
     /* There's a bug with making them increase slightly on hover, so for now this stays commented out.
     transform: scale(1.15); */
+    /* transform: scale(1.15); */
     opacity: 1;
   }
   
   .ticker-item img,
   .ticker-item svg {
-    max-height: 60px; /*If you change the height HERE, it will make the whole tickerbelt bigger and responsive to size as needed */
+    max-height: 75px; /*If you change the height HERE, it will make the whole tickerbelt bigger and responsive to size as needed */
     object-fit: contain;
     filter: grayscale(100%) brightness(1.2);
     transition: filter 0.3s ease;
+    margin: 2rem;
   }
   
   /* THIS IS WHAT MAKES ICONS CHANGE COLOR */
