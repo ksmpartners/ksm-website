@@ -4,10 +4,11 @@ import "./MainNav.css";
 
 const mainMenuItems = [
   { label: "Home" },
-  { label: "Services", mega: true },
   { label: "About" },
-  { label: "Resources", mega: true },
-  { label: "Contact" },
+  { label: "Services", mega: true },
+  { label: "Blog" },
+  { label: "Case Studies" },
+  { label: "Contact Us" },
 ];
 
 const DisplayMainNav = () => {
@@ -42,7 +43,7 @@ const DisplayMainNav = () => {
       <div className="main-nav__container" ref={mainNavRef}>
         <div className="main-nav__logo">
           <img src={myLogo} alt="Logo" className="main-nav__logo-img" />
-          <span>MySite</span>
+          <span>KSM Technology Partners</span>
         </div>
 
         <div className={`main-nav__links ${mainMobileOpen ? "main-open" : ""}`}>
@@ -68,17 +69,20 @@ const DisplayMainNav = () => {
               {mega && mainActiveMenu === label && (
                 <div className="main-mega__menu">
                   <div className="main-mega__section">
-                    <h4>Category 1</h4>
+                    <h4>Software</h4>
                     <ul>
-                      <li>Option A</li>
-                      <li>Option B</li>
+                      <li>Custom Solutions</li>
+                      <li>Domino SCE Integration</li>
+                      <li>Systems Integration</li>
                     </ul>
                   </div>
                   <div className="main-mega__section">
-                    <h4>Category 2</h4>
+                    <h4>Operations</h4>
                     <ul>
-                      <li>Option C</li>
-                      <li>Option D</li>
+                      <li>Test Automation</li>
+                      <li>Delivery Automation</li>
+                      <li>Cloud Migration</li>
+                      <li>Project Management</li>
                     </ul>
                   </div>
                 </div>
