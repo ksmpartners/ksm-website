@@ -7,7 +7,6 @@ import '../pages/Homepage/HomePage.css';
 import '../styles/global.css';
 import "primereact/resources/themes/lara-light-blue/theme.css"
 import TickerBelt from '../components/TickerBelt/TickerBelt';
-import DisplayMainNav from '../components/MainNav/MainNav';
 // THIS IS THE HOMEPAGE JS (GATSBY NEEDS IT NAMED INDEX.JS)
 const HomePage = () => {
 
@@ -36,7 +35,6 @@ const HomePage = () => {
     return (
         
         <Layout>
-                            <DisplayMainNav/>
 
             <motion.div
                 className="landing-container"

@@ -13,6 +13,8 @@
     --brand-blue-standard:#3cb4e5;
     --brand-blue-medium:#8cccee;
     --brand-blue-light:#c8e5f6;
+
+    
 }
 
 /* Body Styles */
@@ -51,3 +53,5 @@ footer {
     padding: 1rem;
     text-align: center;
 }
+
+
