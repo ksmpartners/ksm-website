@@ -34,7 +34,10 @@ const HomePage = () => {
 
 
     return (
+        
         <Layout>
+                            <DisplayMainNav/>
+
             <motion.div
                 className="landing-container"
                 initial={{ opacity: 0 }}
@@ -48,7 +51,6 @@ const HomePage = () => {
                         <Link to="/about" className="cta-button">Learn More</Link>
                     </div>
                 </header>
-                <DisplayMainNav/>
                 <DisplayDiv2/>
                 <TickerBelt logos={allLogos}/>
 

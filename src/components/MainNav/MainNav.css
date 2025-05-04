@@ -12,8 +12,6 @@
     position: relative;
     overflow: visible;
     border-bottom: 1px solid rgba(0, 120, 255, 0.1);
-    
-    
   }
   
   
@@ -51,7 +49,7 @@
   }
   
   .main-nav__link {
-    font-size: 1.1rem;
+    font-size:1.15rem;
     font-weight: 500;
     background: none;
     border: none;
@@ -59,10 +57,18 @@
     color: #222;
     position: relative;
     transition: color 0.3s ease;
+
+/* 
+    padding: 1rem;
+    border-radius: 5px; */
+
   }
   
   .main-nav__link:hover {
     color: #0077ff;
+    text-decoration: none;
+
+    /* background-color: rgba(0, 0, 0, 0.063); */
   }
   
   .main-nav__underline {
@@ -99,6 +105,7 @@
   z-index: 10;
   animation: main-fadeDrop 0.3s forwards ease;
   overflow-x: auto;
+
 
 }
 
@@ -138,14 +145,17 @@
 .main-mega__section li {
   margin: 0.4rem 0;
   font-size: 1rem;
+
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
+
+
 .main-mega__section li:hover {
   color: #0077ff;
-  text-shadow: 0 0 6px rgba(0, 120, 255, 0.3);
 
+  text-shadow: 0 0 6px rgba(0, 120, 255, 0.3);
 }
 
 /* HAMBURGER MENU */
@@ -220,8 +230,8 @@
   }
   
   .main-nav__logo-img {
-    width: 36px;
-    height: 36px;
+    min-width: 5rem;
+    height: auto;
     animation: main-float 4s ease-in-out infinite;
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
   }
@@ -239,4 +249,19 @@
   .main-nav__dropdown-wrapper {
     position: relative;
     display: inline-block;
+  }
+
+
+.main-nav_link{
+    text-decoration: none;
+    color: rgb(92, 92, 92);
+    /* font-weight: 400; */
+
+}
+  .main-nav_link:hover {
+    text-decoration: none;
+
+    color: #0077ff;
+
+    text-shadow: 0 0 6px rgba(0, 120, 255, 0.3);
   }

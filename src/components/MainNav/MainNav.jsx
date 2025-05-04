@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "gatsby";
 import myLogo from "../../images/KSM_Logo_2c_White (2).svg";
 import "./MainNav.css";
 
 const mainMenuItems = [
-  { label: "Home" },
-  { label: "About" },
-  { label: "Services", mega: true },
-  { label: "Blog" },
-  { label: "Case Studies" },
-  { label: "Contact Us" },
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Services", mega: true, path: "/services" },
+  { label: "Blog", path: "/blog" },
+  { label: "Case Studies", path: "/case-studies" },
+  { label: "Contact Us", path: "/contact-us" },
 ];
 
 const DisplayMainNav = () => {
@@ -43,11 +44,11 @@ const DisplayMainNav = () => {
       <div className="main-nav__container" ref={mainNavRef}>
         <div className="main-nav__logo">
           <img src={myLogo} alt="Logo" className="main-nav__logo-img" />
-          <span>KSM Technology Partners</span>
+          {/* <span>KSM Technology Partners</span> */}
         </div>
 
         <div className={`main-nav__links ${mainMobileOpen ? "main-open" : ""}`}>
-          {mainMenuItems.map(({ label, mega }) => (
+          {mainMenuItems.map(({ label, mega, path }) => (
             <div
             key={label}
               className="main-nav__dropdown-wrapper"
@@ -55,7 +56,8 @@ const DisplayMainNav = () => {
               onMouseLeave={() => mega && setMainActiveMenu(null)}
             >
               <div className="main-nav__item">
-                <button
+                <Link
+                  to={path}
                   className={`main-nav__link ${
                     mainActiveMenu === label ? "main-active" : ""
                   }`}
@@ -63,7 +65,7 @@ const DisplayMainNav = () => {
                 >
                   {label}
                   <span className="main-nav__underline" />
-                </button>
+                </Link>
               </div>
 
               {mega && mainActiveMenu === label && (
@@ -71,18 +73,18 @@ const DisplayMainNav = () => {
                   <div className="main-mega__section">
                     <h4>Software</h4>
                     <ul>
-                      <li>Custom Solutions</li>
-                      <li>Domino SCE Integration</li>
-                      <li>Systems Integration</li>
+                      <li><Link to="/services/custom" className="main-nav_link">Custom Solutions</Link></li>
+                      <li><Link to="/services/sce" className="main-nav_link">Domino SCE Integration</Link></li>
+                      <li><Link to="/services/integration" className="main-nav_link">Systems Integration</Link></li>
                     </ul>
                   </div>
                   <div className="main-mega__section">
                     <h4>Operations</h4>
                     <ul>
-                      <li>Test Automation</li>
-                      <li>Delivery Automation</li>
-                      <li>Cloud Migration</li>
-                      <li>Project Management</li>
+                    <li><Link to="/operations/test" className="main-nav_link">Test Automation</Link></li>
+                    <li><Link to="/operations/delivery" className="main-nav_link">Delivery Automation</Link></li>
+                    <li><Link to="/operations/cloud" className="main-nav_link">Cloud Migration</Link></li>
+                    <li><Link to="/operations/management" className="main-nav_link">Project Management</Link></li>
                     </ul>
                   </div>
                 </div>
