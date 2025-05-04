@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import myLogo from "../../images/src/images/KSM_Logo_2c_White (2).svg";
+import myLogo from "../../images/KSM_Logo_2c_White (2).svg";
 import "./MainNav.css";
 
 const mainMenuItems = [
