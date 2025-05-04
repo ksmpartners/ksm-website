@@ -8,7 +8,7 @@
     --secondary-color:#1a3977;  /* Navy Blue */
     --accent-color:#fb5461;  /* Red */
     --text-color:#434343;  /* Dark text */
-    --background-color:#dbdee6;  /* Gray */
+    --background-color:#dee6db;  /* Gray */
     /* Company Brand Palette */
     --brand-blue-standard:#3cb4e5;
     --brand-blue-medium:#8cccee;
@@ -16,6 +16,12 @@
 
     
 }
+
+* {
+    max-width: 100%;
+}
+
+
 
 /* Body Styles */
 body {
