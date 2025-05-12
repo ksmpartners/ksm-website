@@ -4,8 +4,8 @@ import ReactFlowScene from '../components/ReactFlowScene/ReactFlowScene.js';
 import 'reactflow/dist/style.css';
 import './grids.css';
 import React from 'react';
-import TopMegaMenu from '../components/TopMegaMenu/TopMegaMenu';
-import Footer from '../components/Footer/Footer';
+// import TopMegaMenu from '../components/TopMegaMenu/TopMegaMenu';
+// import Footer from '../components/Footer/Footer';
 import Layout from '../components/DynamicGradientBackground/DynamicGradientBackground.js';
 
 // Menu Items
@@ -52,7 +52,7 @@ const IndexPage = () => {
   return (
     <div className='background-layer'>
         <Layout gradients={customGradients}>
-            <TopMegaMenu />
+            {/* <TopMegaMenu /> */}
             <div className='content-layer'>
                 <Div1 />
                 <Div2 />
@@ -69,7 +69,7 @@ const IndexPage = () => {
                 <DataPipelining />
             </div>
             <div className="flowchart-layer "><ReactFlowScene /></div>
-            <Footer />
+            {/* <Footer /> */}
         </Layout>
     </div>
   );

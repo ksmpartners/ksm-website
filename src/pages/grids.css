@@ -1,0 +1,314 @@
+.page-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  /* Generic row wrapper */
+  .grid-row {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  /* Layout variants */
+  .full {
+    grid-template-columns: 1fr;
+  }
+  
+  .row-2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .row-70-30 {
+    grid-template-columns: 70% 30%;
+  }
+  
+  .row-20-80 {
+    grid-template-columns: 20% 80%;
+  }
+  
+  .row-80-20 {
+    grid-template-columns: 80% 20%;
+  }
+
+  /* Responsive fallback */
+  @media (max-width: 768px) {
+    .row-2col,
+    .row-70-30,
+    .row-20-80 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Content block style */
+  .grid-item {
+    backdrop-filter: blur(10px);        
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 2rem;
+    border-radius: 0px;
+    text-align: left;
+    font-weight: bold;
+    font-family: Avenir, sans-serif;
+    line-height: 1;
+    color: #242424; 
+    text-decoration: none !important;
+  }
+  
+  
+  
+  /* Nested grid example */
+  .nested-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+
+  /* Global styling for page container */
+.page-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Generic styling for all grid rows */
+  .grid-row {
+    display: grid;
+    gap: 10px;
+    /* padding: 10px; */
+  }
+
+  /* Row 1: Full width */
+  .full-width {
+    grid-template-columns: 1fr;
+    background-color:rgb(179, 210, 237);
+  }
+  
+  .full {
+    text-align: center;
+  }
+  
+  /* Row 2: 50% / 50% */
+  .half-half {
+    grid-template-columns: 1fr 1fr;
+    /* background-color:rgba(255, 255, 255, 0.22); */
+    backdrop-filter: blur(5px); 
+    padding-bottom: 20px !important;
+    margin-top: 16px;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    /* border-left: 15px solid rgba(0, 65, 195, 0.89); */
+  }
+  
+  .half {
+    /* background-color: #ff6347; */
+    padding: 20px;
+    
+    text-align: lefr;
+  }
+  
+  /* Row 3: 20% */
+  .twenty {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /* background-color:#9599e4; */
+    text-align: center;
+  }
+
+  /* Row 3: 70% / 30% */
+  .seventy-thirty {
+    grid-template-columns: 7fr 3fr;
+    height: auto;
+    font-size: 2.1rem;
+    text-align: left;
+    text-align: top;
+    /* background-color:rgb(248, 195, 170); */
+  }
+  
+  .seventy {
+    /* background-color: #32cd32; */
+    padding: 20px;
+    text-align: top;
+    color: #ffffff !important;
+    /* text-align: center; */
+  }
+  
+  .thirty {
+    color: #ffffff !important;
+    text-align: top;
+    /* background-color: #ff4500; */
+    padding: 20px;
+    text-align: left;
+  }
+  
+  /* Row 4: Nested Grid (2x equal) */
+  .nested-grid {
+    display: grid;
+    height: 500px;
+    background-color: transparent;
+  }
+  
+  .nested {
+    background-color:rgba(205, 233, 255, 0.22);
+
+  }
+  
+  /* Row 5: 20% / 80% */
+  .twenty-eighty {
+    grid-template-columns: 2fr 8fr;
+    background-color:rgb(150, 220, 160);
+  }
+  
+  /* 80% / 20% */
+  .eighty-twenty {
+    grid-template-columns: 8fr 2fr;
+    background-color:rgb(150, 169, 220);
+  }
+  
+  
+  .eighty {
+    background-color: #48d1cc;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .three-equal {
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color:rgb(94, 229, 179);
+  }
+
+  .four-equal {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color:#6ca1e6;
+  }
+  
+  .equal {
+    background-color: #ff1493;
+    padding: 20px;
+    text-align: center;
+  }
+  
+
+  .clickable-blue {
+    /* background: rgba(39, 128, 211, 0.57); */
+    /* background: rgba(0, 120, 241, 0.91); */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);  
+    height: 30vh; 
+    color: rgb(0, 63, 130) !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-left: 15px solid rgb(0, 164, 228);
+    transition: background 0.5s ease-out, border-left 0.3s ease;
+  }
+  
+  .clickable-blue:hover {
+    background: rgba(255, 255, 255, 0.34) !important;
+    border-left: 15px solid rgb(255, 117, 99);
+    text-decoration: none !important;
+    color: rgb(45, 45, 45) !important;
+    transition: ease-in;
+    transition: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  
+  .clickable-slate {
+    backdrop-filter: blur(10px);   
+
+    font-size: 2.1rem;
+    font-weight: bold;
+    border-left:15px solid  rgba(242, 115, 51, 0.89);
+    transition: background 0.3s ease, border-left 0.3s ease;
+  }
+  
+  .clickable-slate:hover {
+    background: rgba(242, 115, 51, 0.89);
+    border-left:15px solid  rgba(228, 76, 26, 0.89);
+  }
+
+.red    { background:rgb(255, 114, 101); }
+.blue   { background:rgba(0, 120, 241, 0.91); }
+.green  { background:rgba(255, 255, 255, 0.34); }
+.yellow { background: #fff475; color: #333; }
+.purple { background: #d7aefb; }
+
+
+@media (max-width: 768px) {
+    .nested-grid {
+      grid-template-columns: 1fr;
+    }
+}
+  
+  
+.a {
+    text-decoration: none !important;
+}
+
+.a :hover{
+    text-decoration: none !important;
+   }
+
+.story {
+    /* margin: 0px; */
+    padding-left: 0px;
+    color: rgb(0, 0, 0);
+    font-size: 1.4rem;
+    text-align: left;
+    line-height: normal;
+}
+.story-part-left {
+    background:rgba(188, 190, 255, 0.49);
+    width: 80%;
+    margin-top: 2cap;
+    padding-left: 10%;
+    color: rgb(0, 0, 0);
+    font-size: 1.4rem;
+    text-align: left;
+    text-justify:distribute;
+    line-height: normal;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-right: 30px;
+}
+.story-part-right {
+    background:rgba(188, 190, 255, 0.49);
+    /* width: 60%; */
+    margin-top: 20px;
+    margin-left: 25%;
+    /* margin-right: 20%; */
+    padding-right: 10%;
+    padding-left: 30px;
+    color: rgb(0, 0, 0);
+    font-size: 1.4rem;
+    text-align: left;
+    text-justify:distribute;
+    line-height: normal;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.story-header {
+    background:rgba(124, 71, 185, 0.82);
+    vertical-align: bottom !important;
+    height: auto;
+    width: 80%;
+    font-size: 2.5rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: normal;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+}
+
+/* .story div{
+    margin: 0px 50px;
+    background: rgba(251, 253, 255, 0.9);
+    padding: 60px;
+    border-radius: 20px;
+} */
