@@ -1,0 +1,44 @@
+.terminal-section {
+    background-color: #0f172a;
+    color: #38bdf8;
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .terminal-box {
+    background-color: #1e293b;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 0 30px rgba(0, 150, 255, 0.1);
+    overflow: hidden;
+  }
+  
+  .terminal-header {
+    background-color: #0f172a;
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .dot.red { background-color: #ef4444; }
+  .dot.yellow { background-color: #facc15; }
+  .dot.green { background-color: #22c55e; }
+  
+  .terminal-output {
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  
