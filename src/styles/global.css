@@ -1,8 +1,14 @@
-/* @import "tailwindcss"; */
-
 /* src/styles/global.css */
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 /* Color Palette */
 :root {
     --h1-color:#000000;
@@ -10,20 +16,12 @@
     --secondary-color:#1a3977;  /* Navy Blue */
     --accent-color:#fb5461;  /* Red */
     --text-color:#434343;  /* Dark text */
-    --background-color:#dee6db;  /* Gray */
+    --background-color:#dbdee6;  /* Gray */
     /* Company Brand Palette */
     --brand-blue-standard:#3cb4e5;
     --brand-blue-medium:#8cccee;
     --brand-blue-light:#c8e5f6;
-
-    
 }
-
-* {
-    max-width: 100%;
-}
-
-
 
 /* Body Styles */
 body {
@@ -36,7 +34,7 @@ body {
 
 /* Header Styles */
 h1 {
-    /* font-family: 'Outfit', sans-serif; */
+    font-family: 'Outfit', sans-serif;
     font-weight: 400;
     color: var(--h1-color)
 }
@@ -53,7 +51,7 @@ a:hover {
 
 /* Header and Footer Common Styles */
 header, footer {
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     color: white;
 }
 
@@ -62,4 +60,21 @@ footer {
     text-align: center;
 }
 
+.content-layer {
+    position: relative;
+    z-index: 2;
+}
 
+.flowchart-layer {
+    position: relative;
+    z-index: 1;
+}
+
+.background-layer {
+    position: relative;
+    z-index: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}

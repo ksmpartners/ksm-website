@@ -7,6 +7,7 @@ import '../pages/Homepage/HomePage.css';
 import '../styles/global.css';
 import "primereact/resources/themes/lara-light-blue/theme.css"
 import TickerBelt from '../components/TickerBelt/TickerBelt';
+import DisplayHeroHome from '../components/HomePage/HeroHome/HeroHome';
 // THIS IS THE HOMEPAGE JS (GATSBY NEEDS IT NAMED INDEX.JS)
 const HomePage = () => {
 
@@ -50,20 +51,12 @@ const HomePage = () => {
                     </div>
                 </header>
                 <DisplayDiv2/>
+                <DisplayHeroHome/>
                 <TickerBelt logos={allLogos}/>
+                
 
 
-                <section className="features-section">
-                    <div className="feature">
-                        <h3>Our Services</h3>
-                        <p>Explore our range of services that can help you grow your business.</p>
-                    </div>
-                    <div className="feature">
-                        <h3>Portfolio</h3>
-                        <p>See the amazing work we've done for our clients.</p>
-                    </div>
-                </section>
-
+               
               
 
             </motion.div>
