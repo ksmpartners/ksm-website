@@ -9,6 +9,7 @@ import "primereact/resources/themes/lara-light-blue/theme.css"
 import TickerBelt from '../components/TickerBelt/TickerBelt';
 import AnimatedTerminal from '../components/HomePage/Terminal/Terminal';
 import DisplayHeroHome from '../components/HomePage/HeroHome/HeroHome';
+
 // THIS IS THE HOMEPAGE JS (GATSBY NEEDS IT NAMED INDEX.JS)
 const HomePage = () => {
 
@@ -38,6 +39,8 @@ const HomePage = () => {
         
         <Layout>
 
+   
+
             <motion.div
                 className="landing-container"
                 initial={{ opacity: 0 }}
@@ -58,7 +61,6 @@ const HomePage = () => {
                 
 
 
-               
               
 
             </motion.div>

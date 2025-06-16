@@ -1,3 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
 /* src/styles/global.css */
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
@@ -8,6 +20,19 @@
 body {
   font-family: 'Space Grotesk', sans-serif;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Color Palette */
 :root {
@@ -45,8 +70,8 @@ a {
 }
 
 a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
+    /* color: var(--accent-color); */
+    /* text-decoration: underline;  */
 }
 
 /* Header and Footer Common Styles */

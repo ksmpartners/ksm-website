@@ -16,6 +16,8 @@ const AboutPage = () => {
         link="https://www.ksmpartners.com/team/mike-harnish/"
       />
             </div>
+            
+                   
         </Layout>
     );
 };
