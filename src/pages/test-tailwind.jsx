@@ -10,7 +10,7 @@ const NavigationMenuDemo = () => {
 			<NavigationMenu.List className="NavigationMenuList">
 				<NavigationMenu.Item>
 					<NavigationMenu.Trigger className="NavigationMenuTrigger">
-						Learn <CaretDownIcon className="CaretDown" aria-hidden />
+						About Us <CaretDownIcon className="CaretDown" aria-hidden />
 					</NavigationMenu.Trigger>
 					<NavigationMenu.Content className="NavigationMenuContent">
 						<ul className="List one">
@@ -51,7 +51,7 @@ const NavigationMenuDemo = () => {
 
 				<NavigationMenu.Item>
 					<NavigationMenu.Trigger className="NavigationMenuTrigger">
-						Overview <CaretDownIcon className="CaretDown" aria-hidden />
+						Services <CaretDownIcon className="CaretDown" aria-hidden />
 					</NavigationMenu.Trigger>
 					<NavigationMenu.Content className="NavigationMenuContent">
 						<ul className="List two">
@@ -98,7 +98,7 @@ const NavigationMenuDemo = () => {
 						className="NavigationMenuLink"
 						href="https://github.com/radix-ui"
 					>
-						Github
+						Blog
 					</NavigationMenu.Link>
 				</NavigationMenu.Item>
 
