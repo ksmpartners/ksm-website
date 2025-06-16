@@ -1,105 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
-
-
-
-
-
-
-/* src/styles/global.css */
-/* Google Font */
+/*
+ALL FONTS
+*/
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
-/* src/styles/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
-
 body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
+/*--------------------------------------------------------------------------------------------------*/
 
+/*
+COLOR PALETTES:
+*/
 
-
-
-
-
-
-
-
-
-
-
-
-/* Color Palette */
+/* LIGHT MODE */
 :root {
-    --h1-color:#000000;
-    --primary-color:#1b44b8;  /* Purple */
-    --secondary-color:#1a3977;  /* Navy Blue */
-    --accent-color:#fb5461;  /* Red */
-    --text-color:#434343;  /* Dark text */
-    --background-color:#dbdee6;  /* Gray */
-    /* Company Brand Palette */
     --brand-blue-standard:#3cb4e5;
     --brand-blue-medium:#8cccee;
     --brand-blue-light:#c8e5f6;
 }
 
-/* Body Styles */
-body {
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-}
-
-/* Header Styles */
-h1 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 400;
-    color: var(--h1-color)
-}
-/* Link Styles */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-a:hover {
-    /* color: var(--accent-color); */
-    /* text-decoration: underline;  */
-}
-
-/* Header and Footer Common Styles */
-header, footer {
-    /* background-color: var(--primary-color); */
-    color: white;
-}
-
-footer {
-    padding: 1rem;
-    text-align: center;
-}
-
-.content-layer {
-    position: relative;
-    z-index: 2;
-}
-
-.flowchart-layer {
-    position: relative;
-    z-index: 1;
-}
-
-.background-layer {
-    position: relative;
-    z-index: 0;
-}
-
-html {
-    scroll-behavior: smooth;
+/* DARK MODE */
+[data-theme="dark"] {
+    --brand-blue-standard-dark: #1e5f85;  
+    --brand-blue-medium-dark: #4a8ab3;   
+    --brand-blue-light-dark: #739fc0; 
 }
