@@ -2,26 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./DarkToggle.css";
 
 function DarkModeButton() {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      // check local storage if theme has been set 
-      return localStorage.getItem("theme") === "dark";
+   const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.body.classList.contains('web-page-dark');
     }
     return false;
   });
 
   useEffect(() => {
-    const root = window.document.documentElement;
     if (isDark) {
-      root.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
+      document.body.classList.add('web-page-dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      root.removeAttribute("data-theme");
-      localStorage.setItem("theme", "light");
+      document.body.classList.remove('web-page-dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
-  const toggleDarkMode = () => setIsDark((prev) => !prev);
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+  };
 
   return (
     <button

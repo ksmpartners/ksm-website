@@ -14,15 +14,15 @@ COLOR PALETTES:
 */
 
 /* LIGHT MODE */
-:root {
+body {
     --brand-blue-standard:#3cb4e5;
     --brand-blue-medium:#8cccee;
     --brand-blue-light:#c8e5f6;
 }
 
 /* DARK MODE */
-[data-theme="dark"] {
-    --brand-blue-standard-dark: #1e5f85;  
-    --brand-blue-medium-dark: #4a8ab3;   
-    --brand-blue-light-dark: #739fc0; 
+body.web-page-dark {
+    --brand-blue-standard: #1e5f85;  
+    --brand-blue-medium: #4a8ab3;   
+    --brand-blue-light: #739fc0; 
 }

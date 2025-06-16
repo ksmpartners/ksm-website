@@ -53,6 +53,7 @@ const HomePage = () => {
                         <p>Serving clients since 2003</p>
                         <Link to="/about" className="cta-button">Learn More</Link>
                     </div>
+
                 </header>
                 <AnimatedTerminal/>
                 <DisplayDiv2/>
