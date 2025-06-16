@@ -68,7 +68,7 @@ const DisplayHeroHome = () => {
     <div className="home-container">
       {/* CLICK anywhere in background on the web ui TO ADD MORE
       particles   */}
-      {/* <Particles id="tsparticles" options={ParticleOptions} /> */}
+      <Particles id="tsparticles" options={ParticleOptions} />
 
       {/* Hero + rest of page (unchanged) */}
       <div className="main-content">
