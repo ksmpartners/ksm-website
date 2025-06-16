@@ -1,0 +1,52 @@
+.darkToggleButton {
+  all: unset;
+  cursor: pointer;
+  width: 50px;
+  height: 28px;
+  background-color: var(--indigo-6);
+  border-radius: 14px;
+  position: relative;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  user-select: none;
+}
+
+.darkToggleButton:hover {
+  background-color: var(--indigo-7);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--indigo-9);
+}
+
+.darkToggleButton[data-state="dark"] .toggleThumb {
+    /* I HAD TO CHANGE THE TRANSLATE X TO 30PX BECAUSE THE BUTTON DIDN'T GO ALL THE WAY TO THE RIGHT
+        (when toggling to dark mode)
+       If you ever need to change this behavior again, just edit the transform below. */
+  transform: translateX(30px);
+  color: var(--indigo-11);
+}
+
+/* Icon styling inside the thumb */
+.toggleThumb svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+}

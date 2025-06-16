@@ -3,6 +3,8 @@ import { NavigationMenu } from "radix-ui";
 import classNames from "classnames";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import "../styles1.css";
+import DarkModeButton from "../components/MainNav/DarkToggle";
+
 
 const NavigationMenuDemo = () => {
 	return (
@@ -102,6 +104,12 @@ const NavigationMenuDemo = () => {
 					</NavigationMenu.Link>
 				</NavigationMenu.Item>
 
+				<NavigationMenu.Item>
+											<DarkModeButton/>
+				</NavigationMenu.Item>
+
+
+
 				<NavigationMenu.Indicator className="NavigationMenuIndicator">
 					<div className="Arrow" />
 				</NavigationMenu.Indicator>
@@ -110,6 +118,9 @@ const NavigationMenuDemo = () => {
 			<div className="ViewportPosition">
 				<NavigationMenu.Viewport className="NavigationMenuViewport" />
 			</div>
+
+
+
 		</NavigationMenu.Root>
 	);
 };
