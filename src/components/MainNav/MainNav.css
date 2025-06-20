@@ -11,11 +11,15 @@ p {
 }
 
 .NavigationMenuRoot {
-	position: relative;
+		  position: sticky;
+  top: 1rem;
+  z-index: 1000;
+
+	/* position: relative; */
 	display: flex;
 	justify-content: center;
 	width: 100vw;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .NavigationMenuList {
