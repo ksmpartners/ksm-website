@@ -1,0 +1,25 @@
+body {
+  background-color: var(--ksm-bg);
+  color: var(--ksm-text);
+}
+
+.tt-card {
+  background-color: var(--ksm-surface);
+  color: var(--ksm-text);
+  border: 1px solid var(--ksm-border);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.tt-card-description {
+  color: var(--ksm-muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.tt-card-highlight {
+  color: var(--ksm-accent);
+  font-weight: bold;
+}

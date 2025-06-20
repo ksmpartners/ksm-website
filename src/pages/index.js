@@ -9,6 +9,7 @@ import "primereact/resources/themes/lara-light-blue/theme.css"
 import TickerBelt from '../components/TickerBelt/TickerBelt';
 import AnimatedTerminal from '../components/HomePage/Terminal/Terminal';
 import DisplayHeroHome from '../components/HomePage/HeroHome/HeroHome';
+import ShowColorTester from '../components/HomePage/ColorTester/ColorTester';
 
 // THIS IS THE HOMEPAGE JS (GATSBY NEEDS IT NAMED INDEX.JS)
 const HomePage = () => {
@@ -47,16 +48,20 @@ const HomePage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-                <header className="hero-section">
+                <DisplayHeroHome/>
+
+                {/* <header className="hero-section">
                     <div className="hero-text">
                         <h1 className="clean-reveal">Innovate. Execute. Empower.</h1>
                         <p>Serving clients since 2003</p>
                         <Link to="/about" className="cta-button">Learn More</Link>
                     </div>
-                </header>
+
+                </header> */}
+                <ShowColorTester/>
+
                 <AnimatedTerminal/>
                 <DisplayDiv2/>
-                <DisplayHeroHome/>
                 <TickerBelt logos={allLogos}/>
                 
 

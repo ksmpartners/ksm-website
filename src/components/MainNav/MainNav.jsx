@@ -1,109 +1,146 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "gatsby";
-import myLogo from "../../images/KSM_Logo_2c_White (2).svg";
+import * as React from "react";
+import { NavigationMenu } from "radix-ui";
+import classNames from "classnames";
+import { CaretDownIcon } from "@radix-ui/react-icons";
 import "./MainNav.css";
+import DarkModeButton from "./DarkToggle";
 
-const mainMenuItems = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Services", mega: true, path: "/services" },
-  { label: "Blog", path: "/blog" },
-  { label: "Case Studies", path: "/case-studies" },
-  { label: "Contact Us", path: "/contact-us" },
-];
 
-const DisplayMainNav = () => {
-  const mainNavRef = useRef();
-  const [mainActiveMenu, setMainActiveMenu] = useState(null);
-  const [mainMobileOpen, setMainMobileOpen] = useState(false);
+const MainNavigationBar = () => {
+	return (
+		<NavigationMenu.Root className="NavigationMenuRoot">
+			<NavigationMenu.List className="NavigationMenuList">
+				<NavigationMenu.Item>
+					<NavigationMenu.Trigger className="NavigationMenuTrigger">
+						About Us <CaretDownIcon className="CaretDown" aria-hidden />
+					</NavigationMenu.Trigger>
+					<NavigationMenu.Content className="NavigationMenuContent">
+						<ul className="List one">
+							<li style={{ gridRow: "span 3" }}>
+								<NavigationMenu.Link asChild>
+									<a className="Callout" href="/">
+										<svg
+											aria-hidden
+											width="38"
+											height="38"
+											viewBox="0 0 25 25"
+											fill="white"
+										>
+											<path d="M12 25C7.58173 25 4 21.4183 4 17C4 12.5817 7.58173 9 12 9V25Z"></path>
+											<path d="M12 0H4V8H12V0Z"></path>
+											<path d="M17 8C19.2091 8 21 6.20914 21 4C21 1.79086 19.2091 0 17 0C14.7909 0 13 1.79086 13 4C13 6.20914 14.7909 8 17 8Z"></path>
+										</svg>
+										<div className="CalloutHeading">Radix Primitives</div>
+										<p className="CalloutText">
+											Unstyled, accessible components for React.
+										</p>
+									</a>
+								</NavigationMenu.Link>
+							</li>
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (mainNavRef.current && !mainNavRef.current.contains(e.target)) {
-        setMainActiveMenu(null);
-        setMainMobileOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+							<ListItem href="https://stitches.dev/" title="Stitches">
+								CSS-in-JS with best-in-class developer experience.
+							</ListItem>
+							<ListItem href="/colors" title="Colors">
+								Beautiful, thought-out palettes with auto dark mode.
+							</ListItem>
+							<ListItem href="https://icons.radix-ui.com/" title="Icons">
+								A crisp set of 15x15 icons, balanced and consistent.
+							</ListItem>
+						</ul>
+					</NavigationMenu.Content>
+				</NavigationMenu.Item>
 
-  const mainToggleMenu = (label) => {
-    setMainActiveMenu((prev) => (prev === label ? null : label));
-  };
+				<NavigationMenu.Item>
+					<NavigationMenu.Trigger className="NavigationMenuTrigger">
+						Services <CaretDownIcon className="CaretDown" aria-hidden />
+					</NavigationMenu.Trigger>
+					<NavigationMenu.Content className="NavigationMenuContent">
+						<ul className="List two">
+							<ListItem
+								title="Introduction"
+								href="/primitives/docs/overview/introduction"
+							>
+								Build high-quality, accessible design systems and web apps.
+							</ListItem>
+							<ListItem
+								title="Getting started"
+								href="/primitives/docs/overview/getting-started"
+							>
+								A quick tutorial to get you up and running with Radix
+								Primitives.
+							</ListItem>
+							<ListItem title="Styling" href="/primitives/docs/guides/styling">
+								Unstyled and compatible with any styling solution.
+							</ListItem>
+							<ListItem
+								title="Animation"
+								href="/primitives/docs/guides/animation"
+							>
+								Use CSS keyframes or any animation library of your choice.
+							</ListItem>
+							<ListItem
+								title="Accessibility"
+								href="/primitives/docs/overview/accessibility"
+							>
+								Tested in a range of browsers and assistive technologies.
+							</ListItem>
+							<ListItem
+								title="Releases"
+								href="/primitives/docs/overview/releases"
+							>
+								Radix Primitives releases and their changelogs.
+							</ListItem>
+						</ul>
+					</NavigationMenu.Content>
+				</NavigationMenu.Item>
 
-  const mainCloseAll = () => {
-    setMainActiveMenu(null);
-    setMainMobileOpen(false);
-  };
+				<NavigationMenu.Item>
+					<NavigationMenu.Link
+						className="NavigationMenuLink"
+						href="https://github.com/radix-ui"
+					>
+						Blog
+					</NavigationMenu.Link>
+				</NavigationMenu.Item>
 
-  return (
-    <nav className="main-nav">
-      <div className="main-nav__container" ref={mainNavRef}>
-        <div className="main-nav__logo">
-          <img src={myLogo} alt="Logo" className="main-nav__logo-img" />
-          {/* <span>KSM Technology Partners</span> */}
-        </div>
+				<NavigationMenu.Item>
+											<DarkModeButton/>
+				</NavigationMenu.Item>
 
-        <div className={`main-nav__links ${mainMobileOpen ? "main-open" : ""}`}>
-          {mainMenuItems.map(({ label, mega, path }) => (
-            <div
-            key={label}
-              className="main-nav__dropdown-wrapper"
-              onMouseEnter={() => mega && setMainActiveMenu(label)}
-              onMouseLeave={() => mega && setMainActiveMenu(null)}
-            >
-              <div className="main-nav__item">
-                <Link
-                  to={path}
-                  className={`main-nav__link ${
-                    mainActiveMenu === label ? "main-active" : ""
-                  }`}
-                  onClick={() => mega ? mainToggleMenu(label) : mainCloseAll()}
-                >
-                  {label}
-                  <span className="main-nav__underline" />
-                </Link>
-              </div>
 
-              {mega && mainActiveMenu === label && (
-                <div className="main-mega__menu">
-                  <div className="main-mega__section">
-                    <h4>Software</h4>
-                    <ul>
-                      <li><Link to="/services/custom" className="main-nav_link">Custom Solutions</Link></li>
-                      <li><Link to="/services/sce" className="main-nav_link">Domino SCE Integration</Link></li>
-                      <li><Link to="/services/integration" className="main-nav_link">Systems Integration</Link></li>
-                    </ul>
-                  </div>
-                  <div className="main-mega__section">
-                    <h4>Operations</h4>
-                    <ul>
-                    <li><Link to="/operations/test" className="main-nav_link">Test Automation</Link></li>
-                    <li><Link to="/operations/delivery" className="main-nav_link">Delivery Automation</Link></li>
-                    <li><Link to="/operations/cloud" className="main-nav_link">Cloud Migration</Link></li>
-                    <li><Link to="/operations/management" className="main-nav_link">Project Management</Link></li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
 
-        <div
-          className="main-nav__hamburger"
-          onClick={() => setMainMobileOpen((prev) => !prev)}
-        >
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
-  );
+				<NavigationMenu.Indicator className="NavigationMenuIndicator">
+					<div className="Arrow" />
+				</NavigationMenu.Indicator>
+			</NavigationMenu.List>
+
+			<div className="ViewportPosition">
+				<NavigationMenu.Viewport className="NavigationMenuViewport" />
+			</div>
+
+
+
+		</NavigationMenu.Root>
+	);
 };
 
-export default DisplayMainNav;
+
+const ListItem = React.forwardRef(
+	({ className, children, title, ...props }, forwardedRef) => (
+		<li>
+			<NavigationMenu.Link asChild>
+				<a
+					className={classNames("ListItemLink", className)}
+					{...props}
+					ref={forwardedRef}
+				>
+					<div className="ListItemHeading">{title}</div>
+					<p className="ListItemText">{children}</p>
+				</a>
+			</NavigationMenu.Link>
+		</li>
+	),
+);
+
+export default MainNavigationBar;
