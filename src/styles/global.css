@@ -11,11 +11,17 @@ body {
 
 /*
 COLOR PALETTES:
+
+NOTE: There will be a total of 3 color palettes.
+1. MAIN KSM Theme
+2. Client Theme (Pharma/Power/Misc.)
+3. Blog (More laid back fun theme- feels like a KSM-Style LinkedIn)
+
 */
 
 /* LIGHT MODE */
-
- body {
+body {
+  /* Main KSM Theme */
   --ksm-bg: #ffffff;
   --ksm-text: #1d1d1d;
   --ksm-surface: #f9fafb;       
@@ -24,11 +30,19 @@ COLOR PALETTES:
   --ksm-accent: #0ea5e9;        
   --ksm-accent-hover: #0284c7;  
   --ksm-error: #ef4444;        
-  --ksm-success: #22c55e;      
- }
+  --ksm-success: #22c55e;     
+  /* Client Theme */
+
+
+  /* Blog Theme */
+
+  
+ 
+}
 
 /* DARK MODE */
 body.web-page-dark {
+/* Main KSM Theme */
   --ksm-bg: #1d1d1d;
   --ksm-text: #0ea5e9;
   --ksm-surface: #2a2a2a;
@@ -37,5 +51,11 @@ body.web-page-dark {
   --ksm-accent: #0ea5e9;     
   --ksm-accent-hover: #38bdf8;  
   --ksm-error: #b91c1c;         
-  --ksm-success: #15803d;       
+  --ksm-success: #15803d;     
+  /* Client Theme */
+
+
+  /* Blog Theme */
+
+
 }
