@@ -25,7 +25,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "classnames": "^2.5.1",
-    "framer-motion": "^12.6.2",
+    "framer-motion": "^12.19.1",
     "gatsby": "^5.14.1",
     "gatsby-plugin-mdx": "^5.14.0",
     "gatsby-plugin-tailwindcss": "^1.0.3",

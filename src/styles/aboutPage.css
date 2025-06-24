@@ -1,0 +1,125 @@
+.ab-page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--ksm-bg);
+  font-family: var(--font-sans);
+  padding: 6rem 6rem 8rem 12rem;
+  color: var(--ksm-text);
+  overflow-x: hidden;
+}
+
+.ab-section {
+  max-width: 640px;
+  margin-bottom: 5rem;
+}
+
+.ab-title {
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  user-select: none;
+}
+
+.ab-description {
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--ksm-muted);
+  max-width: 60ch;
+  line-height: 1.6;
+  user-select: none;
+}
+
+.ab-scroll-line {
+  position: fixed;
+  top: 0;
+  left: 64px;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--ksm-accent) 0%,
+    var(--ksm-accent-hover) 60%,
+    var(--ksm-accent) 100%
+  );
+  border-radius: 8px;
+  box-shadow: 0 0 12px var(--ksm-accent-hover);
+  z-index: 20;
+  will-change: height, box-shadow;
+}
+
+.ab-pinwheel-container {
+  position: relative;
+  height: 320px;
+  margin-bottom: 6rem;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ab-card {
+  position: absolute;
+  background: var(--ksm-surface);
+  border: 1.5px solid var(--ksm-border);
+  box-shadow: 0 12px 48px rgba(14, 165, 233, 0.15);
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  max-width: 280px;
+  cursor: pointer;
+  color: var(--ksm-text);
+  user-select: none;
+  outline: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.ab-card.active,
+.ab-card:focus {
+  box-shadow: 0 24px 96px rgba(14, 165, 233, 0.35);
+  background: linear-gradient(
+    135deg,
+    var(--ksm-accent-hover),
+    var(--ksm-accent)
+  );
+  color: #fff;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 10;
+  outline-offset: 3px;
+  outline-color: var(--ksm-accent-hover);
+}
+
+.ab-subtitle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  user-select: none;
+}
+
+.ab-text {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: inherit;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ab-page {
+    padding: 4rem 3rem 6rem 3rem;
+  }
+  .ab-pinwheel-container {
+    height: 240px;
+  }
+  .ab-card {
+    max-width: 220px;
+  }
+  .ab-title {
+    font-size: 2.25rem;
+  }
+}
