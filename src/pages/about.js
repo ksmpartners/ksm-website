@@ -1,7 +1,5 @@
 // src/pages/about.js
 import Layout from '../components/Layout/Layout';
-import MyCard from '../components/MyCard';
-import AboutCard from '../components/AboutCard/Aboutcard';
 import '../styles/aboutPage.css';
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
@@ -10,35 +8,44 @@ import TechScrollLine from '../components/AboutPage/ScrollLine/TechScroll';
 const cardsData = [
   {
     section: "about",
-    title: "Who We Are",
-    content:
-      "We're a team of visionaries building next-gen experiences that feel alive and intuitive.",
+    title: "More than just technology",
+    content: "If it's short content, it looks nice. Anything more doesn't work.",
+   // content:
+     // "KSM Technology Partners’ mission is to deliver maximum returns on your technology investment and human capital. Our select team of associates blends deep domain expertise with real-world experience leading and executing complex software development projects. We use and recommend cutting-edge tools, frameworks, and methodologies to give you a competitive advantage. We know what works and when, and we help you distinguish hype from reality.",
   },
   {
     section: "about",
-    title: "What We Do",
-    content: "We craft digital interfaces that feel like magic and empower users.",
+    title: "Innovation drives delivery",
+    content: "If it's short content, it looks nice. Anything more doesn't work.",
+
+    // content: "Our insights are informed by decades of hands-on success delivering innovative solutions to mission-critical business problems. KSM professionals have delivered large, multifaceted, mission-critical applications for top-tier pharmaceutical, biotechnology, aerospace/defense, health services, telecommunications, and software companies. Our breadth of experience affords us unique insights into the variety of ways which custom software projects succeed. \nWe put our experience to work for you, delivering innovative solutions on time and under budget.",
   },
   {
     section: "history",
-    title: "Our Journey",
-    content: "From a humble garage startup to a global digital pioneer.",
+    title: "Innovate",
+    content: "We cultivate deep expertise in our customers' business domain and blend that with a passion for cutting-edge technology. Thus armed, we identify strategies that yield the highest value for our customers for the least cost.",
   },
   {
     section: "history",
-    title: "Core Values",
-    content: "Integrity. Innovation. Intentionality. Everything we live by.",
+    title: "Execute",
+    content: "We are makers at heart and maintain the development infrastructure, tooling, and training programs to continuously refine our ability to convert ideas into working, robust solutions.",
+  },
+  {
+    section: "history",
+    title: "Empower",
+    content: "We equip our customers with the tools and expertise needed to maintain and evolve the solutions we deliver, with as little or as much of our continued support as they need.",
   },
 ];
 
 const sectionDescriptions = {
   about:
-    "We build digital products that push boundaries. Combining design, engineering, and strategy into seamless, futuristic experiences.",
+    "In 2003 the founders created KSM to be the company we always wanted to work for: an independent concern accountable to our clients alone, seeking software engineering challenges that commodity body shops or packaged software cannot solve.",
   history:
-    "Our history is one of curiosity, grit, and relentless experimentation, guided by timeless values.",
+    "At KSM Technology Partners, we specialize in identifying, building, and supporting custom solutions to complex business problems. Since our founding in 2003, we have helped top pharmaceutical and utilities customers create technology assets that deliver long-term value, often in the face of (and in full compliance with) regulatory constraints. Our services and values are defined in our motto: Innovate. Execute. Empower.",
 };
 
-const PIN_WHEEL_RADIUS = 140;
+//Update this value to change rotational position of cards
+const PIN_WHEEL_RADIUS = 180;
 
 function AboutPage() {
   const controls = useAnimation();
@@ -62,6 +69,7 @@ function AboutPage() {
   return (
     <Layout>
     <main className="ab-page" ref={containerRef}>
+
       {/* COOL SIDE VISUAL PROGRESS LINE*/}
   <TechScrollLine/>
 
@@ -104,7 +112,7 @@ function AboutPage() {
         <p className="ab-description">{sectionDescriptions.history}</p>
       </section>
 
-      <section className="ab-pinwheel-container" aria-label="History and values cards">
+      <section className="ab-pinwheel-container2" aria-label="History and values cards">
         {cardsData
           .filter((c) => c.section === "history")
           .map((card, i) => {

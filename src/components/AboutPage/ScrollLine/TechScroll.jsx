@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./TechScroll.css";
 
 const SECTIONS = [
+  //Use these to label what the "scroll line" will track
   { id: "about", label: "About Us" },
   { id: "history", label: "History" },
   { id: "values", label: "Values" },

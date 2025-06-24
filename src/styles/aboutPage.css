@@ -57,6 +57,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  top: 80px;
+}
+
+.ab-pinwheel-container2 {
+  position: relative;
+  height: 320px;
+  margin-bottom: 6rem;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 50px;
 }
 
 .ab-card {
