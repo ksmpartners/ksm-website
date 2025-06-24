@@ -38,8 +38,8 @@ const MainNavigationBar = () => {
 								</NavigationMenu.Link>
 							</li>
 
-							<ListItem href="https://stitches.dev/" title="Stitches">
-								CSS-in-JS with best-in-class developer experience.
+							<ListItem href="/about" title="About Us">
+								Meet the experts behind our success.
 							</ListItem>
 							<ListItem href="/colors" title="Colors">
 								Beautiful, thought-out palettes with auto dark mode.
