@@ -9,16 +9,16 @@ const cardsData = [
   {
     section: "about",
     title: "More than just technology",
-    content: "If it's short content, it looks nice. Anything more doesn't work.",
-   // content:
-     // "KSM Technology Partners’ mission is to deliver maximum returns on your technology investment and human capital. Our select team of associates blends deep domain expertise with real-world experience leading and executing complex software development projects. We use and recommend cutting-edge tools, frameworks, and methodologies to give you a competitive advantage. We know what works and when, and we help you distinguish hype from reality.",
+    //content: "If it's short content, it looks nice. Anything more doesn't work.",
+    content:
+     "KSM Technology Partners’ mission is to deliver maximum returns on your technology investment and human capital. Our select team of associates blends deep domain expertise with real-world experience leading and executing complex software development projects. We use and recommend cutting-edge tools, frameworks, and methodologies to give you a competitive advantage. We know what works and when, and we help you distinguish hype from reality.",
   },
   {
     section: "about",
     title: "Innovation drives delivery",
-    content: "If it's short content, it looks nice. Anything more doesn't work.",
+    //content: "If it's short content, it looks nice. Anything more doesn't work.",
 
-    // content: "Our insights are informed by decades of hands-on success delivering innovative solutions to mission-critical business problems. KSM professionals have delivered large, multifaceted, mission-critical applications for top-tier pharmaceutical, biotechnology, aerospace/defense, health services, telecommunications, and software companies. Our breadth of experience affords us unique insights into the variety of ways which custom software projects succeed. \nWe put our experience to work for you, delivering innovative solutions on time and under budget.",
+    content: "Our insights are informed by decades of hands-on success delivering innovative solutions to mission-critical business problems. KSM professionals have delivered large, multifaceted, mission-critical applications for top-tier pharmaceutical, biotechnology, aerospace/defense, health services, telecommunications, and software companies. Our breadth of experience affords us unique insights into the variety of ways which custom software projects succeed. \nWe put our experience to work for you, delivering innovative solutions on time and under budget.",
   },
   {
     section: "history",
@@ -45,7 +45,7 @@ const sectionDescriptions = {
 };
 
 //Update this value to change rotational position of cards
-const PIN_WHEEL_RADIUS = 180;
+const PIN_WHEEL_RADIUS = 150; //Default: 140
 
 function AboutPage() {
   const controls = useAnimation();

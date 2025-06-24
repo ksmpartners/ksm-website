@@ -20,12 +20,13 @@
   letter-spacing: -0.02em;
   line-height: 1.15;
   user-select: none;
+  color: var(--ksm-accent-hover);
 }
 
 .ab-description {
   font-weight: 500;
   font-size: 1.125rem;
-  color: var(--ksm-muted);
+  color: var(--ksm-text);
   max-width: 60ch;
   line-height: 1.6;
   user-select: none;
@@ -80,7 +81,7 @@
   box-shadow: 0 12px 48px rgba(14, 165, 233, 0.15);
   padding: 2rem 2.5rem;
   border-radius: 20px;
-  max-width: 280px;
+  max-width: 480px;
   cursor: pointer;
   color: var(--ksm-text);
   user-select: none;
@@ -116,7 +117,7 @@
 
 .ab-text {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: 1.6;
   color: inherit;
   user-select: none;
