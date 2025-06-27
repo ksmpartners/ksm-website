@@ -29,7 +29,7 @@
   width: 16px;
   height: 16px;
   background: var(--ksm-accent);
-  box-shadow: 0 0 12px 4px var(--ksm-accent-hover);
+  /* box-shadow: 0 0 12px 4px var(--ksm-accent-hover); */
   animation: abPulse 2s infinite ease-in-out;
 }
 

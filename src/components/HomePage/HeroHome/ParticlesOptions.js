@@ -1,4 +1,5 @@
 const ParticleOptions = {
+
     background: {
       color: {
         // value: "#1d1d1d",

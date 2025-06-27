@@ -58,7 +58,7 @@ const HomePage = () => {
                     </div>
 
                 </header> */}
-                <ShowColorTester/>
+                {/* <ShowColorTester/> */}
 
                 <AnimatedTerminal/>
                 <DisplayDiv2/>

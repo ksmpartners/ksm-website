@@ -9,5 +9,6 @@
 #### Fonts
 #### Color Palettes (Light + Dark)
 #### Assets
+- [Motion Library](https://motion.dev/docs/react-quick-start) Great Smooth/Clean Animated Components
 - [Lucide Icons](lucide.dev) Modern, customizable, icons better than Bootstrap
 #### Image Use
