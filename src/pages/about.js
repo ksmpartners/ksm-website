@@ -37,21 +37,6 @@ const cardsData = [
     title: "Empower",
     content: "We equip our customers with the tools and expertise needed to maintain and evolve the solutions we deliver, with as little or as much of our continued support as they need.",
   },
-   {
-    section: "history",
-    title: "Innovate",
-    content: "We cultivate deep expertise in our customers' business domain and blend that with a passion for cutting-edge technology. Thus armed, we identify strategies that yield the highest value for our customers for the least cost.",
-  },
-  {
-    section: "history",
-    title: "Execute",
-    content: "We are makers at heart and maintain the development infrastructure, tooling, and training programs to continuously refine our ability to convert ideas into working, robust solutions.",
-  },
-  {
-    section: "history",
-    title: "Empower",
-    content: "We equip our customers with the tools and expertise needed to maintain and evolve the solutions we deliver, with as little or as much of our continued support as they need.",
-  },
 ];
 
 const sectionDescriptions = {
@@ -62,7 +47,7 @@ const sectionDescriptions = {
 };
 
 //Update this value to change rotational position of cards
-const PIN_WHEEL_RADIUS = 0; //Default: 140
+const PIN_WHEEL_RADIUS = 140; //Default: 140
 
 function AboutPage() {
   const controls = useAnimation();

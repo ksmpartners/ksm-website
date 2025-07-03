@@ -12,7 +12,7 @@ const MainNavigationBar = () => {
 			<NavigationMenu.List className="NavigationMenuList">
 				<NavigationMenu.Item>
 					<NavigationMenu.Trigger className="NavigationMenuTrigger">
-						About Us <CaretDownIcon className="CaretDown" aria-hidden />
+						About Us <CaretDownIcon className="CaretDown" height="20" width="20" aria-hidden />
 					</NavigationMenu.Trigger>
 					<NavigationMenu.Content className="NavigationMenuContent">
 						<ul className="List one">
@@ -53,7 +53,7 @@ const MainNavigationBar = () => {
 
 				<NavigationMenu.Item>
 					<NavigationMenu.Trigger className="NavigationMenuTrigger">
-						Services <CaretDownIcon className="CaretDown" aria-hidden />
+						Services <CaretDownIcon className="CaretDown" aria-hidden  height="20" width="20" />
 					</NavigationMenu.Trigger>
 					<NavigationMenu.Content className="NavigationMenuContent">
 						<ul className="List two">
@@ -98,16 +98,20 @@ const MainNavigationBar = () => {
 				<NavigationMenu.Item>
 					<NavigationMenu.Link
 						className="NavigationMenuLink"
-						href="https://github.com/radix-ui"
+						href="/blog"
 					>
 						Blog
 					</NavigationMenu.Link>
 				</NavigationMenu.Item>
 
-				<NavigationMenu.Item>
-											<DarkModeButton/>
-				</NavigationMenu.Item>
+				{/* <NavigationMenu.Item className="button-ph">
 
+											<div >
+</div>
+
+				</NavigationMenu.Item> */}
+
+											<DarkModeButton className="button-ph"/>
 
 
 				<NavigationMenu.Indicator className="NavigationMenuIndicator">

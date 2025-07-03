@@ -24,6 +24,7 @@ function DarkModeButton() {
   };
 
   return (
+    <div className="button-parent-night-mode">
     <button
       className="darkToggleButton"
       data-state={isDark ? "dark" : "light"}
@@ -53,6 +54,7 @@ function DarkModeButton() {
         )}
       </span>
     </button>
+    </div>
   );
 }
 
