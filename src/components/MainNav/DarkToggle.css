@@ -59,5 +59,6 @@
 .button-parent-night-mode{
   /* border: 1px solid red; */
   margin-left: auto;
-  padding: 1rem;
+  padding-right: 2rem;
+  /* padding: 1rem; */
 }

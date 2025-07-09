@@ -12,7 +12,8 @@ p {
   display: flex;
   justify-content: space-around;
   width: 100vw;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  padding-left: 1rem;
 }
 
 .NavigationMenuList {
@@ -128,6 +129,8 @@ p {
     rgba(0, 0, 0, 0.2) 0px 10px 20px -15px;
   height: var(--radix-navigation-menu-viewport-height);
   transition: width, height, 300ms ease;
+  /* border: 1px solid red; */
+
 }
 
 .NavigationMenuViewport[data-state="open"] {
