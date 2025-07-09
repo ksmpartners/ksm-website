@@ -4,12 +4,24 @@ import classNames from "classnames";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import "./MainNav.css";
 import DarkModeButton from "./DarkToggle";
+import imageLogoOne from "../../images/KSM_Logo_Horiz_2c_Blue.svg";
+import { navigate } from "gatsby";
 
 
 const MainNavigationBar = () => {
+
+	function goHome(){
+		navigate("/")
+	}
+
+
 	return (
 		<NavigationMenu.Root className="NavigationMenuRoot">
 			<NavigationMenu.List className="NavigationMenuList">
+								{/* <NavigationMenu.Item>
+									<img src={imageLogoOne} alt="img-1" className="nav-home-logo" onClick={goHome}/>
+				</NavigationMenu.Item> */}
+
 				<NavigationMenu.Item>
 					<NavigationMenu.Trigger className="NavigationMenuTrigger">
 						About Us <CaretDownIcon className="CaretDown" height="20" width="20" aria-hidden />
@@ -41,7 +53,7 @@ const MainNavigationBar = () => {
 							<ListItem href="/about" title="About Us">
 								Meet the experts behind our success.
 							</ListItem>
-							<ListItem href="/colors" title="Colors">
+							<ListItem href="/about/our-team" title="Our Team">
 								Beautiful, thought-out palettes with auto dark mode.
 							</ListItem>
 							<ListItem href="https://icons.radix-ui.com/" title="Icons">

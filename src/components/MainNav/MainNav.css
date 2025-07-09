@@ -344,3 +344,11 @@ p {
   }
 }
 
+.nav-home-logo {
+height: 5rem;
+width: auto;
+}
+
+.nav-home-logo:hover {
+cursor: pointer;
+}
