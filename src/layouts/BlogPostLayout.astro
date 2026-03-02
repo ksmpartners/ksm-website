@@ -1,0 +1,40 @@
+---
+import PageLayout from './PageLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  author?: string;
+  tags?: string[];
+}
+
+const { title, description, date, author = 'KSM Team', tags = [] } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<PageLayout title={title} description={description}>
+  <div class="page-header">
+    <div class="container">
+      <div class="tags">
+        {tags.map(tag => <span class="tag">{tag}</span>)}
+      </div>
+      <h1>{title}</h1>
+    </div>
+  </div>
+  <div class="section">
+    <div class="prose">
+      <header class="blog-article-header">
+        <div class="article-meta">
+          <time datetime={date.toISOString()}>{formattedDate}</time>
+          <span>By {author}</span>
+        </div>
+      </header>
+      <slot />
+    </div>
+  </div>
+</PageLayout>

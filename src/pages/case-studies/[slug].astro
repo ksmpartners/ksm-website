@@ -1,0 +1,55 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('case-studies');
+  return caseStudies.map(cs => ({
+    params: { slug: cs.id.replace(/\.mdx?$/, '') },
+    props: { cs },
+  }));
+}
+
+const { cs } = Astro.props;
+const { Content } = await render(cs);
+---
+<PageLayout title={cs.data.title} description={cs.data.summary}>
+
+  <div class="page-header">
+    <div class="container">
+      <span class="tag" style="margin-bottom: 0.75rem; display: inline-block;">{cs.data.vertical}</span>
+      <h1>{cs.data.title}</h1>
+      {cs.data.client && <p>Client: {cs.data.client}</p>}
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start;">
+      <div class="prose">
+        <Content />
+      </div>
+      <aside>
+        <ImagePlaceholder caption={cs.data.title} />
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Ready to discuss your challenge?</h3>
+          <p>Contact us to explore how we can help with your specific situation.</p>
+          <a href="contact" class="btn" style="display: inline-block;">Get in Touch</a>
+        </div>
+        <div class="card" style="margin-top: 1rem;">
+          <h3>More Case Studies</h3>
+          <p><a href="case-studies">View all case studies →</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</PageLayout>
+
+<style>
+  @media (min-width: 768px) {
+    .section > div {
+      grid-template-columns: 3fr 2fr !important;
+    }
+  }
+</style>

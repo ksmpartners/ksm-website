@@ -1,0 +1,60 @@
+---
+const services = [
+  { label: 'Cloud Migration', href: 'services/cloud-migration' },
+  { label: 'Delivery Automation', href: 'services/delivery-automation' },
+  { label: 'Project Management', href: 'services/project-management' },
+  { label: 'Software Engineering', href: 'services/software-engineering' },
+  { label: 'Systems Integration', href: 'services/systems-integration' },
+  { label: 'Test Automation', href: 'services/test-automation' },
+];
+---
+<nav aria-label="Main navigation">
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" id="services-toggle">
+        Services <span class="arrow">▾</span>
+      </button>
+      <ul class="dropdown-menu" id="services-menu" role="menu">
+        {services.map(s => (
+          <li role="menuitem"><a href={s.href}>{s.label}</a></li>
+        ))}
+      </ul>
+    </li>
+    <li><a href="case-studies">Case Studies</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="blog">Blog</a></li>
+    <li><a href="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  // Hamburger toggle
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle?.addEventListener('click', () => {
+    const open = navLinks?.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  // Services dropdown — click toggles on mobile, mouseleave closes on desktop
+  const servicesToggle = document.getElementById('services-toggle');
+  const servicesMenu = document.getElementById('services-menu');
+  const servicesDropdown = servicesToggle?.closest('.nav-dropdown');
+
+  servicesToggle?.addEventListener('click', () => {
+    const open = servicesMenu?.classList.toggle('open');
+    servicesToggle.setAttribute('aria-expanded', String(open));
+  });
+
+  servicesDropdown?.addEventListener('mouseleave', () => {
+    servicesMenu?.classList.remove('open');
+    servicesToggle?.setAttribute('aria-expanded', 'false');
+  });
+</script>

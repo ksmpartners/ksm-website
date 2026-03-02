@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#e8f4fb"/>
+  <rect x="1" y="1" width="798" height="448" fill="none" stroke="#8CCCEE" stroke-width="2"/>
+  <!-- Camera icon -->
+  <g transform="translate(340, 170)">
+    <rect x="0" y="10" width="120" height="90" rx="8" fill="none" stroke="#8CCCEE" stroke-width="4"/>
+    <circle cx="60" cy="55" r="28" fill="none" stroke="#8CCCEE" stroke-width="4"/>
+    <circle cx="60" cy="55" r="16" fill="#8CCCEE" opacity="0.4"/>
+    <rect x="22" y="10" width="30" height="12" rx="4" fill="none" stroke="#8CCCEE" stroke-width="4"/>
+    <circle cx="95" cy="22" r="5" fill="#8CCCEE"/>
+  </g>
+  <text x="400" y="305" font-family="Arial, sans-serif" font-size="20" fill="#8CCCEE" text-anchor="middle" font-weight="500">Image Placeholder</text>
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="14" fill="#8CCCEE" text-anchor="middle">800 × 450</text>
+</svg>

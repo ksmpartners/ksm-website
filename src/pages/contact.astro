@@ -1,0 +1,104 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+<PageLayout title="Contact Us" description="Get in touch with KSM Technology Partners to discuss your project.">
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Tell us about your project and we'll follow up within one business day.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
+
+      <!-- Form -->
+      <div>
+        <!-- Replace PLACEHOLDER with your FormSpree form ID -->
+        <form
+          action="https://formspree.io/f/PLACEHOLDER"
+          method="POST"
+          class="contact-form"
+        >
+          <div class="form-group">
+            <label for="name">Full Name <span aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="Jane Smith"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="jane@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autocomplete="organization"
+              placeholder="Acme Corporation"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Tell us about your project, timeline, and any specific questions you have..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="prose">
+        <h2>Other Ways to Reach Us</h2>
+        <p>
+          We're based in the United States and work with clients throughout North America and internationally.
+        </p>
+        <p>
+          <strong>Response time:</strong> We aim to respond to all inquiries within one business day.
+        </p>
+        <h3>What to Include</h3>
+        <p>To help us give you a useful initial response, it helps to know:</p>
+        <ul>
+          <li>A brief description of the problem you're trying to solve</li>
+          <li>Your industry (utilities, life sciences, or other)</li>
+          <li>Rough timeline and urgency</li>
+          <li>Whether you're looking for a long-term engagement or a specific project</li>
+        </ul>
+        <p>No pressure for details — even a brief note is fine as a starting point.</p>
+      </div>
+
+    </div>
+  </div>
+
+</PageLayout>
+
+<style>
+  @media (min-width: 768px) {
+    .section > div {
+      grid-template-columns: 3fr 2fr !important;
+    }
+  }
+</style>

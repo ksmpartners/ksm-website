@@ -1,0 +1,28 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id.replace(/\.mdx?$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BlogPostLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  date={post.data.date}
+  author={post.data.author}
+  tags={post.data.tags}
+>
+  <Content />
+
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--color-pale);">
+    <p><a href="blog">← Back to Blog</a></p>
+  </div>
+</BlogPostLayout>

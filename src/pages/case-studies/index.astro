@@ -1,0 +1,83 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+
+const allCaseStudies = await getCollection('case-studies');
+
+const utilities = allCaseStudies.filter(cs => cs.data.vertical === 'Utilities');
+const lifeSciences = allCaseStudies.filter(cs => cs.data.vertical === 'Life Sciences');
+const other = allCaseStudies.filter(cs => cs.data.vertical === 'Other');
+---
+<PageLayout title="Case Studies" description="Explore KSM Technology Partners case studies across utilities and life sciences.">
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Case Studies</h1>
+      <p>Real-world examples of how we've helped clients solve complex technology challenges.</p>
+    </div>
+  </div>
+
+  <div class="section">
+
+    {utilities.length > 0 && (
+      <div>
+        <h2 class="blog-group-heading">Utilities</h2>
+        <div class="grid-3">
+          {utilities.map(cs => (
+            <CaseStudyCard
+              title={cs.data.title}
+              summary={cs.data.summary}
+              slug={cs.id.replace(/\.mdx?$/, '')}
+              vertical={cs.data.vertical}
+              client={cs.data.client}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+
+    {lifeSciences.length > 0 && (
+      <div style="margin-top: 3rem;">
+        <h2 class="blog-group-heading">Life Sciences</h2>
+        <div class="grid-3">
+          {lifeSciences.map(cs => (
+            <CaseStudyCard
+              title={cs.data.title}
+              summary={cs.data.summary}
+              slug={cs.id.replace(/\.mdx?$/, '')}
+              vertical={cs.data.vertical}
+              client={cs.data.client}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+
+    {other.length > 0 && (
+      <div style="margin-top: 3rem;">
+        <h2 class="blog-group-heading">Other</h2>
+        <div class="grid-3">
+          {other.map(cs => (
+            <CaseStudyCard
+              title={cs.data.title}
+              summary={cs.data.summary}
+              slug={cs.id.replace(/\.mdx?$/, '')}
+              vertical={cs.data.vertical}
+              client={cs.data.client}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>Have a Similar Challenge?</h2>
+    <p>We'd love to learn about your project and explore how we can help.</p>
+    <a href="contact" class="btn btn-outline">Contact Us</a>
+  </div>
+
+</PageLayout>

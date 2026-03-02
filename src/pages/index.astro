@@ -1,0 +1,94 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+
+const services = (await getCollection('services')).sort(
+  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
+);
+
+const allCaseStudies = await getCollection('case-studies');
+const featuredCaseStudies = allCaseStudies.slice(0, 3);
+
+const serviceIcons: Record<string, string> = {
+  'cloud-migration': '☁️',
+  'delivery-automation': '🚀',
+  'project-management': '📋',
+  'software-engineering': '💻',
+  'systems-integration': '🔗',
+  'test-automation': '✅',
+};
+---
+<PageLayout title="Home" description="KSM Technology Partners — Custom software and systems integration for Utilities and Life Sciences.">
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Custom Software &amp; Integration for Utilities and Life Sciences</h1>
+    <p>KSM Technology Partners delivers engineering-led solutions that connect complex systems, accelerate delivery, and satisfy the demands of regulated industries.</p>
+    <div class="hero-actions">
+      <a href="services/software-engineering" class="btn">Our Services</a>
+      <a href="contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <div class="section-pale">
+    <div class="section">
+      <h2 class="text-center mb-2">What We Do</h2>
+      <div class="grid-3">
+        {services.map(service => {
+          const slug = service.id.replace(/\.mdx?$/, '');
+          return (
+            <ServiceCard
+              title={service.data.title}
+              description={service.data.description}
+              slug={slug}
+              icon={serviceIcons[slug] ?? '⚙️'}
+            />
+          );
+        })}
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Highlights -->
+  <div class="section">
+    <h2 class="text-center mb-2">Recent Work</h2>
+    <div class="grid-3">
+      {featuredCaseStudies.map(cs => (
+        <CaseStudyCard
+          title={cs.data.title}
+          summary={cs.data.summary}
+          slug={cs.id.replace(/\.mdx?$/, '')}
+          vertical={cs.data.vertical}
+          client={cs.data.client}
+        />
+      ))}
+    </div>
+    <div class="text-center mt-2">
+      <a href="case-studies" class="btn btn-outline-accent">View All Case Studies</a>
+    </div>
+  </div>
+
+  <!-- About Blurb -->
+  <div class="section-pale">
+    <div class="section">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+        <h2>About KSM Technology Partners</h2>
+        <p>
+          KSM Technology Partners is a technology consulting firm specializing in complex software engineering and systems integration for the utilities and life sciences sectors. Our team combines deep domain expertise with modern engineering practices to help organizations modernize their technology capabilities, accelerate delivery, and navigate the demands of regulated environments.
+        </p>
+        <a href="about" class="btn btn-outline-accent">Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <h2>Ready to Start?</h2>
+    <p>Tell us about your project and we'll help you find the right path forward.</p>
+    <a href="contact" class="btn btn-outline">Contact Us</a>
+  </div>
+
+</PageLayout>

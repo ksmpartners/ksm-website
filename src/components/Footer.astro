@@ -1,0 +1,37 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="">
+        <img src={`${import.meta.env.BASE_URL}KSM_Logo_2c_Blue.svg`} alt="KSM Technology Partners" />
+      </a>
+      <p>Custom software &amp; systems integration<br />for Utilities and Life Sciences.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="case-studies">Case Studies</a></li>
+        <li><a href="blog">Blog</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact">
+      <h4>Services</h4>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:0.4rem;"><a href="services/cloud-migration">Cloud Migration</a></li>
+        <li style="margin-bottom:0.4rem;"><a href="services/delivery-automation">Delivery Automation</a></li>
+        <li style="margin-bottom:0.4rem;"><a href="services/project-management">Project Management</a></li>
+        <li style="margin-bottom:0.4rem;"><a href="services/software-engineering">Software Engineering</a></li>
+        <li style="margin-bottom:0.4rem;"><a href="services/systems-integration">Systems Integration</a></li>
+        <li><a href="services/test-automation">Test Automation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} KSM Technology Partners. All rights reserved.</p>
+  </div>
+</footer>

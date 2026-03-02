@@ -1,0 +1,50 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map(service => ({
+    params: { slug: service.id.replace(/\.mdx?$/, '') },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+---
+<PageLayout title={service.data.title} description={service.data.description}>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>{service.data.title}</h1>
+      <p>{service.data.description}</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start;">
+      <div class="prose">
+        <Content />
+      </div>
+      <aside>
+        <ImagePlaceholder caption={service.data.title} />
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Interested in this service?</h3>
+          <p>Contact us to discuss how we can help with your specific situation.</p>
+          <a href="contact" class="btn" style="display: inline-block;">Get in Touch</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</PageLayout>
+
+<style>
+  @media (min-width: 768px) {
+    .section > div {
+      grid-template-columns: 3fr 2fr !important;
+    }
+  }
+</style>
