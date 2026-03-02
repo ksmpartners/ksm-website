@@ -1,0 +1,65 @@
+---
+title: Nextfuse Launch
+date: 2024-02-24
+author: "Michael Harnish"
+categories:
+  - Nextflow®
+  - Domino
+  - Nextfuse
+  - Bioinformatics
+  - Pipelines
+image: "/images/blog/nextfuse-ogimage-1200.png"
+excerpt: "KSM Technology Partners is pleased to announce the launch of Nextfuse, a commercial Nextflow plugin that makes Domino a first-class environment for automating complex, resource-intensive bionformatics pipelines built with Nextflow®. We are also pleased to announce the launch of Nextfuse Monitor, a web application for monitoring and debugging those Nextfuse-mediated pipelines."
+---
+
+KSM Technology Partners is pleased to announce the launch of Nextfuse, a commercial Nextflow plugin that makes Domino a first-class environment for automating complex, resource-intensive bionformatics pipelines built with Nextflow®. We are also pleased to announce the launch of Nextfuse Monitor, a web application for monitoring and debugging those Nextfuse-mediated pipelines.
+
+(Nextflow® is a registered trademark of Seqera Labs, S.L. Use of this trademark in this site does not imply endorsement of Nextfuse by Seqera Labs, S.L.)
+
+# The Story
+In late 2023 one of Domino Data Labs' customers approached them for integration support. The customer wanted to move their Nextflow bionformatics pipeline development and execution from standalone cloud virtual machines onto the Domino platform. Their reasons were:
+
+- **scalability**. There is an upper limit to how much even the largest virtual machines can scale, especially when attempting to run resource-intensive analysis jobs in parallel.
+- **cost control**. The customer was paying the same steep per-hour costs for those virtual machines whether running white hot with their CPUs or memory pegged, or sitting idle.
+
+Domino enlisted KSM, a consulting and integration partner, to design the solution. The result was Nextfuse, our solution for running and monitoring complex Nextflow pipelines in Domino.
+
+# Why Domino?
+Domino is a cloud-native web-based platform for launching containerized workloads. Backed by Kubernetes, it can scale horizontally to power resource-hungry pipelines by automatically enlisting new nodes when run in a cloud environment - and shutting them down when no longer needed, to save on compute spend. This feature met the customer's twin goals of providing scalability with cost control.
+
+Other Domino features make it an ideal Nextflow development and execution environment:
+
+- Any tool that can be containerized can be executed as a Domino job. This maps well to Nextflow's support for containerized workloads.
+- Domino features built-in, detailed accounting of the execution environment of any analysis, including the container used and the resulting logs. This enables repeatability and auditing. 
+- Domino integrates seamlessly with Git-based version control systems, so that you can track the specific version of the code you used to execute a pipeline - including your custom or pre-built (e.g., [nf-core](https://nf-co.re/)) Nextflow pipeline code.
+- Domino integrates with a variety of data sources, including cloud-based storage systems that can handle massive amounts of data. Domino also lets you capture immutable snapshots of your data, so that you can replay your analyses in the future.
+
+# Getting to Work
+Our primary design goals for Nextfuse were:
+
+1. Make Domino a first-class execution environment for Nextflow pipelines. This means launching the processes within a pipeline in parallel as Domino jobs, which scale up horizontally to meet demand, and scale back down when demand ebbs.
+2. Require no changes to the customer's existing Nextflow pipeline code to run it on Domino.
+
+The second bit was the tricky part, because their existing Nextflow pipelines know nothing about Domino concepts like compute environments or hardware tiers. The solution was to use Nextflow's rich configuration system to externalize the required information in standard Nextflow configuration files. This allowed us to map every process' designated container to a Domino compute environment, and its CPU and memory requirements to a suitable Domino hardware tier - all without changing a line of pipeline code. See the [Nextfuse documentation](https://nextfuse.ksmpartners.com/docs/getting-started/configuring-nextfuse) for details.
+
+# Battle-Testing with nf-core Pipelines
+The customer runs Nextflow pipelines adapted from the open-source [nf-core](https://nf-co.re/) project. These pipelines comprise complex data transformation and analysis programs. Many of these programs can be run in parallel; others must be run in sequence. Many require a significant amount of CPU and memory to accomplish their highly-specialized work. For example, the most "starred" pipeline in nf-core, [rnaseq](https://nf-co.re/rnaseq/3.14.0/), enlists tasks that require as much as 200GB of memory and as many as 12 CPUs. Typically multiple copies of these tasks can run in parallel for a single pipeline execution - perfect for a real-world test case.
+
+We tested Nextfuse on [rnaseq](https://nf-co.re/rnaseq/3.14.0/) and two other nf-core pipelines: [fetchngs](https://github.com/nf-core/fetchngs) and [hlatyping](https://github.com/nf-core/hlatyping). The results were encouraging: greater horizontal scaling enabled more jobs to be run in parallel, which resulted in shorter overall run times vs. running on a single massive VM. 
+
+The configuration for this exercise became part of the core Nextfuse documentation:
+- [Running fetchngs](https://nextfuse.ksmpartners.com/docs/examples/nf-core-fetchngs)
+- [Running hlatyping](https://nextfuse.ksmpartners.com/docs/examples/nf-core-hlatyping)
+- [Running rnaseq](https://nextfuse.ksmpartners.com/docs/examples/nf-core-rnaseq)
+
+These pipelines use many Docker images from the [BioContainers](https://github.com/BioContainers) project. The Nextfuse documentation helpfully includes [recipes](https://nextfuse.ksmpartners.com/docs/examples/prerequisites/create-compute-environments) for converting those images as containerized Domino compute environments.
+
+# Pipeline Monitoring with Nextfuse Monitor
+The Domino user interface provides a useful "job-first" view of every process that Nextfuse executes as part of a Nextflow pipeline. What it does not provide is a "pipeline-first" view that visually locates information about those processes - such as their compute environment, hardware tier, and logs - within the context of the pipeline that owns them. For a graphical presentation of pipeline processes that does just that, we created Nextfuse Monitor.
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/941347007?h=a20145f82b" width="1024" height="576" frameborder="0" allowfullscreen></iframe>
+
+Nextfuse Monitor speaks both Nextflow and Domino. It knows how Nextflow organizes its work into pipelines and folders on disk, and facilitates easy access to view and download final and intermediate files - an indispensible feature when debugging your pipelines. Nextfuse Monitor also understands the Domino API, and uses it to extract information about the jobs that Nextfuse creates when running a pipeline - including its setup and user logs. 
+
+# Getting Started
+Nextfuse and Nextfuse Monitor are commercial offerings from KSM Technology Partners. You can read more about Nextfuse at [nextfuse.ksmpartners.com](https://nextfuse.ksmpartners.com) For more information or to schedule a demo, fill out our [contact form](/contact/) or drop an email to [sales@ksmpartners.com](mailto:sales@ksmpartners.com).
