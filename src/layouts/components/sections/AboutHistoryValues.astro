@@ -1,0 +1,80 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { Section } from "@/types";
+
+type ImperativeItem = {
+  title: string;
+  description: string;
+};
+
+type about_history_values_type = Section & {
+  subheading?: string;
+  history?: string;
+  imperatives?: ImperativeItem[];
+};
+
+type Props = {
+  content?: about_history_values_type;
+};
+
+let default_content = (
+  await getEntryCTM("sections", "about-history-values", Astro.currentLocale)
+)?.data as about_history_values_type;
+
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as about_history_values_type;
+
+let {
+  enable = true,
+  subheading,
+  history,
+  imperatives,
+} = actual_content as about_history_values_type;
+---
+
+{
+  enable && (
+    <section>
+      <div class="container flex flex-col justify-start">
+        {subheading && (
+          <h2
+            data-aos="fade-right-sm"
+            class="text-h3 text-inherit"
+            set:html={markdownify(subheading)}
+          />
+        )}
+        {history && (
+          <div
+            data-aos="fade-up-sm"
+            data-aos-delay="200"
+            class="prose-styles mt-6 max-w-4xl"
+            set:html={markdownify(history, true)}
+          />
+        )}
+        {imperatives && imperatives.length > 0 && (
+          <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {imperatives.map((item, index) => (
+              <div
+                data-aos="fade-up-sm"
+                data-aos-delay={index * 200}
+                class="to-primary/5 space-y-4 bg-gradient-to-b from-white px-8 py-10">
+                {item.title && (
+                  <h3 class="text-h5 text-primary">
+                    {item.title}
+                  </h3>
+                )}
+                {item.description && (
+                  <p set:html={markdownify(item.description)} />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
