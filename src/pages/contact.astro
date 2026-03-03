@@ -25,10 +25,10 @@ import PageLayout from '../layouts/PageLayout.astro';
             <input
               type="text"
               id="name"
-              name="name"
+              name="Full Name"
               required
               autocomplete="name"
-              placeholder="Jane Smith"
+              placeholder="Full Name"
             />
           </div>
 
@@ -37,10 +37,10 @@ import PageLayout from '../layouts/PageLayout.astro';
             <input
               type="email"
               id="email"
-              name="email"
+              name="Email Address"
               required
               autocomplete="email"
-              placeholder="jane@example.com"
+              placeholder="email@example.com"
             />
           </div>
 
@@ -49,9 +49,9 @@ import PageLayout from '../layouts/PageLayout.astro';
             <input
               type="text"
               id="company"
-              name="company"
+              name="Company"
               autocomplete="organization"
-              placeholder="Acme Corporation"
+              placeholder="Company Name"
             />
           </div>
 
@@ -59,13 +59,18 @@ import PageLayout from '../layouts/PageLayout.astro';
             <label for="message">Message <span aria-hidden="true">*</span></label>
             <textarea
               id="message"
-              name="message"
+              name="Message"
               required
               placeholder="Tell us about your project, timeline, and any specific questions you have..."
             ></textarea>
           </div>
 
-          <button type="submit" class="btn">Send Message</button>
+          <div class="form-group form-group--checkbox">
+            <input value="Agreed" type="checkbox" id="agreed-privacy" name="Agreed Privacy" required />
+            <label for="agreed-privacy">I agree to the <a href="https://app.termly.io/document/terms-of-use-for-website/9f9fe9fa-edb2-48d2-992e-51a9e7883962" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a> and <a href="https://app.termly.io/document/privacy-policy/0dea1a71-b5c4-49e4-b691-77c30ef7f1c7" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn" disabled>Send Message</button>
         </form>
       </div>
 
@@ -97,7 +102,43 @@ import PageLayout from '../layouts/PageLayout.astro';
 
 </PageLayout>
 
+<script>
+  const checkbox = document.getElementById('agreed-privacy') as HTMLInputElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  checkbox.addEventListener('change', () => {
+    submitBtn.disabled = !checkbox.checked;
+  });
+</script>
+
 <style>
+  .btn:disabled {
+    background: #aaa;
+    border-color: #aaa;
+    color: #fff;
+    cursor: not-allowed;
+  }
+  .form-group--checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .form-group--checkbox input[type="checkbox"] {
+    width: auto;
+    flex-shrink: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .form-group--checkbox label {
+    display: inline;
+    font-weight: normal;
+    margin: 0;
+    cursor: pointer;
+  }
+
   @media (min-width: 768px) {
     .section > div {
       grid-template-columns: 3fr 2fr !important;
