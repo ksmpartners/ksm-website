@@ -456,6 +456,7 @@ ul, ol {
   color: var(--color-white);
   padding: 0.7rem 1.75rem;
   border-radius: var(--radius);
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
