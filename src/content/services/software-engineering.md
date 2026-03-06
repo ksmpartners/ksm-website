@@ -1,6 +1,7 @@
 ---
 title: Software Engineering
 description: Custom software development for complex domains — from legacy upgrades to cloud-native web applications.
+image: images/services/software-engineering.jpg
 order: 1
 ---
 
