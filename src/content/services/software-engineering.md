@@ -20,9 +20,6 @@ Custom adapters, message brokers, and orchestration layers that connect disparat
 Modern full-stack applications built with Faces, React, TypeScript, Java, and cloud-native infrastructure. RESTful APIs designed for reliability and observability.  WebSockets and Server Side Events for real time
 user interface responsiveness.
 
-**Embedded & Edge Systems**
-Software for industrial control systems, IoT gateways, and edge computing platforms in operational technology environments.
-
 **Regulatory & Compliance Software**
 Electronic batch records, audit trail systems, electronic signatures (21 CFR Part 11), and compliance reporting applications for life sciences.
 
