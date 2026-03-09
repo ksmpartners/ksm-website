@@ -4,7 +4,9 @@ import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const services = await getCollection('services');
+  const services = (await getCollection('services')).sort(
+    (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
+  );
   return services.map(service => ({
     params: { slug: service.id.replace(/\.mdx?$/, '') },
     props: { service },
