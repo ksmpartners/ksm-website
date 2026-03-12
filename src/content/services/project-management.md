@@ -1,6 +1,7 @@
 ---
 title: Project Management
 description: Experienced technical project managers who bridge business and engineering to deliver complex programs on time and on budget.
+image: images/services/project-management.jpg
 order: 6
 ---
 
