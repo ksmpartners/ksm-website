@@ -419,7 +419,8 @@ ul, ol {
 .hero {
   background-color: var(--color-primary);
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  min-height: 60vh;
   color: var(--color-white);
   text-align: center;
   padding: 4rem 1.5rem;
