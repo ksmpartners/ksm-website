@@ -417,10 +417,12 @@ ul, ol {
    ============================================================ */
 
 .hero {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
+  background-size: cover;
+  background-position: center;
   color: var(--color-white);
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 4rem 1.5rem;
 }
 
 .hero h1 {
