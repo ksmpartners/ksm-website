@@ -13,20 +13,20 @@
 /* Custom Properties */
 :root {
   --color-primary:      #004D71;   /* dark navy — header bg, headings */
-  --color-accent:       #3CB4E5;   /* sky blue — links, buttons, hover */
-  --color-mid:          #8CCCEE;   /* light blue — decorative borders */
-  --color-pale:         #C8E5F6;   /* pale blue — section backgrounds */
+  --color-accent:       #D48019;   /* warm amber — links, buttons, hover */
+  --color-mid:          #E8B870;   /* light amber — decorative borders */
+  --color-pale:         #EDEBE7;   /* warm stone/greige — section backgrounds */
   --color-white:        #ffffff;
   --color-text:         #1a2b3c;   /* body text */
-  --color-text-muted:   #4a6077;
-  --color-bg:           #f4f9fd;   /* page background */
+  --color-text-muted:   #5C4E3E;   /* warm brown-gray */
+  --color-bg:           #F6F5F3;   /* warm stone/greige — page background */
 
   --font-sans: 'General Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-sans);
 
   --max-width: 1200px;
   --radius: 6px;
-  --shadow: 0 2px 8px rgba(0,77,113,0.12);
+  --shadow: 0 2px 8px rgba(0,77,113,0.10);
 }
 
 /* Reset & Base */
@@ -225,7 +225,7 @@ ul, ol {
 }
 
 .nav-links a:hover {
-  background: rgba(60,180,229,0.2);
+  background: rgba(212,128,25,0.2);
   text-decoration: none;
 }
 
@@ -251,7 +251,7 @@ ul, ol {
 }
 
 .dropdown-toggle:hover {
-  background: rgba(60,180,229,0.2);
+  background: rgba(212,128,25,0.2);
 }
 
 .dropdown-toggle .arrow {
@@ -280,7 +280,7 @@ ul, ol {
 
 .dropdown-menu a:hover {
   color: var(--color-white);
-  background: rgba(60,180,229,0.15);
+  background: rgba(212,128,25,0.15);
 }
 
 @media (min-width: 768px) {
@@ -400,7 +400,7 @@ ul, ol {
   max-width: var(--max-width);
   margin: 2rem auto 0;
   padding-top: 1rem;
-  border-top: 1px solid rgba(140,204,238,0.2);
+  border-top: 1px solid rgba(232,184,112,0.2);
   text-align: center;
   font-size: 0.8rem;
   color: var(--color-mid);
@@ -466,8 +466,8 @@ ul, ol {
 }
 
 .btn:hover {
-  background: #2a9ecf;
-  border-color: #2a9ecf;
+  background: #B86E12;
+  border-color: #B86E12;
   text-decoration: none;
   color: var(--color-white);
 }
