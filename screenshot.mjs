@@ -5,7 +5,7 @@ import { join } from 'path';
 const url = process.argv[2] || 'http://localhost:4321';
 const label = process.argv[3] || '';
 
-const dir = './temporary screenshots';
+const dir = './screenshots';
 if (!existsSync(dir)) mkdirSync(dir);
 
 // Find the next available index

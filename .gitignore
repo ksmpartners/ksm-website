@@ -21,6 +21,9 @@ references/
 .vscode/
 .idea/
 
+# Screenshots (keep dir, ignore contents)
+screenshots/
+
 # OS
 .DS_Store
 Thumbs.db
