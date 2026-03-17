@@ -18,7 +18,7 @@ There are no tests in this project.
 
 ## Architecture
 
-This is an **Astro 5 static site** deployed to GitHub Pages at `https://ksmpartners.github.io/ksm-website/`. The `base` is set to `/ksm-website/` in `astro.config.mjs`, so all internal links must use Astro's `BASE_URL` or relative paths — **never hardcode absolute paths starting with `/`**.
+This is an **Astro 5 static site** deployed to GitHub Pages at `https://ksmpartners.github.io`. The `base` is set to `/` in `astro.config.mjs`. All internal links must still use Astro's `BASE_URL` or relative paths — **never hardcode absolute paths starting with `/`**.
 
 ### Layout hierarchy
 
@@ -37,16 +37,23 @@ Defined in `src/content/config.ts` with Zod schemas:
 | Collection | Key fields |
 |---|---|
 | `services` | `title`, `description`, `order` (for home sort), `image` |
-| `case-studies` | `title`, `client`, `vertical` (enum: Utilities/Life Sciences/Other), `summary`, `image` |
+| `case-studies` | `title`, `client`, `vertical` (enum: Utilities/Life Sciences/Other), `summary`, `image`, `order` (optional), `featured` (bool — home spotlight) |
 | `blog` | `title`, `date`, `author`, `tags[]`, `excerpt`, `image` |
 
-Content files are `.md` (not `.mdx`) by default. Slug derivation strips `.md`/`.mdx` extensions from `cs.id` — e.g., `cs.id.replace(/\.mdx?$/, '')`.
+There are currently **7 case studies** and **6 services**. Content files are `.md` (not `.mdx`) by default. Slug derivation strips `.md`/`.mdx` extensions from `cs.id` — e.g., `cs.id.replace(/\.mdx?$/, '')`.
 
 ### Routing
 
-- Static pages: `src/pages/*.astro`
+- Static pages: `src/pages/*.astro` (home, about, contact)
 - Dynamic collection pages: `src/pages/[collection]/[slug].astro` using `getStaticPaths()` + `getCollection()`
 - Index pages for each collection: `src/pages/case-studies/index.astro`, `src/pages/blog/index.astro`
+- Dedicated GxP Migration page: `src/pages/services/gxp-migration.astro` (listed under **Solutions** in nav, not Services)
+
+### Navigation
+
+The header nav has two dropdowns:
+- **Services** — links to the 6 dynamic service pages (`/services/{slug}`)
+- **Solutions** — links to dedicated solution pages (currently: GxP Migration at `/services/gxp-migration`)
 
 ### Styling
 
@@ -54,9 +61,9 @@ Single global stylesheet at `src/styles/global.css`, imported only in `BaseLayou
 
 - `--color-primary: #004D71` (navy — headings, header bg)
 - `--color-accent: #3CB4E5` (sky blue — links, buttons)
-- Utility classes like `.section`, `.section-pale`, `.grid-3`, `.card`, `.btn`, `.tag`, `.prose` are defined globally — use these rather than adding inline styles or scoped styles where possible.
+- Utility classes like `.section`, `.section-pale`, `.grid-2`, `.grid-3`, `.card`, `.btn`, `.btn-teal`, `.btn-outline`, `.btn-ghost`, `.tag`, `.prose` are defined globally — use these rather than adding inline styles or scoped styles where possible.
 
-Font is **General Sans** (loaded via `@font-face` from an external CDN URL in `global.css`).
+Font is **DM Sans** for body/headings and **DM Mono** for monospace, loaded via Google Fonts. TypeScript path aliases are configured: `@components/*`, `@layouts/*`, `@styles/*`.
 
 ### Deployment
 
@@ -90,7 +97,7 @@ Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/deploy.
 
 - Always check `public/` and `brand-guidelines/` for existing logos, color guides, and images before designing.
 - Brand colors are defined in `src/styles/global.css` as CSS custom properties — use them, do not invent new brand colors.
-- Logo: `public/KSM_Logo_2c_Blue.svg` — use this, do not use placeholders where the real logo is available.
+- Logos: `public/KSM_Logo_2c_Blue.svg` (dark backgrounds use white: `public/KSM_Logo_2c_white.svg`) — use these, do not use placeholders where the real logo is available.
 
 ## Astro-Specific Frontend Rules
 
@@ -103,7 +110,7 @@ Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/deploy.
 
 - **Colors:** Never use default Tailwind palette (indigo-500, blue-600, etc.). Use the KSM brand palette (`#004D71`, `#3CB4E5`) and derive from it.
 - **Shadows:** Never use flat `shadow-md`. Use layered, color-tinted shadows with low opacity.
-- **Typography:** Never use the same font for headings and body. The project uses General Sans — pair it appropriately. Apply tight tracking (`-0.03em`) on large headings, generous line-height (`1.7`) on body.
+- **Typography:** Never use the same font for headings and body. The project uses **DM Sans** (body/headings) and **DM Mono** (monospace). Apply tight tracking (`-0.03em`) on large headings, generous line-height (`1.7`) on body.
 - **Gradients:** Layer multiple radial gradients. Add grain/texture via SVG noise filter for depth.
 - **Animations:** Only animate `transform` and `opacity`. Never `transition-all`. Use spring-style easing.
 - **Interactive states:** Every clickable element needs hover, focus-visible, and active states. No exceptions.
