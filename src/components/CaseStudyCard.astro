@@ -12,7 +12,7 @@ const { title, summary, slug, vertical, client } = Astro.props;
 <article class="card">
   <div class="card-meta">
     <span class="tag">{vertical}</span>
-    {client && <span> &mdash; {client}</span>}
+    {client && <span style="margin-left: 0.5rem; opacity: 0.7;">{client}</span>}
   </div>
   <h3>{title}</h3>
   <p>{summary}</p>

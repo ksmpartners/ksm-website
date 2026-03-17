@@ -24,6 +24,30 @@ import PageLayout from '../../layouts/PageLayout.astro';
   </section>
 
   <!-- ============================================================
+       Stats Bar
+       ============================================================ -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Top-Pharma Engagements</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100s</span>
+        <span class="stat-label">Studies Migrated</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Audit Findings</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">GxP</span>
+        <span class="stat-label">Purpose-Built</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        Section 2: Where GxP Complexity Lives
        ============================================================ -->
   <div class="section-pale">
@@ -72,12 +96,65 @@ import PageLayout from '../../layouts/PageLayout.astro';
   </div>
 
   <!-- ============================================================
+       Platform Logos Strip
+       ============================================================ -->
+  <div class="logos-strip">
+    <div class="logos-strip-inner">
+      <span class="logos-label">Works with the platforms your team already uses</span>
+      <div class="logos-row">
+        <!-- Domino Data Lab -->
+        <div class="logo-item">
+          <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Domino Data Lab">
+            <circle cx="10" cy="16" r="5" fill="currentColor" opacity="0.7"/>
+            <circle cx="26" cy="10" r="3.5" fill="currentColor" opacity="0.7"/>
+            <circle cx="26" cy="22" r="3.5" fill="currentColor" opacity="0.7"/>
+            <text x="38" y="21" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="currentColor" opacity="0.7">Domino</text>
+          </svg>
+        </div>
+        <!-- Terraform -->
+        <div class="logo-item">
+          <svg viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Terraform">
+            <polygon points="8,6 18,12 18,24 8,18" fill="currentColor" opacity="0.55"/>
+            <polygon points="20,0 30,6 30,18 20,12" fill="currentColor" opacity="0.7"/>
+            <polygon points="20,14 30,20 30,32 20,26" fill="currentColor" opacity="0.5"/>
+            <text x="36" y="21" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="currentColor" opacity="0.7">Terraform</text>
+          </svg>
+        </div>
+        <!-- Git -->
+        <div class="logo-item">
+          <svg viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Git">
+            <rect x="4" y="10" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <rect x="22" y="4" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <line x1="11" y1="10" x2="29" y2="18" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <text x="42" y="21" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="currentColor" opacity="0.7">Git</text>
+          </svg>
+        </div>
+        <!-- AWS S3 -->
+        <div class="logo-item">
+          <svg viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AWS S3">
+            <path d="M8 22 L16 8 L24 22 Z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <circle cx="16" cy="22" r="3" fill="currentColor" opacity="0.5"/>
+            <text x="32" y="21" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="currentColor" opacity="0.7">AWS / Azure</text>
+          </svg>
+        </div>
+        <!-- SAS -->
+        <div class="logo-item">
+          <svg viewBox="0 0 70 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SAS">
+            <path d="M6 20 Q6 10 16 10 Q26 10 16 16 Q6 22 16 22 Q26 22 26 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <text x="36" y="21" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="currentColor" opacity="0.7">SAS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        Section 3: Credibility
        ============================================================ -->
   <div class="section">
     <div class="credibility-layout">
-      <img
-        src={`${import.meta.env.BASE_URL}images/services/cdc_scientist.jpg`}
+      <img 
+        src={`${import.meta.env.BASE_URL}images/services/cdc_scientist2.jpg`}
         alt="Scientist working in a regulated laboratory environment"
         class="credibility-image"
       />
@@ -134,6 +211,80 @@ import PageLayout from '../../layouts/PageLayout.astro';
   </div>
 
   <!-- ============================================================
+       Section 4b: Traditional vs. KSM Comparison
+       ============================================================ -->
+  <div class="section">
+    <div class="section-heading">
+      <span class="overline">Why it matters</span>
+      <h2>Most migrations weren't designed for GxP.</h2>
+    </div>
+    <div class="comparison-table">
+      <div class="comparison-col comparison-col--old">
+        <div class="comparison-col-header">
+          <span class="comparison-badge comparison-badge--old">Typical Approach</span>
+        </div>
+        <ul class="comparison-list">
+          <li class="comparison-item comparison-item--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Audit trail assembled after the fact from logs
+          </li>
+          <li class="comparison-item comparison-item--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Access controls configured post-migration
+          </li>
+          <li class="comparison-item comparison-item--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Big-bang cutover with high rollback risk
+          </li>
+          <li class="comparison-item comparison-item--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Generic ETL tools adapted for regulated use
+          </li>
+          <li class="comparison-item comparison-item--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Documentation produced manually at close
+          </li>
+          <li class="comparison-item comparison-item--bad">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Failed runs require restarting from scratch
+          </li>
+        </ul>
+      </div>
+      <div class="comparison-col comparison-col--new">
+        <div class="comparison-col-header">
+          <span class="comparison-badge comparison-badge--new">KSM Approach</span>
+        </div>
+        <ul class="comparison-list">
+          <li class="comparison-item comparison-item--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Lineage events emitted during execution — not reconstructed
+          </li>
+          <li class="comparison-item comparison-item--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Access controls provisioned as code before cutover
+          </li>
+          <li class="comparison-item comparison-item--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Controlled waves with per-unit state and safe retry
+          </li>
+          <li class="comparison-item comparison-item--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            KMT built ground-up for GxP regulated environments
+          </li>
+          <li class="comparison-item comparison-item--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Documentation is a byproduct of execution
+          </li>
+          <li class="comparison-item comparison-item--good">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Each unit retries independently — completed work is never re-run
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        Section 5: Purpose-Built Tooling (KMT)
        ============================================================ -->
   <div class="section">
@@ -167,12 +318,19 @@ import PageLayout from '../../layouts/PageLayout.astro';
         </div>
       </div>
 
-      <figure class="image-placeholder">
-        <img
-          src={`${import.meta.env.BASE_URL}images/services/saga_screenshot_graph.png`}
-          alt="Lineage graph showing jobs, datasets, and transfers connected in a navigable audit graph"
-          style="border-radius: var(--radius);"
-        />
+      <figure class="browser-frame">
+        <div class="browser-chrome">
+          <div class="browser-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="browser-bar">KSM Migration Toolkit — Lineage Graph</div>
+        </div>
+        <div class="browser-body">
+          <img
+            src={`${import.meta.env.BASE_URL}images/services/saga_screenshot_graph.png`}
+            alt="Lineage graph showing jobs, datasets, and transfers connected in a navigable audit graph"
+          />
+        </div>
         <figcaption class="image-caption">Every job. Every dataset. Every transfer. Connected in a navigable, auditable graph — built during the migration, not reconstructed afterward.</figcaption>
       </figure>
 
@@ -184,52 +342,119 @@ import PageLayout from '../../layouts/PageLayout.astro';
        ============================================================ -->
   <div class="section-pale">
     <div class="section">
-      <h2>Your auditor gets evidence, not assurances.</h2>
-      <p class="intro-para">Documentation as a byproduct of execution — not assembled after the fact.</p>
-
-      <div class="grid-2 audit-grid">
-
-        <div class="audit-item">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <h3>Timestamped Events</h3>
-            <p>Every step emits a lineage event with a unique run ID — source to staging, staging to target.</p>
-          </div>
+      <div class="audit-card">
+        <div class="audit-card-header">
+          <span class="overline">For QA &amp; Validation</span>
+          <h2>Your QA team gets evidence, not assurances.</h2>
+          <p class="intro-para">Documentation as a byproduct of execution — not assembled after the fact.</p>
         </div>
 
-        <div class="audit-item">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <div>
-            <h3>Auto-attached Results</h3>
-            <p>Validation results, checksums, and row counts automatically attached to the lineage record.</p>
-          </div>
-        </div>
+        <div class="grid-2 audit-grid">
 
-        <div class="audit-item">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <div class="audit-item">
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h3>Timestamped Events</h3>
+              <p>Every step emits a lineage event with a unique run ID — source to staging, staging to target.</p>
+            </div>
           </div>
-          <div>
-            <h3>Built During Execution</h3>
-            <p>A complete audit trail — not reconstructed from logs.</p>
-          </div>
-        </div>
 
-        <div class="audit-item">
-          <div class="card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="audit-item">
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <h3>Auto-attached Results</h3>
+              <p>Validation results, checksums, and row counts automatically attached to the lineage record.</p>
+            </div>
           </div>
-          <div>
-            <h3>Deviation Records</h3>
-            <p>When expected outcomes aren't met, it's captured and traceable.</p>
-          </div>
-        </div>
 
+          <div class="audit-item">
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div>
+              <h3>Built During Execution</h3>
+              <p>A complete audit trail — not reconstructed from logs.</p>
+            </div>
+          </div>
+
+          <div class="audit-item">
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div>
+              <h3>Deviation Records</h3>
+              <p>When expected outcomes aren't met, it's captured and traceable.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Section 6b: Who This Is For
+       ============================================================ -->
+  <div class="section">
+    <div class="section-heading centered text-center">
+      <span class="overline">Who we work with</span>
+      <h2>Built for the teams who own the risk.</h2>
+      <p>Regulatory complexity touches every stakeholder. KMT gives each team what they actually need.</p>
+    </div>
+    <div class="grid-3 personas-grid">
+
+      <div class="persona-card">
+        <div class="persona-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Regulatory Affairs</h3>
+        <p>Full audit trail, deviation records, and validation packages produced automatically — not assembled from spreadsheets after the fact.</p>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Data Engineers</h3>
+        <p>Infrastructure-as-code via Terraform. Git-managed configuration. Every migration unit is independently retryable without touching completed work.</p>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>IT &amp; Security</h3>
+        <p>Access controls provisioned before any data moves. Every permission is reviewable, peer-approved, and traceable to a Git commit.</p>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Validation Teams</h3>
+        <p>Checksums, row counts, and validation results auto-attached to every lineage record. Your IQ/OQ documentation is built during execution.</p>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Study Operations</h3>
+        <p>Active studies stay uninterrupted during migration waves. Cutover is managed, scoped, and reversible — not a single high-risk switchover.</p>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07"/><path d="M19.07 4.93L12 12"/></svg>
+        </div>
+        <h3>Program Leadership</h3>
+        <p>Clear migration unit status, controlled wave planning, and a defined engagement structure from scoping workshop through final cutover.</p>
+      </div>
+
     </div>
   </div>
 
@@ -237,7 +462,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
        Section 7: How an Engagement Unfolds
        ============================================================ -->
   <div class="section" id="engagement">
-    <h2>How an engagement unfolds.</h2>
+    <div class="engagement-layout">
+      <div class="engagement-content">
+        <h2>How an engagement unfolds.</h2>
 
     <ol class="timeline">
 
@@ -276,6 +503,15 @@ import PageLayout from '../../layouts/PageLayout.astro';
       </li>
 
     </ol>
+      </div>
+      <div class="engagement-image">
+        <img
+          src={`${import.meta.env.BASE_URL}images/services/ipad-right.jpg`}
+          alt="Illustration of a phased migration timeline"
+          style="transform: scaleX(-1);"
+        />
+      </div>
+    </div>
   </div>
 
   <!-- ============================================================
@@ -323,16 +559,16 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
   @media (min-width: 768px) {
     .credibility-layout {
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 2fr 3fr;
     }
   }
 
   .credibility-image {
     width: 100%;
-    max-width: 280px;
-    height: 360px;
+    max-width: 100%;
+    height: 400px;
     object-fit: cover;
-    object-position: 70% center;
+    object-position: 80% center;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     justify-self: center;
@@ -513,6 +749,312 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
   .phase-output {
     font-size: 0.9rem;
+  }
+
+  /* ── Audit card wrapper ── */
+  .audit-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(178, 209, 234, 0.5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-10) var(--space-10);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .audit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-teal), var(--color-blue));
+  }
+
+  .audit-card-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .audit-card-header h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .audit-card-header .intro-para {
+    margin-bottom: 0;
+  }
+
+  /* ── Engagement two-column layout ── */
+  .engagement-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .engagement-layout {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .engagement-image {
+    position: sticky;
+    top: 100px;
+  }
+
+  .engagement-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ── Platform logos strip ── */
+  .logos-strip {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-blue-pale);
+    border-bottom: 1px solid var(--color-blue-pale);
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .logos-strip-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .logos-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-slate-gray);
+    opacity: 0.7;
+  }
+
+  .logos-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-10);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo-item {
+    color: var(--color-slate);
+    opacity: 0.55;
+    transition: opacity 0.2s;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-item:hover {
+    opacity: 0.85;
+  }
+
+  .logo-item svg {
+    height: 32px;
+    width: auto;
+  }
+
+  /* ── Comparison table ── */
+  .comparison-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .comparison-table {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .comparison-col {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-blue-pale);
+  }
+
+  .comparison-col--new {
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 1px var(--color-teal), var(--shadow-md);
+  }
+
+  .comparison-col-header {
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-bg);
+  }
+
+  .comparison-col--new .comparison-col-header {
+    background: var(--color-teal-light);
+  }
+
+  .comparison-badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .comparison-badge--old {
+    color: var(--color-slate-gray);
+  }
+
+  .comparison-badge--new {
+    color: var(--color-teal);
+  }
+
+  .comparison-list {
+    list-style: none;
+    padding: var(--space-2) var(--space-6) var(--space-6);
+    margin: 0;
+    background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .comparison-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-bg);
+  }
+
+  .comparison-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .comparison-item svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .comparison-item--bad {
+    color: var(--color-slate-gray);
+  }
+
+  .comparison-item--bad svg {
+    color: #dc6b6b;
+  }
+
+  .comparison-item--good {
+    color: var(--color-slate);
+    font-weight: 500;
+  }
+
+  .comparison-item--good svg {
+    color: var(--color-teal);
+  }
+
+  /* ── Browser chrome frame ── */
+  .browser-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(29, 47, 61, 0.08);
+    background: var(--color-surface);
+    margin: 0;
+  }
+
+  .browser-chrome {
+    background: #eef1f4;
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    border-bottom: 1px solid rgba(29, 47, 61, 0.1);
+  }
+
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .browser-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(29, 47, 61, 0.15);
+  }
+
+  .browser-dots span:nth-child(1) { background: #fc6058; }
+  .browser-dots span:nth-child(2) { background: #fec02f; }
+  .browser-dots span:nth-child(3) { background: #2aca44; }
+
+  .browser-bar {
+    flex: 1;
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: 0.2rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-slate-gray);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .browser-body img {
+    width: 100%;
+    display: block;
+    border-radius: 0;
+  }
+
+  /* ── Personas grid ── */
+  .personas-grid {
+    margin-top: var(--space-10);
+  }
+
+  .persona-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(178, 209, 234, 0.4);
+    border-radius: var(--radius-md);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .persona-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .persona-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--color-teal-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    color: var(--color-teal);
+  }
+
+  .persona-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .persona-card p {
+    color: var(--color-slate-gray);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.6;
   }
 
   /* CTA secondary link */
