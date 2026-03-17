@@ -584,8 +584,9 @@ ul, ol {
    ============================================================ */
 
 .stats-bar {
-  background: var(--color-blue);
-  padding: var(--space-10) var(--space-6);
+  background: #0f1f2c;
+  border-bottom: 1px solid rgba(60, 157, 204, 0.15);
+  padding: var(--space-8) var(--space-6);
 }
 
 .stats-bar-inner {
