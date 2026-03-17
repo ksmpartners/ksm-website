@@ -400,7 +400,7 @@ ul, ol {
 
   .dropdown-menu {
     position: absolute;
-    top: calc(100% + 6px);
+    top: 100%;
     left: 0;
     display: none;
   }

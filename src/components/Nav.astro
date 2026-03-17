@@ -6,7 +6,10 @@ const services = [
   { label: 'Delivery Automation', href: 'services/delivery-automation' },
   { label: 'Project Management', href: 'services/project-management' },
   { label: 'Test Automation', href: 'services/test-automation' },
-  { label: 'GxP Data Migration', href: 'services/gxp-migration' },
+];
+
+const solutions = [
+  { label: 'GxP Migration', href: 'services/gxp-migration' },
 ];
 ---
 <nav aria-label="Main navigation" style="display:contents">
@@ -24,6 +27,16 @@ const services = [
       </button>
       <ul class="dropdown-menu" id="services-menu" role="menu">
         {services.map(s => (
+          <li role="menuitem"><a href={s.href}>{s.label}</a></li>
+        ))}
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" id="solutions-toggle">
+        Solutions <span class="arrow">▾</span>
+      </button>
+      <ul class="dropdown-menu" id="solutions-menu" role="menu">
+        {solutions.map(s => (
           <li role="menuitem"><a href={s.href}>{s.label}</a></li>
         ))}
       </ul>
@@ -46,25 +59,17 @@ const services = [
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  const servicesToggle = document.getElementById('services-toggle');
-  const servicesMenu = document.getElementById('services-menu');
-  const servicesDropdown = servicesToggle?.closest('.nav-dropdown');
+  function setupDropdown(toggleId: string, menuId: string) {
+    const btn = document.getElementById(toggleId);
+    const menu = document.getElementById(menuId);
+    if (!btn || !menu) return;
 
-  servicesToggle?.addEventListener('click', () => {
-    const open = servicesMenu?.classList.toggle('open');
-    servicesToggle.setAttribute('aria-expanded', String(open));
-  });
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
 
-  let closeTimer: ReturnType<typeof setTimeout>;
-
-  servicesDropdown?.addEventListener('mouseleave', () => {
-    closeTimer = setTimeout(() => {
-      servicesMenu?.classList.remove('open');
-      servicesToggle?.setAttribute('aria-expanded', 'false');
-    }, 200);
-  });
-
-  servicesDropdown?.addEventListener('mouseenter', () => {
-    clearTimeout(closeTimer);
-  });
+  setupDropdown('services-toggle', 'services-menu');
+  setupDropdown('solutions-toggle', 'solutions-menu');
 </script>
