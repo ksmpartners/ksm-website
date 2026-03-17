@@ -2,7 +2,7 @@
 title: Market Monitoring Data Collection and Aggregation
 vertical: Utilities
 order: 1
-featured: true
+featured: false
 client: Independent Market Monitor
 summary: We built a modular, AWS-hosted web portal that collects competitive marketplace data from diverse market participants. In production for over eight years, the platform continuously expands to meet evolving regulatory requirements.
 image: images/case-studies/market-monitoring.jpg
