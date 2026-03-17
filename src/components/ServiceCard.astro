@@ -6,10 +6,9 @@ interface Props {
   icon?: string;
 }
 
-const { title, description, slug, icon = '⚙️' } = Astro.props;
+const { title, description, slug } = Astro.props;
 ---
 <article class="card">
-  <div class="card-icon">{icon}</div>
   <h3>{title}</h3>
   <p>{description}</p>
   <a href={`services/${slug}`} class="card-link">Learn more →</a>

@@ -6,9 +6,10 @@ const services = [
   { label: 'Delivery Automation', href: 'services/delivery-automation' },
   { label: 'Project Management', href: 'services/project-management' },
   { label: 'Test Automation', href: 'services/test-automation' },
+  { label: 'GxP Data Migration', href: 'services/gxp-migration' },
 ];
 ---
-<nav aria-label="Main navigation">
+<nav aria-label="Main navigation" style="display:contents">
   <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
     <span></span>
     <span></span>
@@ -30,12 +31,14 @@ const services = [
     <li><a href="case-studies">Case Studies</a></li>
     <li><a href="about">About</a></li>
     <li><a href="blog">Blog</a></li>
-    <li><a href="contact">Contact</a></li>
   </ul>
+
+  <div class="nav-cta">
+    <a href="contact" class="btn btn-teal">Schedule a Call</a>
+  </div>
 </nav>
 
 <script>
-  // Hamburger toggle
   const toggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
   toggle?.addEventListener('click', () => {
@@ -43,7 +46,6 @@ const services = [
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  // Services dropdown — click toggles on mobile, mouseleave closes on desktop
   const servicesToggle = document.getElementById('services-toggle');
   const servicesMenu = document.getElementById('services-menu');
   const servicesDropdown = servicesToggle?.closest('.nav-dropdown');
@@ -53,8 +55,16 @@ const services = [
     servicesToggle.setAttribute('aria-expanded', String(open));
   });
 
+  let closeTimer: ReturnType<typeof setTimeout>;
+
   servicesDropdown?.addEventListener('mouseleave', () => {
-    servicesMenu?.classList.remove('open');
-    servicesToggle?.setAttribute('aria-expanded', 'false');
+    closeTimer = setTimeout(() => {
+      servicesMenu?.classList.remove('open');
+      servicesToggle?.setAttribute('aria-expanded', 'false');
+    }, 200);
+  });
+
+  servicesDropdown?.addEventListener('mouseenter', () => {
+    clearTimeout(closeTimer);
   });
 </script>

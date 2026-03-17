@@ -15,6 +15,7 @@ public/__astro_font_generated__/
 
 # Claude Code local settings
 .claude/settings.local.json
+references/
 
 # Editor
 .vscode/
@@ -23,3 +24,4 @@ public/__astro_font_generated__/
 # OS
 .DS_Store
 Thumbs.db
+

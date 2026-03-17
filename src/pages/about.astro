@@ -1,89 +1,675 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 ---
-<PageLayout title="About Us" description="Learn about KSM Technology Partners — our mission, values, and the team behind our work.">
+<PageLayout title="About KSM Technology Partners" description="Engineering-led technology consulting for regulated industries. Learn about our mission, values, and the team behind our work.">
 
-  <div class="page-header">
-    <div class="container">
-      <h1>About KSM Technology Partners</h1>
-      <p>Engineering-led technology consulting for regulated industries.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="about-grid">
-      <div class="prose">
-        <h2>Who We Are</h2>
+  <!-- ============================================================
+       Hero
+       ============================================================ -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <span class="overline">About KSM</span>
+        <h1>Engineering-led consulting for industries where the stakes are real.</h1>
         <p>
-          KSM Technology Partners is a technology consulting firm founded on a simple premise: the best technology consulting is done by practitioners who have built real systems in complex environments. Our team consists of engineers, architects, and project leaders with deep hands-on experience — not generalists who specialize in PowerPoint.
+          We are practitioners who have built production systems in complex, regulated environments —
+          not generalists who specialize in decks. Our clients trust us because we understand
+          both the technical challenges and the business context, and we execute.
         </p>
-        <p>
-          We focus on two industries where the stakes are high and the technical challenges are genuine: electric utilities and life sciences. These industries share important characteristics — complex operational technology, strict regulatory requirements, large amounts of critical data, and a need to move faster without sacrificing reliability or compliance.
-        </p>
-        <p>
-          Our clients range from regional electric cooperatives to global pharmaceutical manufacturers. What they share is a need for technology partners who understand both the technical challenges and the business context — and who can execute.
-        </p>
-
-        <h2>Our Approach</h2>
-        <p>
-          We are engineers first. We write code, design systems, and work alongside client teams — not above them. We believe that the best way to deliver value is to be embedded in the work, not managing from a distance.
-        </p>
-        <p>
-          We favor pragmatic solutions over fashionable ones. We choose the right tool for the job — sometimes that's the latest cloud-native technology, sometimes it's a well-understood pattern that's been reliable for decades. We're not dogmatic about technology choices, but we are rigorous about engineering quality.
-        </p>
-        <p>
-          We take knowledge transfer seriously. Our engagements are designed to leave client teams more capable than when we started, not more dependent on external consultants.
-        </p>
-      </div>
-
-      <div>
-        <figure class="image-placeholder"><img src={`${import.meta.env.BASE_URL}images/ksm-team.jpg`} alt="KSM Technology Partners team" style="border-radius: var(--radius); width: 100%;" /></figure>
-
-        <div style="margin-top: 2rem;">
-          <h3>Our Values</h3>
-          <ul class="value-list">
-            <li>Engineering rigor over convenient shortcuts</li>
-            <li>Client capability over consultant dependency</li>
-            <li>Honest assessments over comfortable agreement</li>
-            <li>Domain depth over generalist breadth</li>
-            <li>Long-term relationships over transactional engagements</li>
-          </ul>
+        <div class="hero-actions">
+          <a href="contact" class="btn">Work with us</a>
+          <a href="case-studies" class="about-hero-link">See our work →</a>
         </div>
       </div>
+      <div class="about-hero-image">
+        <img
+          src="https://placehold.co/580x480/1D2F3D/3C9DCC?text=KSM+Team"
+          alt="KSM Technology Partners team at work"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Stats bar
+       ============================================================ -->
+  <div class="about-stats-bar">
+    <div class="about-stats-inner">
+      <div class="about-stat">
+        <span class="about-stat-num">20</span>
+        <span class="about-stat-label">Years delivering complex technology</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">2</span>
+        <span class="about-stat-label">Deeply focused verticals</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">100%</span>
+        <span class="about-stat-label">Practitioners — zero slide specialists</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">18+ years</span>
+        <span class="about-stat-label">Of continuous relationships with customers who count on us</span>
+      </div>
     </div>
   </div>
 
-  <!-- Industries -->
+  <!-- ============================================================
+       Who We Are
+       ============================================================ -->
+  <div class="section">
+    <div class="about-split">
+      <div class="about-split-text">
+        <span class="overline">Who we are</span>
+        <h2>Depth over breadth. Every time.</h2>
+        <p>
+          KSM Technology Partners was founded on a simple premise: the best technology
+          consulting is done by people who have built real systems in complex environments.
+        </p>
+        <p>
+          We focus on two industries where the stakes are high and the technical challenges
+          are genuine — electric utilities and life sciences. These industries share
+          important characteristics: complex operational technology, strict regulatory
+          requirements, large amounts of critical data, and a need to move faster without
+          sacrificing reliability or compliance.
+        </p>
+        <p>
+          Our clients range from regional electric cooperatives to global pharmaceutical
+          manufacturers. What they share is a need for technology partners who understand
+          both the technical challenges and the business context — and who can execute.
+        </p>
+      </div>
+      <div class="about-split-image">
+        <figure class="image-placeholder"><img src={`${import.meta.env.BASE_URL}images/ksm-team.jpg`} alt="KSM Technology Partners team" style="border-radius: var(--radius); width: 100%;" /></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Mission statement (full-width pull)
+       ============================================================ -->
+  <div class="about-mission-band">
+    <div class="about-mission-inner">
+      <p class="about-mission-quote">
+        "The best way to deliver value is to be embedded in the work — not managing it from a distance."
+      </p>
+      <span class="about-mission-attr">Core principle, KSM Technology Partners</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Our Approach — three pillars
+       ============================================================ -->
+  <div class="section">
+    <div class="about-pillars-header">
+      <span class="overline">Our approach</span>
+      <h2>How we work.</h2>
+    </div>
+    <div class="about-pillars">
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Engineers first</h3>
+        <p>
+          We write code, design systems, and work alongside your team — not above it.
+          Our consultants have built the kinds of systems they now help clients build.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>Pragmatic solutions</h3>
+        <p>
+          We favor the right tool over the fashionable one. Sometimes that's the latest
+          cloud-native platform — sometimes it's a well-understood pattern that's been
+          reliable for decades.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Knowledge transfer</h3>
+        <p>
+          Every engagement is designed to leave your team more capable than when we
+          started — not more dependent on external consultants.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Values — alternating layout
+       ============================================================ -->
   <div class="section-pale">
     <div class="section">
-      <h2 class="text-center mb-2">Industries We Serve</h2>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">⚡</div>
-          <h3>Utilities</h3>
+      <div class="about-values-layout">
+        <div class="about-values-text">
+          <span class="overline">What we believe</span>
+          <h2>Five principles that shape every engagement.</h2>
           <p>
-            We work with electric, gas, and water utilities on grid modernization, operational technology integration, data platforms, and the regulatory compliance challenges unique to the energy sector — including NERC CIP, FERC compliance, and AMI integration.
+            These aren't aspirational statements — they're the lens through which we
+            make decisions on every project, every day.
           </p>
-          <a href="case-studies" class="card-link">View utilities case studies →</a>
         </div>
-        <div class="card">
-          <div class="card-icon">🔬</div>
-          <h3>Life Sciences</h3>
-          <p>
-            We work with pharmaceutical manufacturers, biotech companies, medical device firms, and contract research organizations on GxP-compliant software delivery, LIMS integration, clinical data management, and regulatory submission systems.
-          </p>
-          <a href="case-studies" class="card-link">View life sciences case studies →</a>
-        </div>
+        <ol class="about-values-list">
+          <li class="about-value">
+            <span class="about-value-num">01</span>
+            <div>
+              <h3>Engineering rigor over convenient shortcuts</h3>
+              <p>We don't cut corners to hit a deadline. Technical debt compounds; we'd rather get it right.</p>
+            </div>
+          </li>
+          <li class="about-value">
+            <span class="about-value-num">02</span>
+            <div>
+              <h3>Client capability over consultant dependency</h3>
+              <p>Success means your team can own the system when we leave — not that you need us to keep it running.</p>
+            </div>
+          </li>
+          <li class="about-value">
+            <span class="about-value-num">03</span>
+            <div>
+              <h3>Honest assessments over comfortable agreement</h3>
+              <p>We'll tell you what we actually think — even when it's not what you want to hear.</p>
+            </div>
+          </li>
+          <li class="about-value">
+            <span class="about-value-num">04</span>
+            <div>
+              <h3>Domain depth over generalist breadth</h3>
+              <p>We know utilities and life sciences deeply. We don't try to be everything to everyone.</p>
+            </div>
+          </li>
+          <li class="about-value">
+            <span class="about-value-num">05</span>
+            <div>
+              <h3>Long-term relationships over transactional engagements</h3>
+              <p>Our best client relationships span years, not months. We invest in understanding your business.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
 
-  <!-- CTA -->
+  <!-- ============================================================
+       Industries — image cards
+       ============================================================ -->
+  <div class="section">
+    <div class="about-industries-header">
+      <span class="overline">Where we work</span>
+      <h2>Two industries. Genuine depth in both.</h2>
+    </div>
+    <div class="about-industries">
+
+      <div class="industry-card">
+        <div class="industry-card-image">
+          <img
+            src="https://placehold.co/600x340/1D2F3D/3C9DCC?text=Utilities"
+            alt="Electric utilities grid modernization"
+          />
+          <div class="industry-card-badge">Utilities</div>
+        </div>
+        <div class="industry-card-body">
+          <h3>Electric, Gas &amp; Water Utilities</h3>
+          <p>
+            Grid modernization, operational technology integration, data platforms, and
+            regulatory compliance — including NERC CIP, FERC compliance, and AMI integration.
+            We understand the unique intersection of IT and OT that defines modern utility operations.
+          </p>
+          <a href="case-studies" class="industry-card-link">
+            View utilities case studies
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="industry-card">
+        <div class="industry-card-image">
+          <img
+            src="https://placehold.co/600x340/0EA898/FFFFFF?text=Life+Sciences"
+            alt="Life sciences laboratory"
+          />
+          <div class="industry-card-badge industry-card-badge--teal">Life Sciences</div>
+        </div>
+        <div class="industry-card-body">
+          <h3>Pharma, Biotech &amp; Medical Devices</h3>
+          <p>
+            GxP-compliant software delivery, LIMS integration, clinical data management,
+            and regulatory submission systems. From regional biotech to top-10 global pharma —
+            we've delivered in environments where every decision carries regulatory weight.
+          </p>
+          <a href="case-studies" class="industry-card-link">
+            View life sciences case studies
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
   <div class="cta-banner">
-    <h2>Let's Talk</h2>
+    <h2>Let's talk about what you're building.</h2>
     <p>Whether you have a specific project in mind or are just exploring options, we'd welcome the conversation.</p>
-    <a href="contact" class="btn btn-outline">Contact Us</a>
+    <div class="hero-actions">
+      <a href="contact" class="btn btn-outline">Contact us</a>
+    </div>
   </div>
 
 </PageLayout>
+
+<style>
+  /* ── Hero ── */
+  .about-hero {
+    background: var(--color-slate);
+    padding: var(--space-16) var(--space-8);
+  }
+
+  .about-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .about-hero-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .about-hero-text .overline {
+    color: var(--color-blue);
+  }
+
+  .about-hero-text h1 {
+    color: var(--color-surface);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+  }
+
+  .about-hero-text p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin-bottom: var(--space-8);
+  }
+
+  .about-hero-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    align-self: center;
+    transition: color 0.2s ease;
+  }
+
+  .about-hero-link:hover {
+    color: var(--color-surface);
+    text-decoration: none;
+  }
+
+  .about-hero-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ── Stats bar ── */
+  .about-stats-bar {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-blue-pale);
+    padding: var(--space-10) var(--space-8);
+  }
+
+  .about-stats-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8) var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .about-stats-inner {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .about-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-left: var(--space-6);
+    border-left: 3px solid var(--color-blue-pale);
+  }
+
+  .about-stat-num {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-slate);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .about-stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-slate-gray);
+    line-height: 1.4;
+  }
+
+  /* ── Who We Are split ── */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .about-split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .about-split-text .overline { margin-bottom: var(--space-4); }
+
+  .about-split-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    margin-bottom: var(--space-6);
+  }
+
+  .about-split-text p {
+    color: var(--color-slate-gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .about-split-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ── Mission band ── */
+  .about-mission-band {
+    background: var(--color-slate);
+    padding: var(--space-16) var(--space-8);
+  }
+
+  .about-mission-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-mission-quote {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--color-surface);
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+  }
+
+  .about-mission-attr {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-blue);
+    opacity: 0.8;
+  }
+
+  /* ── Pillars ── */
+  .about-pillars-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .about-pillars-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    margin-top: var(--space-2);
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .about-pillars {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pillar {
+    background: var(--color-surface);
+    border: 1px solid var(--color-blue-pale);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pillar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .pillar-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    color: var(--color-blue);
+  }
+
+  .pillar h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-3);
+    color: var(--color-slate);
+  }
+
+  .pillar p {
+    color: var(--color-slate-gray);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Values ── */
+  .about-values-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .about-values-layout {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  .about-values-text h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-values-text p {
+    color: var(--color-slate-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .about-values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .about-value {
+    display: flex;
+    gap: var(--space-6);
+    align-items: flex-start;
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--color-blue-pale);
+  }
+
+  .about-value:first-child {
+    border-top: 1px solid var(--color-blue-pale);
+  }
+
+  .about-value-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-blue);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+    min-width: 28px;
+  }
+
+  .about-value h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+    color: var(--color-slate);
+  }
+
+  .about-value p {
+    color: var(--color-slate-gray);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Industries ── */
+  .about-industries-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .about-industries-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    margin-top: var(--space-2);
+  }
+
+  .about-industries {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .about-industries {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .industry-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-blue-pale);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .industry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .industry-card-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .industry-card-image img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .industry-card:hover .industry-card-image img {
+    transform: scale(1.03);
+  }
+
+  .industry-card-badge {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-4);
+    background: var(--color-slate);
+    color: var(--color-surface);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+  }
+
+  .industry-card-badge--teal {
+    background: var(--color-teal);
+  }
+
+  .industry-card-body {
+    padding: var(--space-8);
+  }
+
+  .industry-card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .industry-card-body p {
+    color: var(--color-slate-gray);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: var(--space-6);
+  }
+
+  .industry-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-blue);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .industry-card-link:hover {
+    gap: var(--space-3);
+    color: var(--color-slate);
+    text-decoration: none;
+  }
+</style>

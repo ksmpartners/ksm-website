@@ -1,84 +1,648 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import VerticalIcon from '../../components/VerticalIcon.astro';
 import { getCollection } from 'astro:content';
 
-const allCaseStudies = await getCollection('case-studies');
-const byOrder = (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99);
+const allCSRaw = await getCollection('case-studies');
+type CS = typeof allCSRaw[number];
+const allCS = allCSRaw.sort((a: CS, b: CS) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
-const utilities = allCaseStudies.filter(cs => cs.data.vertical === 'Utilities').sort(byOrder);
-const lifeSciences = allCaseStudies.filter(cs => cs.data.vertical === 'Life Sciences').sort(byOrder);
-const other = allCaseStudies.filter(cs => cs.data.vertical === 'Other').sort(byOrder);
+const verticals = ['Utilities', 'Life Sciences', 'Other'];
+
+const verticalMeta: Record<string, { color: string; description: string }> = {
+  'Utilities': {
+    color: '#1D7EAA',
+    description: 'Grid operations, market monitoring, and power systems engineering',
+  },
+  'Life Sciences': {
+    color: '#0EA898',
+    description: 'GxP compliance, clinical data, and regulated software delivery',
+  },
+  'Other': {
+    color: '#6B5CF6',
+    description: 'Platform modernization and self-service product engineering',
+  },
+};
+
+
+function vColor(v: string) { return verticalMeta[v]?.color ?? '#3C9DCC'; }
+
+const featured = allCS.filter(cs => cs.data.featured);
+const rest = allCS.filter(cs => !cs.data.featured);
 ---
+
 <PageLayout title="Case Studies" description="Explore KSM Technology Partners case studies across utilities and life sciences.">
 
-  <div class="page-header">
+  <!-- ── Hero header ── -->
+  <div class="cs-hero">
     <div class="container">
-      <h1>Case Studies</h1>
-      <p>Real-world examples of how we've helped clients solve complex technology challenges.</p>
+      <span class="overline">Client Work</span>
+      <h1 class="cs-hero-title">Outcomes That Matter</h1>
+      <p class="cs-hero-sub">From mission-critical grid systems to regulated pharmaceutical pipelines — real solutions, real impact.</p>
+
+      <!-- Vertical filter pills -->
+      <div class="cs-filters" role="group" aria-label="Filter by industry">
+        <button class="filter-pill active" data-filter="all">All Industries</button>
+        {verticals.map(v => (
+          <button class="filter-pill" data-filter={v} style={`--pill-color: ${vColor(v)}`}>
+            <VerticalIcon vertical={v} size={11} />
+            {v}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Vertical stat strip -->
+    <div class="cs-stats-strip">
+      <div class="container">
+        <div class="cs-stats-row">
+          {verticals.map(v => {
+            const count = allCS.filter(cs => cs.data.vertical === v).length;
+            return (
+              <div class="cs-stat">
+                <span class="cs-stat-icon" style={`color: ${vColor(v)}`}>
+            <VerticalIcon vertical={v} size={18} />
+          </span>
+                <span class="cs-stat-count">{count}</span>
+                <span class="cs-stat-label">{v}</span>
+              </div>
+            );
+          })}
+          <div class="cs-stat">
+            <span class="cs-stat-count cs-stat-years">10<span class="cs-stat-plus">+</span></span>
+            <span class="cs-stat-label">Years of engagements</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section cs-section">
 
-    {utilities.length > 0 && (
-      <div>
-        <h2 class="blog-group-heading">Utilities</h2>
-        <div class="grid-3">
-          {utilities.map(cs => (
-            <CaseStudyCard
-              title={cs.data.title}
-              summary={cs.data.summary}
-              slug={cs.id.replace(/\.mdx?$/, '')}
-              vertical={cs.data.vertical}
-              client={cs.data.client}
-            />
-          ))}
-        </div>
+    <!-- ── Featured spotlight ── -->
+    {featured.length > 0 && (
+      <div class="cs-featured-grid" id="featured-grid">
+        {featured.map(cs => {
+          const color = vColor(cs.data.vertical);
+          const slug = cs.id.replace(/\.mdx?$/, '');
+          return (
+            <article class="cs-featured-card" data-vertical={cs.data.vertical} style={`--cs-color: ${color}`}>
+              <div class="csf-accent"></div>
+              <div class="csf-body">
+                <div class="csf-meta">
+                  <span class="cs-vertical-badge" style={`--badge-color: ${color}`}>
+                    <VerticalIcon vertical={cs.data.vertical} size={10} />
+                    {cs.data.vertical}
+                  </span>
+                  {cs.data.client && (
+                    <span class="csf-client">{cs.data.client}</span>
+                  )}
+                </div>
+                <h2 class="csf-title">
+                  <a href={`/case-studies/${slug}`}>{cs.data.title}</a>
+                </h2>
+                <p class="csf-summary">{cs.data.summary}</p>
+                <a href={`/case-studies/${slug}`} class="csf-cta">
+                  Read case study <span class="cta-arrow">→</span>
+                </a>
+              </div>
+              <div class="csf-visual">
+                <div class="csf-visual-bg"></div>
+                <div class="csf-monogram">{cs.data.client?.charAt(0) ?? 'K'}</div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     )}
 
-    {lifeSciences.length > 0 && (
-      <div style="margin-top: 3rem;">
-        <h2 class="blog-group-heading">Life Sciences</h2>
-        <div class="grid-3">
-          {lifeSciences.map(cs => (
-            <CaseStudyCard
-              title={cs.data.title}
-              summary={cs.data.summary}
-              slug={cs.id.replace(/\.mdx?$/, '')}
-              vertical={cs.data.vertical}
-              client={cs.data.client}
-            />
-          ))}
+    <!-- ── All other case studies ── -->
+    {rest.length > 0 && (
+      <>
+        <div class="cs-divider">
+          <span>More Case Studies</span>
         </div>
-      </div>
+        <div class="cs-grid" id="cs-grid">
+          {rest.map(cs => {
+            const color = vColor(cs.data.vertical);
+            const slug = cs.id.replace(/\.mdx?$/, '');
+            return (
+              <article class="cs-card" data-vertical={cs.data.vertical} style={`--cs-color: ${color}`}>
+                <div class="csc-accent"></div>
+                <div class="csc-body">
+                  <div class="csc-meta">
+                    <span class="cs-vertical-badge" style={`--badge-color: ${color}`}>
+                      <VerticalIcon vertical={cs.data.vertical} size={10} />
+                      {cs.data.vertical}
+                    </span>
+                  </div>
+                  <h3 class="csc-title">
+                    <a href={`/case-studies/${slug}`}>{cs.data.title}</a>
+                  </h3>
+                  {cs.data.client && <p class="csc-client">{cs.data.client}</p>}
+                  <p class="csc-summary">{cs.data.summary}</p>
+                </div>
+                <div class="csc-footer">
+                  <a href={`/case-studies/${slug}`} class="csc-read-link">Read case study →</a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </>
     )}
 
-    {other.length > 0 && (
-      <div style="margin-top: 3rem;">
-        <h2 class="blog-group-heading">Other</h2>
-        <div class="grid-3">
-          {other.map(cs => (
-            <CaseStudyCard
-              title={cs.data.title}
-              summary={cs.data.summary}
-              slug={cs.id.replace(/\.mdx?$/, '')}
-              vertical={cs.data.vertical}
-              client={cs.data.client}
-            />
-          ))}
-        </div>
-      </div>
-    )}
+    <div class="no-results" id="no-results" style="display:none">
+      <p>No case studies found for this vertical yet.</p>
+    </div>
 
   </div>
 
-  <!-- CTA -->
-  <div class="cta-banner">
-    <h2>Have a Similar Challenge?</h2>
-    <p>We'd love to learn about your project and explore how we can help.</p>
-    <a href="contact" class="btn btn-outline">Contact Us</a>
+  <!-- ── CTA banner ── -->
+  <div class="cs-cta-banner">
+    <div class="container">
+      <div class="cs-cta-inner">
+        <div>
+          <h2 class="cs-cta-title">Have a Similar Challenge?</h2>
+          <p class="cs-cta-sub">We'd love to learn about your project and explore how we can help.</p>
+        </div>
+        <a href="contact" class="btn btn-primary cs-cta-btn">Start a Conversation →</a>
+      </div>
+    </div>
   </div>
 
 </PageLayout>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const featuredCards = document.querySelectorAll<HTMLElement>('.cs-featured-card');
+  const gridCards = document.querySelectorAll<HTMLElement>('.cs-card');
+  const featuredGrid = document.getElementById('featured-grid');
+  const csGrid = document.getElementById('cs-grid');
+  const divider = document.querySelector<HTMLElement>('.cs-divider');
+  const noResults = document.getElementById('no-results');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const filter = pill.dataset.filter ?? 'all';
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      let featuredVisible = 0;
+      featuredCards.forEach(card => {
+        const show = filter === 'all' || card.dataset.vertical === filter;
+        card.style.display = show ? '' : 'none';
+        if (show) featuredVisible++;
+      });
+
+      let gridVisible = 0;
+      gridCards.forEach(card => {
+        const show = filter === 'all' || card.dataset.vertical === filter;
+        card.style.display = show ? '' : 'none';
+        if (show) gridVisible++;
+      });
+
+      if (featuredGrid) featuredGrid.style.display = featuredVisible === 0 ? 'none' : '';
+      if (csGrid) csGrid.style.display = gridVisible === 0 ? 'none' : '';
+      if (divider) divider.style.display = (gridVisible === 0 || featuredVisible === 0) ? 'none' : '';
+      if (noResults) noResults.style.display = (featuredVisible + gridVisible === 0) ? 'block' : 'none';
+    });
+  });
+</script>
+
+<style>
+/* ── Hero ── */
+.cs-hero {
+  background: linear-gradient(160deg, var(--color-slate) 0%, #0a1a26 100%);
+  padding: var(--space-16) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-hero::before {
+  content: '';
+  position: absolute;
+  bottom: 60px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(14,168,152,0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cs-hero::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -60px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(60,157,204,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cs-hero .container { padding-bottom: var(--space-10); }
+.cs-hero .overline { color: var(--color-teal); }
+
+.cs-hero-title {
+  color: #fff;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: var(--space-4);
+}
+
+.cs-hero-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: var(--text-lg);
+  max-width: 580px;
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+/* ── Filter pills ── */
+.cs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: 0;
+}
+
+.filter-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.7);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filter-pill:hover {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.filter-pill.active {
+  background: var(--pill-color, var(--color-teal));
+  border-color: var(--pill-color, var(--color-teal));
+  color: #fff;
+}
+
+.pill-icon { font-style: normal; }
+
+/* ── Stats strip ── */
+.cs-stats-strip {
+  background: rgba(0,0,0,0.25);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: var(--space-4) 0;
+  margin-top: var(--space-10);
+}
+
+.cs-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.cs-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.cs-stat-icon { display: flex; align-items: center; width: 18px; height: 18px; }
+.cs-stat-icon svg { width: 18px; height: 18px; }
+
+.cs-stat-count {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.cs-stat-years { font-size: var(--text-2xl); }
+.cs-stat-plus { font-size: var(--text-base); opacity: 0.7; }
+
+.cs-stat-label {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Section ── */
+.cs-section { padding-top: var(--space-12); }
+
+/* ── Vertical badge ── */
+.cs-vertical-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--badge-color, #3C9DCC) 12%, transparent);
+  color: var(--badge-color, var(--color-blue));
+  border: 1px solid color-mix(in srgb, var(--badge-color, #3C9DCC) 25%, transparent);
+}
+
+/* ── Featured cards ── */
+.cs-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.cs-featured-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+}
+
+.cs-featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 56px rgba(29, 47, 61, 0.18);
+}
+
+.csf-accent {
+  height: 4px;
+  background: var(--cs-color, var(--color-blue));
+}
+
+.csf-body {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.csf-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.csf-client {
+  font-size: var(--text-xs);
+  color: var(--color-slate-gray);
+  font-family: var(--font-mono);
+  opacity: 0.7;
+}
+
+.csf-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.csf-title a { color: var(--color-slate); text-decoration: none; }
+.csf-title a:hover { color: var(--cs-color, var(--color-blue)); }
+
+.csf-summary {
+  color: var(--color-slate-gray);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 640px;
+}
+
+.csf-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--cs-color, var(--color-blue));
+  text-decoration: none;
+  margin-top: var(--space-2);
+  transition: gap 0.15s;
+}
+
+.csf-cta:hover { gap: 0.6rem; text-decoration: none; }
+.cta-arrow { transition: transform 0.15s; }
+.csf-cta:hover .cta-arrow { transform: translateX(3px); }
+
+/* Featured visual panel */
+.csf-visual { display: none; }
+
+.csf-visual-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--cs-color, #3C9DCC) 15%, transparent) 0%,
+    color-mix(in srgb, var(--cs-color, #3C9DCC) 5%, transparent) 100%
+  );
+}
+
+.csf-monogram {
+  position: relative;
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--cs-color, var(--color-blue));
+  opacity: 0.15;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Divider ── */
+.cs-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  color: var(--color-slate-gray);
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+.cs-divider::before,
+.cs-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-blue-pale);
+}
+
+/* ── Case study grid ── */
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+/* ── Case study card ── */
+.cs-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-blue-pale);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cs-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--cs-color, #3C9DCC) 30%, transparent);
+}
+
+.csc-accent {
+  height: 3px;
+  background: var(--cs-color, var(--color-blue));
+  flex-shrink: 0;
+}
+
+.csc-body {
+  padding: var(--space-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.csc-meta { display: flex; align-items: center; gap: var(--space-2); }
+
+.csc-title {
+  font-size: var(--text-lg);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+  flex: 1;
+}
+
+.csc-title a { color: var(--color-slate); text-decoration: none; }
+.csc-title a:hover { color: var(--cs-color, var(--color-blue)); }
+
+.csc-client {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-slate-gray);
+  opacity: 0.65;
+  margin: 0;
+}
+
+.csc-summary {
+  color: var(--color-slate-gray);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.csc-footer {
+  padding: var(--space-3) var(--space-6);
+  border-top: 1px solid var(--color-blue-pale);
+  background: rgba(243, 246, 248, 0.5);
+}
+
+.csc-read-link {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--cs-color, var(--color-blue));
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.csc-read-link:hover { opacity: 0.75; text-decoration: none; }
+
+/* ── No results ── */
+.no-results {
+  padding: var(--space-16);
+  text-align: center;
+  color: var(--color-slate-gray);
+  font-size: var(--text-lg);
+  opacity: 0.6;
+}
+
+/* ── CTA Banner ── */
+.cs-cta-banner {
+  background: linear-gradient(135deg, var(--color-slate) 0%, #0f1f2c 100%);
+  padding: var(--space-16) 0;
+  margin-top: var(--space-8);
+}
+
+.cs-cta-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.cs-cta-title {
+  color: #fff;
+  font-size: var(--text-3xl);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.cs-cta-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: var(--text-lg);
+  margin: 0;
+}
+
+.cs-cta-btn {
+  white-space: nowrap;
+  background: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+  .cs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .cs-featured-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .cs-featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .csf-accent { display: none; }
+
+  .csf-body {
+    border-left: 4px solid var(--cs-color, var(--color-blue));
+  }
+
+  .cs-cta-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cs-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .csf-body { padding: var(--space-10); }
+}
+</style>

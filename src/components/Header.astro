@@ -1,7 +1,7 @@
 ---
 import Nav from './Nav.astro';
 ---
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="" class="site-logo" aria-label="KSM Technology Partners home">
       <img src={`${import.meta.env.BASE_URL}KSM_Logo_2c_Blue.svg`} alt="KSM Technology Partners" />
@@ -9,3 +9,14 @@ import Nav from './Nav.astro';
     <Nav />
   </div>
 </header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const onScroll = () => {
+    if (header) {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

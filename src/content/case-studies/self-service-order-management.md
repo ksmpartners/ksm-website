@@ -2,7 +2,7 @@
 title: Web Services for Self Service Order Management
 vertical: Other
 order: 6
-featured: true
+featured: false
 client: Risk Management and Insurance Education
 summary: We implemented a scalable Spring Boot web service layer enabling a leader in risk management and insurance education to offer self-service online ordering, delivering faster deployments, better performance, and a multi-year ongoing engagement.
 image: images/case-studies/self-service-order-management.jpg
