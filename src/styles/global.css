@@ -761,6 +761,21 @@ ul, ol {
   letter-spacing: -0.02em;
 }
 
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.card-title-row h3 {
+  margin-bottom: 0;
+}
+
+.card-title-row .card-icon {
+  margin-bottom: 0;
+}
+
 .card p {
   color: var(--color-slate-gray);
   font-size: var(--text-base);
@@ -786,16 +801,15 @@ ul, ol {
 }
 
 .card-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--color-bg);
-  border-radius: var(--radius-md);
+  width: 48px;
+  height: 48px;
+  background: var(--color-pale);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-6);
-  font-size: 1.4rem;
-  margin-top: var(--space-4);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .card-meta {

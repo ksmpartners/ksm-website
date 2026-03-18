@@ -3,6 +3,7 @@ title: Cloud Migration
 description: Modernize your infrastructure with proven cloud migration strategies that minimize risk and maximize business value.
 image: images/services/cloud-migration.jpg
 order: 2
+icon: ☁️
 ---
 
 ## Cloud Migration Services

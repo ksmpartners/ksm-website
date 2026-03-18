@@ -7,6 +7,7 @@ const services = defineCollection({
     description: z.string(),         // one-line summary for cards
     order: z.number().optional(),    // display order on home page
     image: z.string().optional(),    // path under public/images/
+    icon: z.string().optional(),    // icon for card
   }),
 });
 

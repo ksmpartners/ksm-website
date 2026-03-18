@@ -3,6 +3,7 @@ title: Test Automation
 description: Build comprehensive automated test suites that accelerate delivery while satisfying regulatory validation requirements.
 image: images/services/test-automation.jpg
 order: 5
+icon: ✅
 ---
 
 ## Test Automation Services
