@@ -22,65 +22,38 @@ import PageLayout from '../layouts/PageLayout.astro';
         </div>
       </div>
       <div class="about-hero-image">
-        <img
-          src="https://placehold.co/580x480/1D2F3D/3C9DCC?text=KSM+Team"
-          alt="KSM Technology Partners team at work"
-        />
+         <figure class="image-placeholder"><img src={`${import.meta.env.BASE_URL}images/ksm-team.jpg`} alt="KSM Technology Partners team" style="border-radius: var(--radius); width: 100%;" /></figure>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       Stats bar
-       ============================================================ -->
-  <div class="about-stats-bar">
-    <div class="about-stats-inner">
-      <div class="about-stat">
-        <span class="about-stat-num">20</span>
-        <span class="about-stat-label">Years delivering complex technology</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-stat-num">2</span>
-        <span class="about-stat-label">Deeply focused verticals</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-stat-num">100%</span>
-        <span class="about-stat-label">Practitioners — zero slide specialists</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-stat-num">18+ years</span>
-        <span class="about-stat-label">Of continuous relationships with customers who count on us</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================
        Who We Are
        ============================================================ -->
   <div class="section">
-    <div class="about-split">
-      <div class="about-split-text">
-        <span class="overline">Who we are</span>
-        <h2>Depth over breadth. Every time.</h2>
+    <div>
+      <div>
+        <h2>Who We Are</h2>
         <p>
-          KSM Technology Partners was founded on a simple premise: the best technology
-          consulting is done by people who have built real systems in complex environments.
+          KSM Technology Partners is a technology consulting firm founded on a simple premise: the best technology consulting is done by practitioners who have built real systems in complex environments. Our team consists of engineers, architects, and project leaders with deep hands-on experience — not generalists who specialize in PowerPoint.
         </p>
         <p>
-          We focus on two industries where the stakes are high and the technical challenges
-          are genuine — electric utilities and life sciences. These industries share
-          important characteristics: complex operational technology, strict regulatory
-          requirements, large amounts of critical data, and a need to move faster without
-          sacrificing reliability or compliance.
+          We focus on two industries where the stakes are high and the technical challenges are genuine: electric utilities and life sciences. These industries share important characteristics — complex operational technology, strict regulatory requirements, large amounts of critical data, and a need to move faster without sacrificing reliability or compliance.
         </p>
         <p>
-          Our clients range from regional electric cooperatives to global pharmaceutical
-          manufacturers. What they share is a need for technology partners who understand
-          both the technical challenges and the business context — and who can execute.
+          Our clients range from regional electric cooperatives to global pharmaceutical manufacturers. What they share is a need for technology partners who understand both the technical challenges and the business context — and who can execute.
         </p>
-      </div>
-      <div class="about-split-image">
-        <figure class="image-placeholder"><img src={`${import.meta.env.BASE_URL}images/ksm-team.jpg`} alt="KSM Technology Partners team" style="border-radius: var(--radius); width: 100%;" /></figure>
+
+        <h2>Our Approach</h2>
+        <p>
+          We are engineers first. We write code, design systems, and work alongside client teams — not above them. We believe that the best way to deliver value is to be embedded in the work, not managing from a distance.
+        </p>
+        <p>
+          We favor pragmatic solutions over fashionable ones. We choose the right tool for the job — sometimes that's the latest cloud-native technology, sometimes it's a well-understood pattern that's been reliable for decades. We're not dogmatic about technology choices, but we are rigorous about engineering quality.
+        </p>
+        <p>
+          We take knowledge transfer seriously. Our engagements are designed to leave client teams more capable than when we started, not more dependent on external consultants.
+        </p>
       </div>
     </div>
   </div>
@@ -94,53 +67,6 @@ import PageLayout from '../layouts/PageLayout.astro';
         "The best way to deliver value is to be embedded in the work — not managing it from a distance."
       </p>
       <span class="about-mission-attr">Core principle, KSM Technology Partners</span>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       Our Approach — three pillars
-       ============================================================ -->
-  <div class="section">
-    <div class="about-pillars-header">
-      <span class="overline">Our approach</span>
-      <h2>How we work.</h2>
-    </div>
-    <div class="about-pillars">
-
-      <div class="pillar">
-        <div class="pillar-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Engineers first</h3>
-        <p>
-          We write code, design systems, and work alongside your team — not above it.
-          Our consultants have built the kinds of systems they now help clients build.
-        </p>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <h3>Pragmatic solutions</h3>
-        <p>
-          We favor the right tool over the fashionable one. Sometimes that's the latest
-          cloud-native platform — sometimes it's a well-understood pattern that's been
-          reliable for decades.
-        </p>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Knowledge transfer</h3>
-        <p>
-          Every engagement is designed to leave your team more capable than when we
-          started — not more dependent on external consultants.
-        </p>
-      </div>
-
     </div>
   </div>
 
@@ -346,28 +272,6 @@ import PageLayout from '../layouts/PageLayout.astro';
     .about-stats-inner {
       grid-template-columns: repeat(4, 1fr);
     }
-  }
-
-  .about-stat {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding-left: var(--space-6);
-    border-left: 3px solid var(--color-blue-pale);
-  }
-
-  .about-stat-num {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: var(--color-slate);
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-
-  .about-stat-label {
-    font-size: var(--text-sm);
-    color: var(--color-slate-gray);
-    line-height: 1.4;
   }
 
   /* ── Who We Are split ── */
