@@ -274,40 +274,6 @@ import PageLayout from '../layouts/PageLayout.astro';
     }
   }
 
-  /* ── Who We Are split ── */
-  .about-split {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
-    align-items: center;
-  }
-
-  @media (min-width: 900px) {
-    .about-split {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .about-split-text .overline { margin-bottom: var(--space-4); }
-
-  .about-split-text h2 {
-    font-size: clamp(1.75rem, 3vw, 2.4rem);
-    margin-bottom: var(--space-6);
-  }
-
-  .about-split-text p {
-    color: var(--color-slate-gray);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 520px;
-  }
-
-  .about-split-image img {
-    width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-  }
-
   /* ── Mission band ── */
   .about-mission-band {
     background: var(--color-slate);
