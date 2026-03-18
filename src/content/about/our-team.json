@@ -1,0 +1,60 @@
+﻿{
+    "generatedAt":  "2026-03-18T09:35:57.3781493-04:00",
+    "source":  "https://ksmpartners.com/our-team/",
+    "members":  [
+                    {
+                        "url":  "https://ksmpartners.com/team/dean-zimmerman/",
+                        "name":  "Dean Zimmerman",
+                        "title":  "VP",
+                        "order": 4,
+                        "bio":  "Since his first high school programming class, Dean has been forever fascinated by the challenges of software development. His career started as a software engineer in the pharmaceutical industry and expanded to real-time traffic information systems and electric grid high-availability software. Dean’s expertise and passion revolve around the full cycle development of Java-based highly scalable computing platforms.",
+                        "imageRemote":  "https://mlkf69dsvkey.i.optimole.com/w:150/h:150/q:mauto/f:best/ig:avif/https://ksmpartners.com/wp-content/uploads/2022/01/Dean_Zimmerman.png",
+                        "image":  "team/dean-zimmerman.webp"
+                    },
+                    {
+                        "url":  "https://ksmpartners.com/team/emil-bud-lefkof/",
+                        "name":  "Emil “Bud” Lefkof",
+                        "title":  "CTO",
+                        "order": 3,
+                        "bio":  "Bud has a bold entrepreneurial streak, and a gift for elevating the play of his coworkers and clients. He has been a consultant and software developer for 30 years, and has delivered bespoke solutions in the electric utility, life sciences, and airline domains. Bud is an avid open-source advocate and contributor, and has been a committer to many popular open-source projects such as Quarkus, PrimeFaces, and Apache MyFaces.",
+                        "imageRemote":  "https://mlkf69dsvkey.i.optimole.com/w:150/h:150/q:mauto/f:best/ig:avif/https://ksmpartners.com/wp-content/uploads/2022/01/Emil_Bud_Lefkof.png",
+                        "image":  "team/emil-bud-lefkof.webp"
+                    },
+                    {
+                        "url":  "https://ksmpartners.com/team/jeff-kearney/",
+                        "name":  "Jeff Kearney",
+                        "title":  "VP",
+                        "order": 6,
+                        "bio":  "Jeff has more than 20 years of international leadership experience in the content development, training, and IT markets. He has started and turned around businesses in Europe and the U.S. He has lived in Germany and the U.K. Jeff founded XMoLogy, LLC and was the chief conceptor behind ETx, a tool that publishes wiring diagrams directly from engineering information. Jeff has a BS in Physics and a Masters degree in Industrial Engineering. He is a member of the Tau Beta Pi engineering honor society.",
+                        "imageRemote":  "https://mlkf69dsvkey.i.optimole.com/w:150/h:150/q:mauto/f:best/ig:avif/https://ksmpartners.com/wp-content/uploads/2022/01/Jeff_Kearney.png",
+                        "image":  "team/jeff-kearney.webp"
+                    },
+                    {
+                        "url":  "https://ksmpartners.com/team/mike-harnish/",
+                        "name":  "Mike Harnish",
+                        "title":  "CEO",
+                        "order": 1,
+                        "bio":  "Somewhere between an undergraduate degree in philosophy and a planned stint in graduate school, Mike’s professional interests turned to consulting, systems integration, and software development. After twelve years split between Accenture, First Consulting Group, and a high-tech start-up, Mike co-founded KSM as a vehicle to deliver high-value expertise-based software services to clients in the life sciences industries.",
+                        "imageRemote":  "https://mlkf69dsvkey.i.optimole.com/w:150/h:150/q:mauto/f:best/ig:avif/https://ksmpartners.com/wp-content/uploads/2022/01/Mike_Harnish.png",
+                        "image":  "team/mike-harnish.webp"
+                    },
+                    {
+                        "url":  "https://ksmpartners.com/team/mike-richardson/",
+                        "name":  "Mike Richardson",
+                        "title":  "VP",
+                        "order": 5,
+                        "bio":  "Mike has more than 30 years of experience in software development, including over 25 years in consulting. Mike has used C, C++, Java, JEE, and Oracle to design and build solutions in defense, pharmaceuticals, healthcare, and transportation. He is experienced with object oriented design, automated testing, and all phases of the development lifecycle. Mike graduated with honors from Virginia Tech with a Bachelors of Science in Computer Engineering. He is a member of the Tau Beta Pi engineering honor society.",
+                        "imageRemote":  "https://mlkf69dsvkey.i.optimole.com/w:150/h:150/q:mauto/f:best/ig:avif/https://ksmpartners.com/wp-content/uploads/2022/01/Mike_Richardson.png",
+                        "image":  "team/mike-richardson.webp"
+                    },
+                    {
+                        "url":  "https://ksmpartners.com/team/steve-caggiano/",
+                        "name":  "Steve Caggiano",
+                        "title":  "COO",
+                        "order": 2,
+                        "bio":  "Steve started his career as a rocket scientist with GE Aerospace, where his interests and expertise turned to relational database design and all things Oracle. After spending a handful of years with First Consulting Group, Steve co-founded KSM. With 30+ years of experience in information technology, Steve excels at partnering with clients, understanding their business needs, and delivering the best technical solution.",
+                        "imageRemote":  "https://mlkf69dsvkey.i.optimole.com/w:150/h:150/q:mauto/f:best/ig:avif/https://ksmpartners.com/wp-content/uploads/2022/01/Steve_Caggiano.png",
+                        "image":  "team/steve-caggiano.webp"
+                    }
+                ]
+}
