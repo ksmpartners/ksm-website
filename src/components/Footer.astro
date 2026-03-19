@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="">
-        <img src={`${import.meta.env.BASE_URL}KSM_Logo_2c_white.svg`} alt="KSM Technology Partners" />
+        <img src={`${import.meta.env.BASE_URL}KSM_Logo_2c_white.svg`} alt="KSM Technology Partners" class="footer-logo" />
       </a>
       <address>
         <strong>KSM Technology Partners LLC</strong><br />
@@ -13,8 +13,10 @@ const currentYear = new Date().getFullYear();
         Suite 200<br />
         Audubon, PA 19403<br />
         <br />
-        US 610.628.0550<br />
-        <a href="https://www.linkedin.com/company/ksm-technology-partners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        US 610.628.0550
+        <a href="https://www.linkedin.com/company/ksm-technology-partners/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src={`${import.meta.env.BASE_URL}images/linkedin.svg`} alt="LinkedIn" class="linked-in" />
+        </a>
       </address>
     </div>
     <nav class="footer-nav" aria-label="Footer navigation">

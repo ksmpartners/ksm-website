@@ -438,10 +438,17 @@ ul, ol {
   gap: var(--space-10);
 }
 
-.footer-brand img {
+.footer-brand .footer-logo {
   height: 80px;
   margin-bottom: var(--space-4);
 }
+
+
+.footer-brand .linked-in {
+  height: 40px;
+  width: 120px;
+}
+
 
 .footer-brand p {
   font-size: var(--text-sm);
@@ -502,7 +509,7 @@ ul, ol {
 
 .footer-bottom {
   max-width: var(--max-width);
-  margin: var(--space-12) auto 0;
+  margin: var(--space-2) auto 0;
   padding: var(--space-6) var(--space-6);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
