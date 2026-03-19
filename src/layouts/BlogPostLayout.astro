@@ -17,7 +17,13 @@ const formattedDate = date.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 ---
-<PageLayout title={title} description={description}>
+<PageLayout
+  title={title}
+  description={description}
+  schemaType="BlogPosting"
+  publishedTime={date}
+  modifiedTime={date}
+>
   <div class="page-header">
     <div class="container">
       <div class="tags">

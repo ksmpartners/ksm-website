@@ -4,10 +4,79 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  schemaType?: string;
+  publishedTime?: Date | string;
+  modifiedTime?: Date | string;
 }
 
-const { title, description = 'KSM Technology Partners — Custom software and systems integration for Utilities and Life Sciences.' } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const {
+  title,
+  description = 'KSM Technology Partners — Custom software and systems integration for Utilities and Life Sciences.',
+  schemaType,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.url).toString();
+const siteURL = new URL(import.meta.env.BASE_URL, Astro.url).toString();
+const websiteSchemaId = new URL(`${import.meta.env.BASE_URL}#/schema/website`, Astro.url).toString();
+const organizationSchemaId = new URL(`${import.meta.env.BASE_URL}#/schema/organization`, Astro.url).toString();
+const pageSchemaId = new URL(`${Astro.url.pathname}#/schema/page`, Astro.url).toString();
+
+const toIsoDate = (value?: Date | string) => {
+  if (!value) return undefined;
+  return value instanceof Date ? value.toISOString() : new Date(value).toISOString();
+};
+
+const datePublished = toIsoDate(publishedTime);
+const dateModified = toIsoDate(modifiedTime ?? publishedTime);
+
+const structuredDataGraph = [
+  {
+    '@type': 'WebSite',
+    '@id': websiteSchemaId,
+    name: 'KSM Technology Partners',
+    description,
+    url: siteURL,
+    inLanguage: 'en-US',
+    publisher: {
+      '@id': organizationSchemaId,
+    },
+  },
+  {
+    '@type': 'Organization',
+    '@id': organizationSchemaId,
+    name: 'KSM Technology Partners',
+    url: siteURL,
+    logo: new URL(`${import.meta.env.BASE_URL}KSM_Logo_2c_Blue.svg`, Astro.url).toString(),
+  },
+  ...(schemaType
+    ? [
+        {
+          '@type': schemaType,
+          '@id': pageSchemaId,
+          name: title,
+          headline: title,
+          description,
+          url: canonicalURL,
+          isPartOf: {
+            '@id': websiteSchemaId,
+          },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': canonicalURL,
+          },
+          ...(datePublished ? { datePublished } : {}),
+          ...(dateModified ? { dateModified } : {}),
+        },
+      ]
+    : []),
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': structuredDataGraph,
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -21,10 +90,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="KSM Technology Partners" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
     <title>{title} | KSM Technology Partners</title>
   </head>
   <body>
