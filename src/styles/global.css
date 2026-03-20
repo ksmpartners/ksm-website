@@ -438,6 +438,14 @@ ul, ol {
   gap: var(--space-10);
 }
 
+.footer-brand address {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: color 0.15s;
+  font-style: normal;
+}
+
 .footer-brand .footer-logo {
   height: 80px;
   margin-bottom: var(--space-4);
@@ -449,16 +457,9 @@ ul, ol {
   width: 120px;
 }
 
-
-.footer-brand p {
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.65;
-  margin: 0;
-}
-
 .footer-nav h4,
-.footer-contact h4 {
+.footer-services h4,
+.footer-brand h4 {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-4);
   font-size: var(--text-xs);
@@ -479,7 +480,7 @@ ul, ol {
 }
 
 .footer-nav a,
-.footer-contact a {
+.footer-services a {
   color: rgba(255, 255, 255, 0.55);
   font-size: var(--text-sm);
   text-decoration: none;
@@ -487,23 +488,23 @@ ul, ol {
 }
 
 .footer-nav a:hover,
-.footer-contact a:hover {
+.footer-services a:hover {
   color: rgba(255, 255, 255, 1);
 }
 
-.footer-contact p {
+.footer-services p {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: var(--space-2);
 }
 
-.footer-contact ul {
+.footer-services ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-contact li {
+.footer-services li {
   margin-bottom: var(--space-2);
 }
 
