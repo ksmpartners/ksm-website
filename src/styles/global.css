@@ -463,7 +463,6 @@ ul, ol {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-4);
   font-size: var(--text-xs);
-  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 500;
