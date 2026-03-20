@@ -1011,7 +1011,7 @@ ul, ol {
   background: var(--color-slate);
   color: white;
   text-align: center;
-  padding: var(--space-20) var(--space-6);
+  padding: var(--space-10) var(--space-3);
   position: relative;
   overflow: hidden;
 }
@@ -1037,7 +1037,7 @@ ul, ol {
 .cta-banner p {
   color: var(--color-blue-pale);
   font-size: var(--text-lg);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-4);
   max-width: 560px;
   margin-left: auto;
   margin-right: auto;
