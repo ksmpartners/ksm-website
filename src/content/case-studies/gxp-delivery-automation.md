@@ -1,7 +1,7 @@
 ---
 title: GxP Delivery Automation With Azure DevOps
 vertical: Life Sciences
-order: 3
+order: 1
 featured: true
 client: Global Pharmaceutical Company
 summary: We reduced software deployment cycle times from years to weeks for a pharmaceutical client by implementing continuous delivery and GitOps practices within a GxP-compliant Azure DevOps pipeline, while converting manual checklists and test scripts into automated, auditable processes.
