@@ -1,8 +1,8 @@
 ---
 title: Automated and Controlled Clinical Data Analysis
 vertical: Life Sciences
-order: 4
-featured: false
+order: 3
+featured: true
 client: Global Pharmaceutical Company
 summary: We architected and delivered a cloud-based Azure Kubernetes platform that accelerates clinical data analysis from raw data to submission-ready assets, with full GxP and ALCOA+ audit compliance built in.
 image: images/case-studies/clinical-data-analysis.jpg

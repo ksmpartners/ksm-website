@@ -1,7 +1,8 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import IEEPillars from '../components/IEEPillars.astro';
 ---
-<PageLayout title="About KSM Technology Partners" description="Engineering-led technology consulting for regulated industries. Learn about our mission, values, and the team behind our work.">
+<PageLayout title="About KSM Technology Partners" description="Solutions-focused consulting for regulated industries. Learn about our mission, values, and the team behind our work.">
 
   <!-- ============================================================
        Hero
@@ -10,10 +11,10 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div class="about-hero-inner">
       <div class="about-hero-text">
         <span class="overline">About KSM</span>
-        <h1>Engineering-led consulting for industries where the stakes are real.</h1>
+        <h1>Solutions-focused consulting for industries where the stakes are high.</h1>
         <p>
           We are practitioners who have built production systems in complex, regulated environments —
-          not generalists who specialize in decks. Our clients trust us because we understand
+          not slideware specialists. Our clients trust us because we understand
           both the technical challenges and the business context, and we execute.
         </p>
         <div class="hero-actions">
@@ -35,19 +36,22 @@ import PageLayout from '../layouts/PageLayout.astro';
       <div>
         <h2>Who We Are</h2>
         <p>
-          KSM Technology Partners is a technology consulting firm founded on a simple premise: the best technology consulting is done by practitioners who have built real systems in complex environments. Our team consists of engineers, architects, and project leaders with deep hands-on experience — not generalists who specialize in PowerPoint.
+          KSM Technology Partners is a technology consulting firm founded on a simple premise: the best technology consulting is done by practitioners who have built real systems in complex environments. Our team consists of engineers, architects, and project leaders with deep hands-on experience.
         </p>
         <p>
-          We focus on two industries where the stakes are high and the technical challenges are genuine: electric utilities and life sciences. These industries share important characteristics — complex operational technology, strict regulatory requirements, large amounts of critical data, and a need to move faster without sacrificing reliability or compliance.
+          We focus on industries where the stakes are high and the technical challenges are genuine. Power utilities and life sciences share important characteristics — complex operational technology, strict regulatory requirements, large amounts of critical data, and a need to move faster without sacrificing reliability or compliance.
         </p>
         <p>
-          Our clients range from regional electric cooperatives to global pharmaceutical manufacturers. What they share is a need for technology partners who understand both the technical challenges and the business context — and who can execute.
+          Our clients range from regional independent system operators to global pharmaceutical companies. What they share is a need for technology partners who understand both the technical challenges and the business context — and who can execute.
         </p>
 
         <h2>Our Approach</h2>
         <p>
-          We are engineers first. We write code, design systems, and work alongside client teams — not above them. We believe that the best way to deliver value is to be embedded in the work, not managing from a distance.
+          We are engineers first. We write code, design systems, and work alongside client teams — not above them.
         </p>
+        <blockquote class="pull-quote">
+          "The best way to deliver value is to be embedded in the work — not managing it from a distance."
+        </blockquote>
         <p>
           We favor pragmatic solutions over fashionable ones. We choose the right tool for the job — sometimes that's the latest cloud-native technology, sometimes it's a well-understood pattern that's been reliable for decades. We're not dogmatic about technology choices, but we are rigorous about engineering quality.
         </p>
@@ -59,16 +63,9 @@ import PageLayout from '../layouts/PageLayout.astro';
   </div>
 
   <!-- ============================================================
-       Mission statement (full-width pull)
+       Innovate. Execute. Empower.
        ============================================================ -->
-  <div class="about-mission-band">
-    <div class="about-mission-inner">
-      <p class="about-mission-quote">
-        "The best way to deliver value is to be embedded in the work — not managing it from a distance."
-      </p>
-      <span class="about-mission-attr">Core principle, KSM Technology Partners</span>
-    </div>
-  </div>
+  <IEEPillars />
 
   <!-- ============================================================
        Values — alternating layout
@@ -110,7 +107,7 @@ import PageLayout from '../layouts/PageLayout.astro';
             <span class="about-value-num">04</span>
             <div>
               <h3>Domain depth over generalist breadth</h3>
-              <p>We know utilities and life sciences deeply. We don't try to be everything to everyone.</p>
+              <p>We cultivate deep expertise in the business domains we serve. We don't try to be everything to everyone.</p>
             </div>
           </li>
           <li class="about-value">
@@ -131,7 +128,7 @@ import PageLayout from '../layouts/PageLayout.astro';
   <div class="section">
     <div class="about-industries-header">
       <span class="overline">Where we work</span>
-      <h2>Two industries. Genuine depth in both.</h2>
+      <h2>Industries where the stakes are high.</h2>
     </div>
     <div class="about-industries">
 
@@ -168,8 +165,8 @@ import PageLayout from '../layouts/PageLayout.astro';
         <div class="industry-card-body">
           <h3>Pharma, Biotech &amp; Medical Devices</h3>
           <p>
-            GxP-compliant software delivery, LIMS integration, clinical data management,
-            and regulatory submission systems. From regional biotech to top-10 global pharma —
+            GxP-compliant software delivery, clinical data management,
+            and regulatory submission systems. From startups to top-10 global pharma —
             we've delivered in environments where every decision carries regulatory weight.
           </p>
           <a href="case-studies" class="industry-card-link">
@@ -274,35 +271,29 @@ import PageLayout from '../layouts/PageLayout.astro';
     }
   }
 
-  /* ── Mission band ── */
-  .about-mission-band {
-    background: var(--color-slate);
-    padding: var(--space-16) var(--space-8);
-  }
-
-  .about-mission-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .about-mission-quote {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+  /* ── Pull quote ── */
+  .pull-quote {
+    float: right;
+    width: 42%;
+    margin: 0 0 var(--space-6) var(--space-8);
+    padding: var(--space-6) var(--space-6) var(--space-6) var(--space-6);
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-bg);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--color-surface);
-    line-height: 1.45;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-6);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--color-slate);
+    font-style: italic;
   }
 
-  .about-mission-attr {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-blue);
-    opacity: 0.8;
+  @media (max-width: 768px) {
+    .pull-quote {
+      float: none;
+      width: auto;
+      margin: var(--space-6) 0;
+    }
   }
 
   /* ── Pillars ── */

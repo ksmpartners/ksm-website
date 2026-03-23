@@ -1,7 +1,7 @@
 ---
 title: Interconnection Management Modernization 
 vertical: Utilities
-order: 3
+order: 2
 featured: true
 client: Independent System Operator
 summary: We helped a regional Independent System Operator modernize its interconnection management process to handle rapidly growing volumes of generation and large load requests with greater transparency, automation, and scalability.

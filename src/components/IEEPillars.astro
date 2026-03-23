@@ -1,0 +1,99 @@
+---
+// No props — content is fixed brand copy
+---
+
+<div class="iee-section">
+  <div class="section">
+    <div class="iee-header centered">
+      <span class="overline">Our Philosophy</span>
+      <h2 class="iee-heading">Innovate<span class="iee-dot">.</span> Execute<span class="iee-dot">.</span> Empower<span class="iee-dot">.</span></h2>
+    </div>
+    <div class="iee-grid">
+
+      <div class="iee-card">
+        <div class="iee-word">Innovate<span class="iee-dot">.</span></div>
+        <p>We cultivate deep expertise in our customers' business domain and blend that with a passion for cutting-edge technology.</p>
+      </div>
+
+      <div class="iee-card">
+        <div class="iee-word">Execute<span class="iee-dot">.</span></div>
+        <p>We are makers at heart and maintain the development infrastructure, tooling, and training programs to continuously refine our ability to convert ideas into working, robust solutions.</p>
+      </div>
+
+      <div class="iee-card">
+        <div class="iee-word">Empower<span class="iee-dot">.</span></div>
+        <p>We equip our customers with the tools and expertise needed to maintain and evolve the solutions we deliver, with as little or as much of our continued support as they need.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .iee-section {
+    background: var(--color-slate);
+  }
+
+  .iee-header {
+    margin-bottom: var(--space-12);
+    text-align: center;
+  }
+
+  .iee-header .overline {
+    color: var(--color-blue);
+    opacity: 0.9;
+  }
+
+  .iee-heading {
+    color: var(--color-surface);
+    font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+    letter-spacing: -0.03em;
+    margin-top: var(--space-2);
+  }
+
+  .iee-dot {
+    color: var(--color-accent);
+  }
+
+  .iee-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .iee-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .iee-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+  }
+
+  .iee-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .iee-word {
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+    font-weight: 700;
+    color: var(--color-surface);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-8);
+    line-height: 1;
+  }
+
+  .iee-card p {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.95rem;
+    line-height: 1.72;
+    margin: 0;
+  }
+</style>
