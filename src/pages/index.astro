@@ -2,7 +2,6 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
-import IEEPillars from '../components/IEEPillars.astro';
 import { getCollection } from 'astro:content';
 
 const services = (await getCollection('services')).sort(
@@ -72,9 +71,6 @@ const featuredCaseStudies = allCaseStudies
       </div>
     </div>
   </div>
-
-  <!-- Innovate. Execute. Empower. -->
-  <IEEPillars />
 
   <!-- Case Study Highlights -->
   <div class="section">
