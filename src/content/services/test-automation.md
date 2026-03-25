@@ -12,6 +12,9 @@ KSM Technology Partners builds automated testing systems that help regulated org
 
 ### Testing Capabilities
 
+**Behavior Driven Development**
+Involves naming software tests using domain language to describe the behavior of the code. BDD involves use of a domain-specific language (DSL) using natural-language constructs (e.g., English-like sentences) that can express the behavior and the expected outcomes.
+
 **Unit & Integration Testing**
 Comprehensive unit test suites with high code coverage. Integration tests that verify system boundaries, APIs, and data transformations.
 
@@ -39,9 +42,9 @@ We begin every engagement with a testing strategy that defines:
 
 ### Frameworks & Tools
 
-**Web Automation:** Playwright, Selenium WebDriver, Cypress
-**API Testing:** Pytest, RestAssured, Postman/Newman
-**Performance:** k6, Apache JMeter, Gatling
-**Unit Testing:** JUnit, pytest, Jest, xUnit
-**Reporting:** Allure, TestRail, qTest
-**CI Integration:** GitHub Actions, GitLab CI, Jenkins
+- **Web Automation:** Cucumber, Playwright, Selenium WebDriver, Cypress
+- **API Testing:** Pytest, RestAssured, Postman/Newman
+- **Performance:** k6, Apache JMeter, Gatling
+- **Unit Testing:** JUnit, pytest, Jest, xUnit
+- **Reporting:** Allure, TestRail, qTest
+- **CI Integration:** GitHub Actions, GitLab CI, Jenkins
