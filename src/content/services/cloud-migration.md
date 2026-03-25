@@ -25,7 +25,7 @@ We partner with your team to assess your current infrastructure, define a migrat
 
 ### Industries We Serve
 
-**Utilities** — Migrate SCADA historian data, GIS systems, and operational technology (OT) workloads while maintaining grid reliability.
+**Utilities** — Migrate from on-prem systems to the cloud including Oracle to PostgresSQL conversion to save on cost.
 
 **Life Sciences** — Execute GxP-compliant cloud migrations with validated environments, audit trails, and regulatory documentation.
 
