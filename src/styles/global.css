@@ -350,7 +350,7 @@ ul, ol {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   padding: var(--space-2) 0;
-  min-width: 220px;
+  min-width: 238px;
 }
 
 .dropdown-menu.open {
