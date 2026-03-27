@@ -153,6 +153,13 @@ import PageLayout from '../../layouts/PageLayout.astro';
 </PageLayout>
 
 <style>
+  /* ── Hero background image ─────────────────────────────────────── */
+  :global(.hero) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/dag.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
   /* ── Section spacing overrides ─────────────────────────────────── */
   .nf-section-intro { padding-bottom: var(--space-8) !important; }
   .nf-section-accels { padding-top: var(--space-8) !important; }
