@@ -86,6 +86,16 @@ const solutions = [
       const open = menu.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(open));
     });
+
+    // Close click-opened dropdown when mouse leaves the nav-dropdown container
+    const container = btn.closest('.nav-dropdown');
+    container?.addEventListener('mouseleave', () => {
+      if (window.innerWidth >= 768) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.blur();
+      }
+    });
   }
 
   setupDropdown('services-toggle', 'services-menu');
