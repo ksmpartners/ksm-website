@@ -27,6 +27,12 @@ const tagColors: Record<string, string> = {
   'Digital Transformation': '#3C9DCC',
   'Cloud':                  '#22C4A0',
   'Data':                   '#004D71',
+  'Software Quality':         '#004D71',
+  'Continuous Delivery':      '#3C9DCC',
+  'API Design':               '#E07B2A',
+  'Best Practices':           '#22C4A0',
+  'Requirements':             '#6B5CF6',
+  'Professional Development': '#0EA898',
 };
 function tagColor(tag: string) { return tagColors[tag] ?? '#3C9DCC'; }
 function primaryColor(tags: string[]) { return tagColor(tags[0] ?? ''); }

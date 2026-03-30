@@ -1,7 +1,7 @@
 ---
 title: "DevOps in Regulated Environments: How Life Sciences Companies Can Move Faster Without Sacrificing Compliance"
 date: 2024-11-08
-author: KSM Team
+author: Mike Harnish
 tags: [Life Sciences, DevOps, Compliance, Validation]
 excerpt: The assumption that speed and regulatory compliance are fundamentally in tension is holding life sciences companies back. Here's why that assumption is wrong, and how modern delivery practices can actually improve both.
 ---
