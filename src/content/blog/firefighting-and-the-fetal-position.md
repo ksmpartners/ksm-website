@@ -14,6 +14,8 @@ My friend's story is all too common. Unless management proactively addresses the
 
 Top-flight development shops have been retooling their software architecture and deployment pipelines for over a decade to support frequent, incremental production releases. As a result, many are deploying to production tens of times per day or more. They have achieved continuous delivery.
 
+<blockquote class="pull-quote">"Research has shown, perhaps counterintuitively, that higher deployment frequencies correlate to lower change failure rates."</blockquote>
+
 Research has shown, perhaps counterintuitively, that higher deployment frequencies correlate to lower change failure rates. The process automation that enables rapid deployment rates also displaces the error-prone manual processes that introduce regressions. It breaks developers out of firefighting mode and enables them to focus on delivering high-value features. They regain the trust of the business, streamline delivery, and see improvements in morale.
 
 ## Continuous Delivery
