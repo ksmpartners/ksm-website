@@ -947,6 +947,30 @@ ul, ol {
   color: var(--color-slate-gray);
 }
 
+.pull-quote {
+  float: right;
+  width: 42%;
+  margin: 0 0 var(--space-6) var(--space-8);
+  padding: var(--space-6);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--color-slate);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .pull-quote {
+    float: none;
+    width: auto;
+    margin: var(--space-6) 0;
+  }
+}
+
 /* ============================================================
    Blog
    ============================================================ */
