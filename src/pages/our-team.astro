@@ -21,7 +21,6 @@ const members = (teamData.members ?? []).slice().sort((a, b) => (a.order ?? 99) 
     <div class="grid-3 team-grid">
       {members.map((m) => (
         <article class="card team-card">
-          <a class="team-link" href={m.url} target="_blank" rel="noopener noreferrer">
             <div class="team-media">
               <img
                 src={`${import.meta.env.BASE_URL}${m.image}`}
@@ -36,7 +35,6 @@ const members = (teamData.members ?? []).slice().sort((a, b) => (a.order ?? 99) 
               {m.title ? <p class="team-title">{m.title}</p> : null}
               {m.bio ? <p class="team-bio">{m.bio}</p> : null}
             </div>
-          </a>
         </article>
       ))}
     </div>
