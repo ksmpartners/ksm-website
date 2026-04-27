@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
 ---
 <PageLayout
   title="GxP Clinical Data Migration | KSM Technology Partners"
@@ -138,8 +139,10 @@ import PageLayout from '../../layouts/PageLayout.astro';
        ============================================================ -->
   <div class="section">
     <div class="credibility-layout">
-      <img 
-        src={`${import.meta.env.BASE_URL}images/services/cdc_scientist2.jpg`}
+      <Image
+        src="/images/services/cdc_scientist2.jpg"
+        width={1200}
+        height={800}
         alt="Scientist working in a regulated laboratory environment"
         class="credibility-image"
       />
@@ -304,8 +307,10 @@ import PageLayout from '../../layouts/PageLayout.astro';
       </div>
 
       <figure class="screenshot-card">
-        <img
-          src={`${import.meta.env.BASE_URL}images/services/saga_screenshot_graph.png`}
+        <Image
+          src="/images/services/saga_screenshot_graph.png"
+          width={1400}
+          height={653}
           alt="Lineage graph showing jobs, datasets, and transfers connected in a navigable audit graph"
           class="screenshot-img"
         />
@@ -483,8 +488,10 @@ import PageLayout from '../../layouts/PageLayout.astro';
     </ol>
       </div>
       <div class="engagement-image">
-        <img
-          src={`${import.meta.env.BASE_URL}images/services/ipad-right.jpg`}
+        <Image
+          src="/images/services/ipad-right.jpg"
+          width={600}
+          height={900}
           alt="Illustration of a phased migration timeline"
           style="transform: scaleX(-1);"
         />
