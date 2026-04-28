@@ -547,6 +547,36 @@ ul, ol {
   overflow: hidden;
 }
 
+.hero-panels {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: 0;
+}
+
+.hero-panels::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(29,47,61,0.78), rgba(29,47,61,0.78));
+}
+
+.hero-panel {
+  background-size: cover;
+  background-position: center top;
+}
+
+@media (max-width: 768px) {
+  .hero-panels {
+    grid-template-columns: 1fr;
+  }
+  .hero-panel:first-child,
+  .hero-panel:last-child {
+    display: none;
+  }
+}
+
 /* Subtle geometric texture */
 .hero::before {
   content: '';
@@ -560,6 +590,10 @@ ul, ol {
 
 .hero > * {
   position: relative;
+}
+
+.hero > .hero-panels {
+  position: absolute;
 }
 
 .hero h1 {

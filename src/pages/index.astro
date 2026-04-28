@@ -16,7 +16,12 @@ const featuredCaseStudies = allCaseStudies
 <PageLayout title="Home" description="KSM Technology Partners — Custom software and systems integration for Regulated Industries.">
 
   <!-- Hero -->
-  <section class="hero" style={`background-image: linear-gradient(rgba(29,47,61,0.78), rgba(29,47,61,0.78)), url(${import.meta.env.BASE_URL}images/hero.webp); background-size: cover; background-position: top; min-height: 55vh;`}>
+  <section class="hero" style="min-height: 55vh;">
+    <div class="hero-panels">
+      <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-left.webp)`}></div>
+      <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-center.webp)`}></div>
+      <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-right.webp)`}></div>
+    </div>
     <span class="overline">Custom Software &amp; Integration for Regulated Industries</span>
     <h1>Innovate. Execute. Empower.</h1>
     <p>We deliver innovative solutions that connect complex systems, accelerate delivery, and satisfy the demands of regulated industries.</p>
