@@ -24,6 +24,9 @@ references/
 # Screenshots (keep dir, ignore contents)
 screenshots/
 
+# GIMP source files
+*.xcf
+
 # OS
 .DS_Store
 Thumbs.db
