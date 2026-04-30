@@ -1,7 +1,7 @@
 ---
 title: Generative AI Integration
 description: Realize the productivity gains of generative AI in your operations and software development without sacrificing data confidentiality, integrity, or computational reproducibility.
-order: 7
+order: 2
 icon: 🤖
 image: images/services/genai-prism.png
 ---
