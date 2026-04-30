@@ -36,4 +36,16 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { services, 'case-studies': caseStudies, blog };
+const partners = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    category: z.enum(['Technology', 'Industry']),
+    description: z.string(),         // short blurb shown on the partners page card
+    logo: z.string(),                // path under public/, e.g. 'images/partners/domino.svg'
+    url: z.string().url(),           // partner website
+    order: z.number().optional(),    // display order within category
+  }),
+});
+
+export const collections = { services, 'case-studies': caseStudies, blog, partners };

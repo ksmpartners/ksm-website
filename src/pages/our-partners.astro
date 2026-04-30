@@ -1,0 +1,419 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('partners');
+
+// Render each partner's markdown body into a Content component so it can be
+// inlined on the card alongside the frontmatter description.
+const enriched = await Promise.all(
+  all.map(async (p) => {
+    const { Content } = await p.render();
+    return { ...p, Content };
+  }),
+);
+type Enriched = typeof enriched[number];
+
+const sortByOrder = (a: Enriched, b: Enriched) =>
+  (a.data.order ?? 99) - (b.data.order ?? 99);
+
+const technology = enriched.filter(p => p.data.category === 'Technology').sort(sortByOrder);
+const industry = enriched.filter(p => p.data.category === 'Industry').sort(sortByOrder);
+
+const BASE = import.meta.env.BASE_URL;
+---
+
+<PageLayout
+  title="Our Partners"
+  description="KSM Technology Partners works with leading platforms and industry organizations to deliver outcomes for clients in regulated industries."
+>
+
+  <!-- ============================================================
+       Hero
+       ============================================================ -->
+  <div class="op-hero">
+    <div class="container">
+      <span class="overline">Strategic Partnerships</span>
+      <h1 class="op-hero-title">Our Partners</h1>
+      <p class="op-hero-sub">
+        We collaborate with the platforms and organizations that shape modern data, AI, and engineering practice — bringing certified expertise and delivery experience to every engagement.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Technology Partners
+       ============================================================ -->
+  {technology.length > 0 && (
+    <section class="section op-section">
+      <header class="op-section-header">
+        <span class="overline">Technology</span>
+        <h2>Technology Partners</h2>
+        <p>
+          Platforms we implement, integrate, and operate in production for clients in life sciences and utilities.
+        </p>
+      </header>
+
+      <div class="op-grid">
+        {technology.map(p => (
+          <article class="op-card">
+            <div class="op-card-accent"></div>
+            <div class="op-logo-frame">
+              <img
+                src={`${BASE}${p.data.logo}`}
+                alt={`${p.data.name} logo`}
+                loading="lazy"
+              />
+            </div>
+            <div class="op-card-body">
+              <h3 class="op-name">{p.data.name}</h3>
+              <p class="op-desc">{p.data.description}</p>
+              <div class="op-partnership">
+                <span class="op-partnership-label">How we partner</span>
+                <div class="op-partnership-prose">
+                  <p.Content />
+                </div>
+              </div>
+              <a
+                class="op-link"
+                href={p.data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit website
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M7 17 17 7"/>
+                  <path d="M8 7h9v9"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ============================================================
+       Industry Partners (only renders when content exists)
+       ============================================================ -->
+  {industry.length > 0 && (
+    <section class="section-pale">
+      <div class="section op-section">
+        <header class="op-section-header">
+          <span class="overline">Industry</span>
+          <h2>Industry &amp; Consortium Partners</h2>
+          <p>
+            Standards bodies and industry organizations whose work shapes how we design, deliver, and evaluate systems for our clients.
+          </p>
+        </header>
+
+        <div class="op-grid">
+          {industry.map(p => (
+            <article class="op-card">
+              <div class="op-card-accent op-card-accent--teal"></div>
+              <div class="op-logo-frame">
+                <img
+                  src={`${BASE}${p.data.logo}`}
+                  alt={`${p.data.name} logo`}
+                  loading="lazy"
+                />
+              </div>
+              <div class="op-card-body">
+                <h3 class="op-name">{p.data.name}</h3>
+                <p class="op-desc">{p.data.description}</p>
+                <div class="op-partnership">
+                  <span class="op-partnership-label op-partnership-label--teal">How we partner</span>
+                  <div class="op-partnership-prose">
+                    <p.Content />
+                  </div>
+                </div>
+                <a
+                  class="op-link"
+                  href={p.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit website
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17 17 7"/>
+                    <path d="M8 7h9v9"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <div class="op-cta-banner">
+    <div class="container">
+      <div class="op-cta-inner">
+        <div>
+          <h2 class="op-cta-title">Building on one of these platforms?</h2>
+          <p class="op-cta-sub">We can help you scope, deliver, and scale — pragmatically.</p>
+        </div>
+        <a href="contact" class="btn btn-teal op-cta-btn">Start a Conversation →</a>
+      </div>
+    </div>
+  </div>
+
+</PageLayout>
+
+<style>
+  /* ── Hero ── */
+  .op-hero {
+    background: linear-gradient(160deg, var(--color-slate) 0%, #0a1a26 100%);
+    padding: var(--space-16) 0 var(--space-12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .op-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -120px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(60,157,204,0.16) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .op-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -100px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(14,168,152,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .op-hero .overline { color: var(--color-teal); }
+
+  .op-hero-title {
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: var(--space-4);
+  }
+
+  .op-hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: var(--text-lg);
+    max-width: 620px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── Section header ── */
+  .op-section-header {
+    max-width: 640px;
+    margin-bottom: var(--space-10);
+  }
+
+  .op-section-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    letter-spacing: -0.03em;
+    margin: var(--space-2) 0 var(--space-4);
+  }
+
+  .op-section-header p {
+    color: var(--color-slate-gray);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── Grid ──
+     auto-fit + a max card width keeps the layout balanced whether there are
+     2 partners or 12: cards grow to fill the row without leaving an empty
+     trailing column, and stop before they get unwieldy. */
+  .op-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--space-6);
+    max-width: 1140px;
+  }
+
+  /* ── Partner card ── */
+  .op-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-blue-pale);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .op-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--color-blue) 35%, transparent);
+  }
+
+  .op-card-accent {
+    height: 3px;
+    background: var(--color-blue);
+    flex-shrink: 0;
+  }
+
+  .op-card-accent--teal { background: var(--color-teal); }
+
+  /* ── Logo frame: keeps logos visually consistent regardless of native aspect ratio ── */
+  .op-logo-frame {
+    aspect-ratio: 16 / 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) var(--space-8);
+    background:
+      radial-gradient(120% 120% at 0% 0%, rgba(60, 157, 204, 0.10) 0%, rgba(0, 0, 0, 0) 60%),
+      radial-gradient(120% 120% at 100% 100%, rgba(14, 168, 152, 0.06) 0%, rgba(0, 0, 0, 0) 60%),
+      var(--color-bg);
+    border-bottom: 1px solid var(--color-blue-pale);
+  }
+
+  .op-logo-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Card body ── */
+  .op-card-body {
+    padding: var(--space-6) var(--space-6) var(--space-6);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .op-name {
+    font-size: var(--text-lg);
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--color-slate);
+  }
+
+  .op-desc {
+    color: var(--color-slate-gray);
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Partnership block (rendered from each partner's markdown body) ── */
+  .op-partnership {
+    margin-top: var(--space-1);
+    padding-top: var(--space-4);
+    border-top: 1px dashed var(--color-blue-pale);
+    flex: 1;
+  }
+
+  .op-partnership-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+    margin-bottom: var(--space-2);
+  }
+
+  .op-partnership-label--teal {
+    color: var(--color-teal);
+  }
+
+  /* The body is rendered markdown — target its <p> via :global() since
+     scoped styles don't reach Content output. */
+  .op-partnership-prose :global(p) {
+    color: var(--color-slate-gray);
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .op-partnership-prose :global(p + p) {
+    margin-top: var(--space-3);
+  }
+
+  .op-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-blue);
+    text-decoration: none;
+    margin-top: var(--space-2);
+    align-self: flex-start;
+    transition: gap 0.15s ease, color 0.15s ease;
+  }
+
+  .op-link:hover {
+    gap: 0.6rem;
+    color: var(--color-slate);
+    text-decoration: none;
+  }
+
+  .op-link svg {
+    transition: transform 0.15s ease;
+  }
+
+  .op-link:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  .op-link:focus-visible {
+    outline: 3px solid rgba(60, 157, 204, 0.45);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ── CTA banner ── */
+  .op-cta-banner {
+    background: linear-gradient(135deg, var(--color-slate) 0%, #0f1f2c 100%);
+    padding: var(--space-16) 0;
+  }
+
+  .op-cta-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    align-items: flex-start;
+  }
+
+  .op-cta-title {
+    color: #fff;
+    font-size: var(--text-3xl);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .op-cta-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: var(--text-lg);
+    margin: var(--space-2) 0 0;
+  }
+
+  .op-cta-btn { white-space: nowrap; }
+
+  @media (min-width: 768px) {
+    .op-cta-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+</style>
