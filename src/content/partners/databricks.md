@@ -7,4 +7,4 @@ url: https://www.databricks.com
 order: 2
 ---
 
-KSM partners with Databricks to bring data engineering and machine learning workloads up to production-grade for clients in regulated industries. We design and harden lakehouse pipelines, pairing Databricks with the CI/CD, infrastructure-as-code, and observability tooling that fits each client's existing cloud — so teams can ship enhancements continuously without sacrificing quality control.
+KSM uses Databricks to bring data engineering and machine learning workloads up to production-grade for clients in regulated industries. We design and harden lakehouse pipelines, pairing Databricks with the CI/CD, infrastructure-as-code, and observability tooling that fits each client's existing cloud — so teams can ship enhancements continuously without sacrificing quality control.
