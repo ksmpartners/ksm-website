@@ -2,7 +2,7 @@
 title: Systems Integration
 description: Connect your enterprise systems — Database, Financials, API Gateways, and more — with reliable, maintainable integration architecture.
 image: images/services/systems-integration.jpg
-order: 3
+order: 4
 icon: 🔗
 ---
 
