@@ -1,7 +1,25 @@
 {
   "name": "ksm-technology-partners",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
+  "description": "Public marketing website for KSM Technology Partners — solutions-focused consulting for regulated industries. Built with Astro as a static site and deployed to GitHub Pages.",
+  "homepage": "https://ksmpartners.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ksmpartners/ksmpartners.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ksmpartners/ksmpartners.github.io/issues"
+  },
+  "author": "KSM Technology Partners LLC",
+  "keywords": [
+    "ksm-technology-partners",
+    "astro",
+    "static-site",
+    "github-pages",
+    "consulting",
+    "regulated-industries"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
