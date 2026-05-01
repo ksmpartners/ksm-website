@@ -28,7 +28,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.18.0"
+    "astro": "^6.2.1"
   },
   "devDependencies": {
     "puppeteer": "^24.39.1"
