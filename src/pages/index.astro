@@ -11,27 +11,27 @@ const featuredCaseStudies = allCaseStudies
 
 const solutions = [
   {
-    title: 'GxP-compliant clinical-trial pipelines',
-    body: 'GxP-compliant platforms for processing clinical trials data into submission-ready results using orchestrated data pipelines and modern data science — shrinking cycle times from first patient to analysis completion.',
+    title: 'Clinical trials data analysis and reporting',
+    body: 'GxP-compliant statistical computing environments for processing clinical trials data into submission-ready results using orchestrated data pipelines and modern data science tools — shrinking cycle times from first patient to analysis completion.',
     image: 'gxp-delivery-automation.jpg',
     alt: 'GxP-compliant clinical-trial data pipeline',
   },
   {
-    title: 'Reproducible bioinformatics pipelines',
-    body: 'Bioinformatics pipelines that compare RNA sequencing samples against a reference genome in a controlled, reproducible environment.',
+    title: 'Bioinformatics pipelines',
+    body: 'Our Nextfuse solution runs Nextflow® pipelines in the Domino Data Science platform for controlled and cost-effective analysis execution. Whether for RNA sequencing, variant calling, or other bioinformatics workflows, we can help you get up and running fast and with full GxP compliance.',
     image: 'clinical-data-analysis.jpg',
     alt: 'Reproducible bioinformatics analysis',
     wide: true,
     imagePosition: 'left',
   },
   {
-    title: 'AI-powered therapy signal detection',
+    title: 'AI-powered sentiment detection',
     body: 'AI-powered sentiment analyses across high volumes of textual data to detect emerging signals about therapies and preemptively answer questions from healthcare providers and patients.',
     image: 'data-engineering.jpg',
     alt: 'AI-powered therapy signal detection',
   },
   {
-    title: 'Audited migration of legacy clinical data',
+    title: 'Controlled migration of legacy clinical data',
     body: 'Migration platforms that bring massive volumes of clinical data forward from legacy systems into AI-enabled repositories in a controlled, audited manner.',
     image: 'sce-modernization.jpg',
     alt: 'Audited clinical data migration',
@@ -53,12 +53,11 @@ const solutions = [
       <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-center.webp)`}></div>
       <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-right.webp)`}></div>
     </div>
-    <span class="overline">Custom Software &amp; Integration for Regulated Industries</span>
+    <!-- <span class="overline">Computing solutions for data-intensive workloads in regulated industries</span> -->
     <h1>Innovate. Execute. Empower.</h1>
-    <p>We deliver innovative solutions that connect complex systems, accelerate delivery, and satisfy the demands of regulated industries.</p>
+    <p>Innovative computing solutions for data-intensive workloads in regulated industries.</p>
     <div class="hero-actions">
       <a href="contact" class="btn btn-teal">Schedule a Discovery Call</a>
-      <a href="services/software-engineering" class="btn btn-outline">See Our Services</a>
     </div>
   </section>
 
@@ -89,8 +88,8 @@ const solutions = [
     <div class="section">
       <div class="section-heading centered">
         <span class="overline">What We Deliver</span>
-        <h2>Solutions for data-intensive work where compliance is non-negotiable</h2>
-        <p>We turn complex regulatory and operational data into systems your business can act on — and auditors can sign off on.</p>
+        <h2>Solutions for data-intensive workloads where compliance is non-negotiable</h2>
+        <p>We deliver solutions that transform mission-critical data assets into submission-ready artifacts that auditors can sign off on. Our domain experts have over 20 years of experience in the utilities and life sciences industries, and we understand their unique regulatory requirements. Below are some of the solutions we've successfully delivered.</p>
       </div>
       <div class="solutions-grid">
         {solutions.map(s => (
