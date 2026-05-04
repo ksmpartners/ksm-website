@@ -535,6 +535,38 @@ ul, ol {
 }
 
 /* ============================================================
+   Notification Banner
+   ============================================================ */
+
+.notification-banner {
+  background: var(--color-teal);
+  color: var(--color-surface);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.notification-banner-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.notification-banner p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.notification-banner a {
+  color: var(--color-surface);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.notification-banner a:hover {
+  text-decoration: none;
+}
+
+/* ============================================================
    Hero
    ============================================================ */
 

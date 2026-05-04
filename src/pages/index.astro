@@ -4,6 +4,15 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
 import SolutionCard from '../components/SolutionCard.astro';
 import { getCollection } from 'astro:content';
 
+// Optional notification banner — present if src/data/notification.md exists
+// and its frontmatter has `enabled: true`.
+const notificationModules = import.meta.glob('../data/notification.md', { eager: true });
+const notification = Object.values(notificationModules)[0] as
+  | { frontmatter: { enabled?: boolean }; Content: any }
+  | undefined;
+const showNotification = notification?.frontmatter?.enabled === true;
+const NotificationContent = notification?.Content;
+
 const allCaseStudies = await getCollection('case-studies');
 const featuredCaseStudies = allCaseStudies
   .filter(cs => cs.data.featured)
@@ -41,6 +50,14 @@ const solutions = [
 ];
 ---
 <PageLayout title="Home" description="KSM Technology Partners — Custom software and systems integration for Regulated Industries.">
+
+  {showNotification && NotificationContent && (
+    <div class="notification-banner" role="status">
+      <div class="notification-banner-inner">
+        <NotificationContent />
+      </div>
+    </div>
+  )}
 
   <!-- Hero -->
   <section class="hero" style="min-height: 55vh;">
