@@ -545,6 +545,9 @@ ul, ol {
   padding: var(--space-20) var(--space-6);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-panels {
