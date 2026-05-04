@@ -1,8 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import CaseStudyCard from '../components/CaseStudyCard.astro';
 import SolutionCard from '../components/SolutionCard.astro';
-import { getCollection } from 'astro:content';
 
 // Optional notification banner — present if src/data/notification.md exists
 // and its frontmatter has `enabled: true`.
@@ -12,11 +10,6 @@ const notification = Object.values(notificationModules)[0] as
   | undefined;
 const showNotification = notification?.frontmatter?.enabled === true;
 const NotificationContent = notification?.Content;
-
-const allCaseStudies = await getCollection('case-studies');
-const featuredCaseStudies = allCaseStudies
-  .filter(cs => cs.data.featured)
-  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
 const solutions = [
   {
@@ -117,29 +110,6 @@ const solutions = [
           />
         ))}
       </div>
-    </div>
-  </div>
-
-  <!-- Case Study Highlights -->
-  <div class="section">
-    <div class="section-heading centered">
-      <span class="overline">Client Work</span>
-      <h2>Recent Engagements</h2>
-      <p>Real outcomes for organizations where failure isn't an option.</p>
-    </div>
-    <div class="grid-3">
-      {featuredCaseStudies.map(cs => (
-        <CaseStudyCard
-          title={cs.data.title}
-          summary={cs.data.summary}
-          slug={cs.id.replace(/\.mdx?$/, '')}
-          vertical={cs.data.vertical}
-          client={cs.data.client}
-        />
-      ))}
-    </div>
-    <div class="text-center mt-2">
-      <a href="case-studies" class="btn-ghost btn">View All Case Studies</a>
     </div>
   </div>
 
