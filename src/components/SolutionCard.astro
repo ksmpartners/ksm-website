@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  image: string;
+  alt: string;
+  imagePosition?: 'top' | 'left' | 'right';
+  wide?: boolean;
+}
+
+const {
+  title,
+  body,
+  image,
+  alt,
+  imagePosition = 'top',
+  wide = false,
+} = Astro.props;
+
+const classes = [
+  'card',
+  imagePosition !== 'top' && `card--image-${imagePosition}`,
+  wide && 'card--wide',
+]
+  .filter(Boolean)
+  .join(' ');
+---
+<article class={classes}>
+  <img class="card-image" src={image} alt={alt} />
+  <div class="card-content">
+    <h3>{title}</h3>
+    <p>{body}</p>
+  </div>
+</article>
+
+<style>
+  @media (min-width: 768px) {
+    .card--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .card.card--image-left,
+    .card.card--image-right {
+      flex-direction: row;
+      padding: 0;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .card.card--image-right {
+      flex-direction: row-reverse;
+    }
+
+    .card.card--image-left > .card-image,
+    .card.card--image-right > .card-image {
+      width: 42%;
+      height: auto;
+      min-height: 280px;
+      margin: 0;
+      border-radius: 0;
+      flex-shrink: 0;
+      object-fit: cover;
+      align-self: stretch;
+    }
+
+    .card.card--image-left > .card-content,
+    .card.card--image-right > .card-content {
+      flex: 1;
+      min-width: 0;
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+
+    .card.card--image-left > .card-content > h3,
+    .card.card--image-right > .card-content > h3 {
+      font-size: var(--text-2xl);
+    }
+
+    .card.card--image-left > .card-content > p,
+    .card.card--image-right > .card-content > p {
+      font-size: var(--text-lg);
+      line-height: 1.6;
+    }
+  }
+</style>

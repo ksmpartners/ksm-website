@@ -1,17 +1,48 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
+import SolutionCard from '../components/SolutionCard.astro';
 import { getCollection } from 'astro:content';
-
-const services = (await getCollection('services')).sort(
-  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
-);
 
 const allCaseStudies = await getCollection('case-studies');
 const featuredCaseStudies = allCaseStudies
   .filter(cs => cs.data.featured)
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const solutions = [
+  {
+    title: 'GxP-compliant clinical-trial pipelines',
+    body: 'GxP-compliant platforms for processing clinical trials data into submission-ready results using orchestrated data pipelines and modern data science — shrinking cycle times from first patient to analysis completion.',
+    image: 'gxp-delivery-automation.jpg',
+    alt: 'GxP-compliant clinical-trial data pipeline',
+  },
+  {
+    title: 'Reproducible bioinformatics pipelines',
+    body: 'Bioinformatics pipelines that compare RNA sequencing samples against a reference genome in a controlled, reproducible environment.',
+    image: 'clinical-data-analysis.jpg',
+    alt: 'Reproducible bioinformatics analysis',
+    wide: true,
+    imagePosition: 'left',
+  },
+  {
+    title: 'AI-powered therapy signal detection',
+    body: 'AI-powered sentiment analyses across high volumes of textual data to detect emerging signals about therapies and preemptively answer questions from healthcare providers and patients.',
+    image: 'data-engineering.jpg',
+    alt: 'AI-powered therapy signal detection',
+  },
+  {
+    title: 'Audited migration of legacy clinical data',
+    body: 'Migration platforms that bring massive volumes of clinical data forward from legacy systems into AI-enabled repositories in a controlled, audited manner.',
+    image: 'sce-modernization.jpg',
+    alt: 'Audited clinical data migration',
+  },
+  {
+    title: 'Real-time grid & market monitoring',
+    body: 'Real-time market-monitoring and grid-analytics platforms that ingest high-volume telemetry and trade data, surface anomalies in seconds, and satisfy FERC and NERC surveillance obligations in audited, reproducible analyses.',
+    image: 'market-monitoring.jpg',
+    alt: 'Real-time grid and market monitoring',
+  },
+];
 ---
 <PageLayout title="Home" description="KSM Technology Partners — Custom software and systems integration for Regulated Industries.">
 
@@ -53,26 +84,25 @@ const featuredCaseStudies = allCaseStudies
     </div>
   </div>
 
-  <!-- Services Grid -->
+  <!-- Solutions -->
   <div class="section-pale">
     <div class="section">
       <div class="section-heading centered">
-        <span class="overline">What We Do</span>
-        <h2>End-to-End Technology Services</h2>
-        <p>From validated environments to modern delivery pipelines — we cover the full stack.</p>
+        <span class="overline">What We Deliver</span>
+        <h2>Solutions for data-intensive work where compliance is non-negotiable</h2>
+        <p>We turn complex regulatory and operational data into systems your business can act on — and auditors can sign off on.</p>
       </div>
-      <div class="grid-3">
-        {services.map(service => {
-          const slug = service.id.replace(/\.mdx?$/, '');
-          return (
-            <ServiceCard
-              title={service.data.title}
-              description={service.data.description}
-              slug={slug}
-              icon={service.data.icon ?? '⚙️'}
-            />
-          );
-        })}
+      <div class="solutions-grid">
+        {solutions.map(s => (
+          <SolutionCard
+            title={s.title}
+            body={s.body}
+            image={`https://placehold.co/800x400/004D71/FFFFFF?text=${encodeURIComponent(s.title)}`}
+            alt={s.alt}
+            imagePosition={s.imagePosition}
+            wide={s.wide}
+          />
+        ))}
       </div>
     </div>
   </div>
@@ -123,3 +153,18 @@ const featuredCaseStudies = allCaseStudies
   </div>
 
 </PageLayout>
+
+<style>
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: dense;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
