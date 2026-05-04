@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import SolutionCard from '../components/SolutionCard.astro';
+import IEEPillars from '../components/IEEPillars.astro';
 
 // Optional notification banner — present if src/data/notification.md exists
 // and its frontmatter has `enabled: true`.
@@ -112,6 +113,9 @@ const solutions = [
       </div>
     </div>
   </div>
+
+  <!-- Our Philosophy -->
+  <IEEPillars />
 
   <!-- About Blurb -->
   <div class="section-pale">
