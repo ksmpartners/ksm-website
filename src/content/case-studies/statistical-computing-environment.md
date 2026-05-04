@@ -1,6 +1,6 @@
 ---
 title: Statistical Computing Environment Modernization
-client: Global top-50 Pharmaceutical Company
+client: Global Top-50 Pharmaceutical Company
 vertical: Life Sciences
 order: 2
 featured: true

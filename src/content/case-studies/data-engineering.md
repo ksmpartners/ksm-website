@@ -3,7 +3,7 @@ title: Data Engineering and Pipelining
 vertical: Life Sciences
 order: 5
 featured: false
-client: Global Pharmaceutical Company
+client: Global Top-50 Pharmaceutical Company
 summary: We hardened a natural language processing proof of concept into a production-ready Azure data pipeline, enabling a pharmaceutical client to detect emerging signals and continuously deploy improvements with full quality control.
 image: images/case-studies/data-engineering.jpg
 ---
