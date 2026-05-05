@@ -5,7 +5,7 @@ vertical: Life Sciences
 order: 2
 featured: true
 summary: We led a full SCE implementation for a top-50 pharma company, delivering a GxP-validated, cloud-hosted platform on Domino Data Lab integrated with Azure and Azure DevOps—remediating a regulatory finding and modernizing how hundreds of statistical programmers work.
-image: images/case-studies/sce-modernization.jpg
+image: images/case-studies/biostats-programming.webp
 ---
 
 ## Overview
