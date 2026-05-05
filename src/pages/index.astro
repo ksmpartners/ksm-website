@@ -12,32 +12,35 @@ const notification = Object.values(notificationModules)[0] as
 const showNotification = notification?.frontmatter?.enabled === true;
 const NotificationContent = notification?.Content;
 
+const base = import.meta.env.BASE_URL;
+const placeholder = 'https://placehold.co/800x400/004D71/FFFFFF?text=Image+TBD';
+
 const solutions = [
   {
     title: 'Clinical trials data analysis and reporting',
     body: 'GxP-compliant statistical computing environment for processing clinical trials data into submission-ready results using orchestrated data pipelines and modern data science tools — shrinking cycle times from first patient to analysis completion.',
-    image: 'gxp-delivery-automation.jpg',
+    image: placeholder,
     alt: 'GxP-compliant clinical-trial data pipeline',
     link: 'case-studies/statistical-computing-environment',
   },
   {
     title: 'AI-powered sentiment detection',
     body: 'AI-powered sentiment analyses across high volumes of textual data to detect emerging signals about therapies and preemptively answer questions from healthcare providers and patients.',
-    image: 'data-engineering.jpg',
+    image: `${base}images/case-studies/data-engineering.jpg`,
     alt: 'AI-powered therapy signal detection',
     link: 'case-studies/data-engineering',
   },
   {
     title: 'Bioinformatics pipelines',
     body: 'A bioinformatics pipeline execution environment for RNA sequencing, HLA typing, or other bioinformatics workflows.  Uses our Nextfuse solution to combine the power of Nextflow® with the cost-effectiveness and governance of the Domino Data Science platform.',
-    image: 'clinical-data-analysis.jpg',
+    image: `${base}images/case-studies/rna2.webp`,
     alt: 'Reproducible bioinformatics analysis',
     link: 'services/nextfuse',
   },
   {
     title: 'Real-time power flow calculation',
     body: 'Mission-critical nodal calculation platform for an Independent System Operator that computes real-time electricity flow across interfaces with neighboring ISOs. Ingests, processes, and indexes 300+ GB of data per day, integrates with more than a dozen upstream systems, and retains five years of records for audit and re-execution.',
-    image: 'real-time-power-flow.jpg',
+    image: `${base}images/case-studies/real-time-power-flow.jpg`,
     alt: 'Real-time power flow calculation engine',
     link: 'case-studies/real-time-power-flow',
   },
@@ -103,7 +106,7 @@ const solutions = [
           <SolutionCard
             title={s.title}
             body={s.body}
-            image="https://placehold.co/800x400/004D71/FFFFFF?text=Image+TBD"
+            image={s.image}
             alt={s.alt}
             imagePosition={s.imagePosition}
             wide={s.wide}
