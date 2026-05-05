@@ -1,8 +1,8 @@
 ---
-title: Data Engineering and Pipelining
+title: AI-Powered Sentiment Detection
 vertical: Life Sciences
-order: 5
-featured: false
+order: 2
+featured: true
 client: Global Top-50 Pharmaceutical Company
 summary: We hardened a natural language processing proof of concept into a production-ready Azure data pipeline, enabling a pharmaceutical client to detect emerging signals and continuously deploy improvements with full quality control.
 image: images/case-studies/data-engineering.jpg
@@ -10,7 +10,7 @@ image: images/case-studies/data-engineering.jpg
 
 ## Overview
 
-A pharmaceutical client engaged us to prepare a machine learning and artificial intelligence data engineering proof of concept for production use. The product uses natural language processing to categorize textual data by product, topic, and sentiment, and allows the client to detect emerging signals and preemptively answer questions from healthcare providers and patients.
+A pharmaceutical client engaged us to update a machine learning and artificial intelligence data engineering proof of concept for production use. The product uses natural language processing to process textual data from social media, publications, and conference papers, among other sources. The solution categorizes textual data by product, topic, and sentiment.
 
 ## Solution
 
@@ -18,10 +18,10 @@ The project was founded on Azure Data Factory (ADF) and Databricks, with data st
 
 Key engineering contributions included:
 
-- **Infrastructure as Code:** Implemented with Liquibase to ensure structural database changes were delivered by a consistent, reproducible, and reversible process
+- **Infrastructure as Code:** Delivered structural database changes in a consistent, reproducible, and reversible process
 - **Observability:** Instrumented the code with logging and monitoring throughout the pipeline
 - **Deployment:** Containerized and deployed to Azure Kubernetes Service
 
 ## Results
 
-Our contributions enabled the development team to deploy enhancements reliably and continuously, while enhancing quality control over development operations.
+Our contributions enabled us to deploy enhancements reliably and continuously, while enhancing quality control over development operations. The solution allows the client to detect emerging signals in discourse about their therapies, and preemptively answer questions from healthcare providers and patients.

@@ -1,8 +1,8 @@
 ---
 title: Real-Time Power Flow Calculation Engine
 vertical: Utilities
-order: 2
-featured: false
+order: 4
+featured: true
 client: Independent System Operator
 summary: We engineered a mission-critical nodal calculation platform for an ISO that has grown from 1 to 27 jobs over 10+ years and now ingests, processes, and indexes between 300 and 400 GB of data per day.
 image: images/case-studies/real-time-power-flow.jpg

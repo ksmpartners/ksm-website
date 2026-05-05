@@ -7,7 +7,7 @@ const allCSRaw = await getCollection('case-studies');
 type CS = typeof allCSRaw[number];
 const allCS = allCSRaw.sort((a: CS, b: CS) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
-const verticals = ['Utilities', 'Life Sciences'];
+const verticals = ['Life Sciences', 'Utilities'];
 
 const verticalMeta: Record<string, { color: string; description: string }> = {
   'Utilities': {
@@ -65,8 +65,8 @@ const rest = allCS.filter(cs => !cs.data.featured);
             );
           })}
           <div class="cs-stat">
-            <span class="cs-stat-count cs-stat-years">10<span class="cs-stat-plus">+</span></span>
-            <span class="cs-stat-label">Years of engagements</span>
+            <span class="cs-stat-count cs-stat-years">23<span class="cs-stat-plus">+</span></span>
+            <span class="cs-stat-label">Years delivering success</span>
           </div>
         </div>
       </div>

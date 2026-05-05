@@ -1,17 +1,17 @@
 ---
 title: "Scoping as Strategy: A Better Path to SCE Implementation"
-client: Global Top-5 Pharmaceutical Company
+client: Global Top-50 Pharmaceutical Company
 vertical: Life Sciences
-order: 4
+order: 3
 featured: true
-summary: A global top-5 pharma company engaged KSM for a 12-week scoping exercise that replaced the traditional RFP—building stakeholder alignment, documenting process flows, and creating the executive business case needed to greenlight a full SCE implementation.
+summary: A global top-50 pharma company engaged KSM for a 12-week scoping exercise that replaced the traditional RFP—building stakeholder alignment, documenting process flows, and creating the executive business case needed to greenlight a full SCE implementation.
 image: images/case-studies/12-week-scoping.jpg
 
 ---
 
 ## Overview
 
-A global top-5 pharmaceutical company with over a decade of experience on Domino Data Lab was preparing to undertake a full Statistical Computing Environment (SCE) implementation. Despite their platform familiarity, they had never formalized the process, user workflows, or organizational alignment needed to build a validated, enterprise-grade SCE. Rather than issuing a traditional RFP or jumping straight into implementation, they engaged KSM Technology Partners for a 12-week scoping exercise. What followed was not just a discovery process. It became the business case, the alignment mechanism, and the implementation foundation all at once.
+A global top-50 pharmaceutical company with over a decade of experience on Domino Data Lab was preparing to undertake a full Statistical Computing Environment (SCE) implementation. Despite their platform familiarity, they had never formalized the process, user workflows, or organizational alignment needed to build a validated, enterprise-grade SCE. Rather than issuing a traditional RFP or jumping straight into implementation, they engaged KSM Technology Partners for a 12-week scoping exercise. What followed was not just a discovery process. It became the business case, the alignment mechanism, and the implementation foundation all at once.
 
 ## Challenge
 
