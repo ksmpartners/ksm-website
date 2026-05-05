@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import teamData from '../content/about/our-team.json';
+import teamData from '../data/our-team.json';
 
 const members = (teamData.members ?? []).slice().sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 ---

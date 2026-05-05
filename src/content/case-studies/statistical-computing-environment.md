@@ -1,32 +1,28 @@
 ---
 title: Statistical Computing Environment Modernization
-client: Global top-50 Pharmaceutical Company
+client: Global Top-50 Pharmaceutical Company
 vertical: Life Sciences
-order: 2
+order: 1
 featured: true
-summary: We led a full SCE implementation for a top-50 pharma company, delivering a GxP-validated, cloud-hosted platform on Domino Data Lab integrated with Azure and Azure DevOps—remediating a regulatory finding and modernizing how hundreds of statistical programmers work.
-image: images/case-studies/sce-modernization.jpg
+summary: We led a full SCE implementation for a top-50 pharma company, delivering a GxP-validated, cloud-hosted platform on Domino Data Lab integrated with Azure and Azure DevOps—modernizing how hundreds of statistical programmers work.
+image: images/case-studies/biostats-programming.webp
 ---
 
 ## Overview
 
-A global top-50 pharmaceutical company faced mounting regulatory pressure to overhaul its Statistical Computing Environment (SCE). Operating on a legacy Windows Server–based infrastructure with unmanaged file shares, the organization lacked the data controls, process auditability, and access governance required in a modern GxP environment. KSM Technology Partners led a full SCE implementation, from architecture evaluation through validated deployment, delivering a compliant, cloud-hosted platform built on Domino Data Lab and integrated with the client's enterprise Azure and Azure DevOps (ADO) ecosystem.
+A global top-50 pharmaceutical company faced mounting pressure to overhaul its Statistical Computing Environment (SCE). Operating on a legacy infrastructure with unmanaged file shares, the organization lacked the data controls, process auditability, and access governance required in a modern GxP environment. KSM Technology Partners led a full SCE implementation, from architecture evaluation through validated deployment, delivering a compliant, cloud-hosted platform built on Domino Data Lab and integrated with the client's enterprise Azure and Azure DevOps (ADO) ecosystem.
 
 ## Challenge
 
-### A Regulatory Finding Drives Urgency
+The organization's existing SCE consisted of a SAS server backed by an unstructured network file share. There was no systematic auditing of who ran which programs, when, or on what data. Code was stored in directories with limited version control, and managing access to blinded study data was cumbersome. 
 
-The organization's existing SCE consisted of a Windows Server SAS environment backed by an unstructured network file share. There was no systematic auditing of who ran which programs, when, or on what data. Code was stored in directories with limited version control, and access to blinded study data was not consistently restricted. A regulatory finding, which determined that the organization lacked sufficient control and auditability over its statistical data, made the status quo untenable.
-
-The client evaluated several platforms before selecting Domino as the foundation for their new SCE. Their goal was to move away from proprietary SAS infrastructure and toward an open, Python- and R-capable environment that could meet modern GxP standards. The challenge was not simply selecting a platform. It was building a validated, enterprise-grade SCE from the ground up, while changing how hundreds of statistical programmers work every day.
+The client evaluated several platforms before selecting Domino as the foundation for their new SCE. Their goal was to move away from proprietary SAS infrastructure and toward an open, Python- and R-capable environment that could meet modern GxP standards. The challenge was not simply selecting a platform. It was building a validated, enterprise-grade SCE while changing how hundreds of statistical programmers work every day.
 
 ### The Complexity Beneath the Surface
 
-Beyond the regulatory baseline, several intersecting challenges shaped the engagement:
+Several intersecting challenges shaped the engagement:
 
-- **Security-first architecture requirements.** The client's IT organization required a fully locked-down deployment. Every compute environment had to be built and managed exclusively through CI/CD pipelines with mandatory vulnerability (CVE) scanning, a deployment model that Domino is not natively optimized for.
-- **Firewall restrictions.** Network security requirements added significant complexity to the infrastructure design and extended the implementation timeline.
-- **Architectural pivot mid-engagement.** After initial scoping, the client decided to shift from a third-party hosted deployment to a self-hosted, internally managed model, requiring KSM to re-evaluate and replan the infrastructure approach.
+- **Security-first architecture requirements.** The client's IT organization required a fully locked-down deployment. Every compute environment had to be built and managed exclusively through CI/CD pipelines with mandatory vulnerability (CVE) scanning.
 - **Scope evolution under delivery pressure.** Executive requirements, including a submission pipeline integration, were added late in the release cycle, requiring careful trade-off discussions to protect the go-live target.
 - **Organizational change at scale.** Replacing an SCE is not a technology swap. It requires rethinking how statistical programmers develop code, validate studies, collaborate on programs, and manage production runs.
 
@@ -34,7 +30,7 @@ Beyond the regulatory baseline, several intersecting challenges shaped the engag
 
 ### Step Zero: Scoping Before Building
 
-KSM's engagement began with a structured, paid 12-week scoping phase (what we call Step Zero) designed to evaluate the client's technical and organizational landscape before committing to a fixed-scope implementation.
+KSM's engagement began with a dedicated scoping phase (what we call Step Zero) designed to evaluate the client's technical and organizational landscape before committing to a fixed-scope implementation.
 
 This phase accomplished several critical things:
 
@@ -54,7 +50,7 @@ KSM's delivery team designed and implemented a GxP-validated SCE built on Domino
 - Integration with Azure Blob Storage for secure output delivery, with a roadmap to direct submission pipeline connectivity
 
 **Data Control & Access Governance**
-- Domino project-level access controls replaced the open file share model, restricting data access by study, team, and role
+- Domino project-level access controls replaced the file share model, restricting data access by study, team, and role
 - Unblinded data access is now controlled directly by the business, with a formal process for code-break events that previously required manual coordination and ad-hoc group management
 - Audit logging of job execution (who ran what, when, and against which data) is now centralized within the platform
 
@@ -73,7 +69,7 @@ KSM facilitated a series of working sessions with the client's SMEs to redesign 
 Release 1 was delivered on schedule, with a fully validated SCE in production.
 
 **Regulatory & Compliance**
-- The core regulatory finding that initiated the project has been remediated. Audit logging, access controls, and job provenance tracking are now centralized within the SCE.
+- Audit logging, access controls, and job provenance tracking are now centralized within the SCE.
 - Study data access is restricted by role and team, a significant improvement over the prior open-share model.
 - The platform is on track for full end-to-end auditability, from SDTM ingestion through submission output, following the planned source submission pipeline integration.
 
@@ -90,7 +86,7 @@ The client's Biostatistics and Data Sciences organization, the first team onboar
 
 **Domain expertise in regulated environments.** Building a GxP SCE requires understanding not just the technology, but the regulatory context, validation obligations, and organizational dynamics that shape how statistical programmers work. KSM's team brought hands-on experience from large pharma SCE implementations, allowing us to anticipate challenges and guide trade-off decisions with confidence.
 
-**A structured engagement model.** Step Zero is not a consulting nicety. It is the foundation for predictable delivery. The investment in upfront scoping directly determines how well-defined, and how achievable, Release 1 will be.
+**A structured engagement model.** Step Zero is not a consulting nicety. It is the foundation for predictable delivery. The investment in upfront scoping directly determined how well-defined, and how achievable, Release 1 will be.
 
 **Collaborative process design.** Every organization has a different structure, different team sizes, and different ways of working. KSM's approach is to bring best practices and options, not mandates, and to work alongside client SMEs until the new process feels like theirs.
 

@@ -1,19 +1,10 @@
 ---
-const services = [
-  { label: 'Software Engineering', href: 'services/software-engineering' },
-  { label: 'Generative AI Integration', href: 'services/genai-integration' },
-  { label: 'Cloud Migration', href: 'services/cloud-migration' },
-  { label: 'Systems Integration', href: 'services/systems-integration' },
-  { label: 'Delivery Automation', href: 'services/delivery-automation' },
-  { label: 'Test Automation', href: 'services/test-automation' },
-];
-
 const solutions = [
-  { label: 'GxP Migration', href: 'services/gxp-migration' },
-  { label: 'Nextfuse: Nextflow® in Domino', href: 'services/nextfuse' },
-  { label: 'Git for Statistical Programming', href: 'services/git-statistical-programming' },
-  { label: '12-Week SCE Scoping', href: 'services/sce-scoping' },
-  { label: 'Domino SCE MVP Deployment', href: 'services/domino-sce-mvp' },
+  { label: 'GxP Migration', href: 'solutions/gxp-migration' },
+  { label: 'Nextfuse: Nextflow® in Domino', href: 'solutions/nextfuse' },
+  { label: 'Git for Statistical Programming', href: 'solutions/git-statistical-programming' },
+  { label: '12-Week SCE Scoping', href: 'solutions/sce-scoping' },
+  { label: 'Domino SCE MVP Deployment', href: 'solutions/domino-sce-mvp' },
 ];
 ---
 <nav aria-label="Main navigation" style="display:contents">
@@ -25,16 +16,6 @@ const solutions = [
 
   <ul class="nav-links" id="nav-links">
     <li><a href="">Home</a></li>
-    <li class="nav-dropdown">
-      <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" id="services-toggle">
-        Services <span class="arrow">▾</span>
-      </button>
-      <ul class="dropdown-menu" id="services-menu" role="menu">
-        {services.map(s => (
-          <li role="menuitem"><a href={s.href}>{s.label}</a></li>
-        ))}
-      </ul>
-    </li>
     <li class="nav-dropdown">
       <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" id="solutions-toggle">
         Solutions <span class="arrow">▾</span>
@@ -99,7 +80,6 @@ const solutions = [
     });
   }
 
-  setupDropdown('services-toggle', 'services-menu');
   setupDropdown('solutions-toggle', 'solutions-menu');
   setupDropdown('about-toggle', 'about-menu');
 </script>

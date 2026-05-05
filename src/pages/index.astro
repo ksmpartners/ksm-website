@@ -1,19 +1,60 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import CaseStudyCard from '../components/CaseStudyCard.astro';
-import { getCollection } from 'astro:content';
+import SolutionCard from '../components/SolutionCard.astro';
+import IEEPillars from '../components/IEEPillars.astro';
 
-const services = (await getCollection('services')).sort(
-  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99)
-);
+// Optional notification banner — present if src/data/notification.md exists
+// and its frontmatter has `enabled: true`.
+const notificationModules = import.meta.glob('../data/notification.md', { eager: true });
+const notification = Object.values(notificationModules)[0] as
+  | { frontmatter: { enabled?: boolean }; Content: any }
+  | undefined;
+const showNotification = notification?.frontmatter?.enabled === true;
+const NotificationContent = notification?.Content;
 
-const allCaseStudies = await getCollection('case-studies');
-const featuredCaseStudies = allCaseStudies
-  .filter(cs => cs.data.featured)
-  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const base = import.meta.env.BASE_URL;
+const placeholder = 'https://placehold.co/800x400/004D71/FFFFFF?text=Image+TBD';
+
+const solutions = [
+  {
+    title: 'Clinical trials data analysis and reporting',
+    body: 'GxP-compliant statistical computing environment for processing clinical trials data into submission-ready results using orchestrated data pipelines and modern data science tools — shrinking cycle times from first patient to analysis completion.',
+    image: `${base}images/case-studies/biostats-programming.webp`,
+    alt: 'GxP-compliant clinical-trial data pipeline',
+    link: 'case-studies/statistical-computing-environment',
+  },
+  {
+    title: 'AI-powered sentiment detection',
+    body: 'AI-powered sentiment analyses across high volumes of textual data to detect emerging signals about therapies and preemptively answer questions from healthcare providers and patients.',
+    image: `${base}images/case-studies/data-engineering.jpg`,
+    alt: 'AI-powered therapy signal detection',
+    link: 'case-studies/data-engineering',
+  },
+  {
+    title: 'Bioinformatics pipelines',
+    body: 'A bioinformatics pipeline execution environment for RNA sequencing, HLA typing, or other bioinformatics workflows.  Uses our Nextfuse solution to combine the power of Nextflow® with the cost-effectiveness and governance of the Domino Data Science platform.',
+    image: `${base}images/case-studies/dna.webp`,
+    alt: 'Reproducible bioinformatics analysis',
+    link: 'solutions/nextfuse',
+  },
+  {
+    title: 'Real-time power flow calculation',
+    body: 'Mission-critical nodal calculation platform for an Independent System Operator that computes real-time electricity flow across interfaces with neighboring ISOs. Ingests, processes, and indexes 300+ GB of data per day, integrates with more than a dozen upstream systems, and retains five years of records for audit and re-execution.',
+    image: `${base}images/case-studies/real-time-power-flow.jpg`,
+    alt: 'Real-time power flow calculation engine',
+    link: 'case-studies/real-time-power-flow',
+  },
+];
 ---
 <PageLayout title="Home" description="KSM Technology Partners — Custom software and systems integration for Regulated Industries.">
+
+  {showNotification && NotificationContent && (
+    <div class="notification-banner" role="status">
+      <div class="notification-banner-inner">
+        <NotificationContent />
+      </div>
+    </div>
+  )}
 
   <!-- Hero -->
   <section class="hero" style="min-height: 55vh;">
@@ -22,12 +63,11 @@ const featuredCaseStudies = allCaseStudies
       <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-center.webp)`}></div>
       <div class="hero-panel" style={`background-image: url(${import.meta.env.BASE_URL}images/hero-right.webp)`}></div>
     </div>
-    <span class="overline">Custom Software &amp; Integration for Regulated Industries</span>
+    <!-- <span class="overline">Computing solutions for data-intensive workloads in regulated industries</span> -->
     <h1>Innovate. Execute. Empower.</h1>
-    <p>We deliver innovative solutions that connect complex systems, accelerate delivery, and satisfy the demands of regulated industries.</p>
+    <p>Innovative computing solutions for data-intensive workloads in regulated industries.</p>
     <div class="hero-actions">
       <a href="contact" class="btn btn-teal">Schedule a Discovery Call</a>
-      <a href="services/software-engineering" class="btn btn-outline">See Our Services</a>
     </div>
   </section>
 
@@ -53,51 +93,44 @@ const featuredCaseStudies = allCaseStudies
     </div>
   </div>
 
-  <!-- Services Grid -->
+  <!-- Solutions -->
   <div class="section-pale">
     <div class="section">
       <div class="section-heading centered">
-        <span class="overline">What We Do</span>
-        <h2>End-to-End Technology Services</h2>
-        <p>From validated environments to modern delivery pipelines — we cover the full stack.</p>
+        <span class="overline">What We Deliver</span>
+        <h2>Solutions for data-intensive workloads where compliance is non-negotiable</h2>
+        <p>We deliver solutions that transform mission-critical data assets into submission-ready artifacts that auditors can sign off on. Our domain experts have over 20 years of experience in the utilities and life sciences industries, and we understand their unique regulatory requirements. Below are some of the solutions we've successfully delivered.</p>
       </div>
-      <div class="grid-3">
-        {services.map(service => {
-          const slug = service.id.replace(/\.mdx?$/, '');
-          return (
-            <ServiceCard
-              title={service.data.title}
-              description={service.data.description}
-              slug={slug}
-              icon={service.data.icon ?? '⚙️'}
-            />
-          );
-        })}
+      <div class="solutions-grid">
+        {solutions.map(s => (
+          <SolutionCard
+            title={s.title}
+            body={s.body}
+            image={s.image}
+            alt={s.alt}
+            imagePosition={s.imagePosition}
+            wide={s.wide}
+            link={s.link}
+          />
+        ))}
       </div>
     </div>
   </div>
 
-  <!-- Case Study Highlights -->
-  <div class="section">
-    <div class="section-heading centered">
-      <span class="overline">Client Work</span>
-      <h2>Recent Engagements</h2>
-      <p>Real outcomes for organizations where failure isn't an option.</p>
+  <!-- Our Partners -->
+  <div class="partners-banner">
+    <span class="overline" style="color: var(--color-teal);">Our Partners</span>
+    <h2>Built on industry-leading platforms</h2>
+    <p>We build our solutions around industry-leading data and AI platforms to deliver the highest value coefficient for our customers.</p>
+    <div class="partners-logos">
+      <a href="our-partners" class="partner-logo-link">
+        <img src={`${base}images/partners/domino-data-labs-white.svg`} alt="Domino Data Lab" loading="lazy" />
+      </a>
+      <a href="our-partners" class="partner-logo-link">
+        <img src={`${base}images/partners/databricks-white.svg`} alt="Databricks" loading="lazy" />
+      </a>
     </div>
-    <div class="grid-3">
-      {featuredCaseStudies.map(cs => (
-        <CaseStudyCard
-          title={cs.data.title}
-          summary={cs.data.summary}
-          slug={cs.id.replace(/\.mdx?$/, '')}
-          vertical={cs.data.vertical}
-          client={cs.data.client}
-        />
-      ))}
-    </div>
-    <div class="text-center mt-2">
-      <a href="case-studies" class="btn-ghost btn">View All Case Studies</a>
-    </div>
+    <a href="our-partners" class="btn btn-teal">Learn About Our Partnerships</a>
   </div>
 
   <!-- About Blurb -->
@@ -107,19 +140,88 @@ const featuredCaseStudies = allCaseStudies
         <span class="overline">About Us</span>
         <h2>Solutions-focused Innovation</h2>
         <p style="font-size: var(--text-lg); color: var(--color-slate-gray); line-height: 1.65;">
-          KSM Technology Partners combines deep domain expertise in utilities and life sciences with modern engineering practices. We write code, design systems, and work alongside your team — not above it.
+          KSM Technology Partners is a systems integrator and software development shop based outside Philadelphia. We draw on deep domain expertise in life sciences and utilities to deliver advanced data analytics and AI solutions.
         </p>
         <a href="about" class="btn-ghost btn" style="margin-top: var(--space-4);">Learn More About Us</a>
       </div>
     </div>
   </div>
 
+  <!-- Our Philosophy -->
+  <IEEPillars />
+
   <!-- CTA -->
   <div class="cta-banner">
     <span class="overline" style="color: var(--color-teal);">Get Started</span>
-    <h2>Ready to Build Something That Works?</h2>
+    <h2>Ready to build something that works?</h2>
     <p>Tell us about your project and we'll help you find the right path forward.</p>
     <a href="contact" class="btn btn-teal">Contact Us</a>
   </div>
 
 </PageLayout>
+
+<style>
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: dense;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .partners-banner {
+    background: var(--color-slate);
+    padding: var(--space-16) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .partners-banner h2 {
+    color: #fff;
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .partners-banner p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--text-lg);
+    line-height: 1.65;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-10);
+    margin: var(--space-4) 0;
+  }
+
+  .partner-logo-link {
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+
+  .partner-logo-link:hover {
+    opacity: 1;
+  }
+
+  .partner-logo-link img {
+    width: 200px;
+    height: 38px;
+    object-fit: contain;
+    display: block;
+  }
+</style>
