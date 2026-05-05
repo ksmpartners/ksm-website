@@ -117,8 +117,21 @@ const solutions = [
     </div>
   </div>
 
-  <!-- Our Philosophy -->
-  <IEEPillars />
+  <!-- Our Partners -->
+  <div class="partners-banner">
+    <span class="overline" style="color: var(--color-teal);">Our Partners</span>
+    <h2>Built on industry-leading platforms</h2>
+    <p>We build our solutions around industry-leading data and AI platforms to deliver the highest value coefficient for our customers.</p>
+    <div class="partners-logos">
+      <a href="our-partners" class="partner-logo-link">
+        <img src={`${base}images/partners/domino-data-labs-white.svg`} alt="Domino Data Lab" loading="lazy" />
+      </a>
+      <a href="our-partners" class="partner-logo-link">
+        <img src={`${base}images/partners/databricks-white.svg`} alt="Databricks" loading="lazy" />
+      </a>
+    </div>
+    <a href="our-partners" class="btn btn-teal">Learn About Our Partnerships</a>
+  </div>
 
   <!-- About Blurb -->
   <div class="section-pale">
@@ -127,12 +140,15 @@ const solutions = [
         <span class="overline">About Us</span>
         <h2>Solutions-focused Innovation</h2>
         <p style="font-size: var(--text-lg); color: var(--color-slate-gray); line-height: 1.65;">
-          KSM Technology Partners is a systems integrator and software development shop based outside Philadelphia. We draw on deep domain expertise in life sciences and utilities to deliver advanced data analytics and AI solutions. 
+          KSM Technology Partners is a systems integrator and software development shop based outside Philadelphia. We draw on deep domain expertise in life sciences and utilities to deliver advanced data analytics and AI solutions.
         </p>
         <a href="about" class="btn-ghost btn" style="margin-top: var(--space-4);">Learn More About Us</a>
       </div>
     </div>
   </div>
+
+  <!-- Our Philosophy -->
+  <IEEPillars />
 
   <!-- CTA -->
   <div class="cta-banner">
@@ -156,5 +172,56 @@ const solutions = [
     .solutions-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  .partners-banner {
+    background: var(--color-slate);
+    padding: var(--space-16) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .partners-banner h2 {
+    color: #fff;
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .partners-banner p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--text-lg);
+    line-height: 1.65;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-10);
+    margin: var(--space-4) 0;
+  }
+
+  .partner-logo-link {
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+
+  .partner-logo-link:hover {
+    opacity: 1;
+  }
+
+  .partner-logo-link img {
+    width: 200px;
+    height: 38px;
+    object-fit: contain;
+    display: block;
   }
 </style>
