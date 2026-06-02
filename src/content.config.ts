@@ -1,20 +1,21 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const caseStudies = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/case-studies' }),
   schema: z.object({
     title: z.string(),
     client: z.string().optional(),
     vertical: z.enum(['Utilities', 'Life Sciences', 'Other']),
     summary: z.string(),
     image: z.string().optional(),
-    order: z.number().optional(),          // sort order within vertical and among featured
-    featured: z.boolean().default(false),  // show in "Recent Work" on home page
+    order: z.number().optional(),
+    featured: z.boolean().default(false),
   }),
 });
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     date: z.date(),
@@ -26,14 +27,14 @@ const blog = defineCollection({
 });
 
 const partners = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/partners' }),
   schema: z.object({
     name: z.string(),
     category: z.enum(['Technology', 'Industry']),
-    description: z.string(),         // short blurb shown on the partners page card
-    logo: z.string(),                // path under public/, e.g. 'images/partners/domino.svg'
-    url: z.string().url(),           // partner website
-    order: z.number().optional(),    // display order within category
+    description: z.string(),
+    logo: z.string(),
+    url: z.string().url(),
+    order: z.number().optional(),
   }),
 });
 

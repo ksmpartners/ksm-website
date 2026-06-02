@@ -6,7 +6,7 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const caseStudies = await getCollection('case-studies');
   return caseStudies.map(cs => ({
-    params: { slug: cs.id.replace(/\.mdx?$/, '') },
+    params: { slug: cs.id },
     props: { cs },
   }));
 }
