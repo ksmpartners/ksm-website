@@ -9,11 +9,10 @@ const notificationModules = import.meta.glob('../data/notification.md', { eager:
 const notification = Object.values(notificationModules)[0] as
   | { frontmatter: { enabled?: boolean }; Content: any }
   | undefined;
-const showNotification = notification?.frontmatter?.enabled === true;
+const showNotification = notification?.frontmatter?.enabled === false;
 const NotificationContent = notification?.Content;
 
 const base = import.meta.env.BASE_URL;
-const placeholder = 'https://placehold.co/800x400/004D71/FFFFFF?text=Image+TBD';
 
 const solutions = [
   {
@@ -108,8 +107,6 @@ const solutions = [
             body={s.body}
             image={s.image}
             alt={s.alt}
-            imagePosition={s.imagePosition}
-            wide={s.wide}
             link={s.link}
           />
         ))}

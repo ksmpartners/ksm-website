@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 const all = await getCollection('partners');
 
@@ -8,7 +8,7 @@ const all = await getCollection('partners');
 // inlined on the card alongside the frontmatter description.
 const enriched = await Promise.all(
   all.map(async (p) => {
-    const { Content } = await p.render();
+    const { Content } = await render(p);
     return { ...p, Content };
   }),
 );
